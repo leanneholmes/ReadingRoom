@@ -21,18 +21,11 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: 21
-        
-    - name: Check Directory
-      run: pwd
-      
-    - name: Check content
-      run: ls
-
-    - name: Change Directory
-      run: cd vite-project
 
     - name: Install Dependencies
-      run: npm install
+      run: |
+        cd vite-project
+        npm install
 
     - name: Super-Linter
       uses: super-linter/super-linter@v6.0.0
