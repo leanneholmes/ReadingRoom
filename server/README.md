@@ -69,61 +69,28 @@ Express is a fast, open and concise web framework and is a Node.js based project
 
 ### Install with the npm Global Package
 
-```bash
-$ npm install -g typescript-express-starter
-```
-
-### Run npx to Install The Package
-
-npx is a tool in the JavaScript package management module, npm.
-
-This is a tool that allows you to run the npm package on a single run without installing the package.
-
-If you do not enter a project name, it defaults to _typescript-express-starter_.
-
-```bash
-$ npx typescript-express-starter "project name"
-```
 
 ### Select a Templates
 
-<img src="https://github.com/ljlm0402/typescript-express-starter/raw/images/cli.gif" alt="Example Cli" />
-
-Start your typescript-express-starter app in development mode at `http://localhost:3000/`
-
-#### Template Type
-
-| Name                                                                    | Description                                                                                                                                                |
-| :---------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Default                                                                 | Express Default                                                                                                                                            |
-| [Routing Controllers](https://github.com/typestack/routing-controllers) | Create structured, declarative and beautifully organized class-based controllers with heavy decorators usage                                               |
-| [Sequelize](https://github.com/sequelize/sequelize)                     | Easy to use multi SQL dialect ORM for Node.js                                                                                                              |
-| [Mongoose](https://github.com/Automattic/mongoose)                      | MongoDB Object Modeling(ODM) designed to work in an asynchronous environment                                                                               |
-| [TypeORM](https://github.com/typeorm/typeorm)                           | An ORM that can run in Node.js and Others                                                                                                                  |
-| [Prisma](https://github.com/prisma/prisma)                              | Modern Database Access for TypeScript & Node.js                                                                                                            |
-| [Knex](https://github.com/knex/knex)                                    | SQL query builder for Postgres, MySQL, MariaDB, SQLite3 and Oracle                                                                                         |
-| [GraphQL](https://github.com/graphql/graphql-js)                        | query language for APIs and a runtime for fulfilling those queries with your existing data                                                                 |
-| [Typegoose](https://github.com/typegoose/typegoose)                     | Define Mongoose models using TypeScript classes                                                                                                            |
-| [Mikro ORM](https://github.com/mikro-orm/mikro-orm)                     | TypeScript ORM for Node.js based on Data Mapper, Unit of Work and Identity Map patterns. Supports MongoDB, MySQL, MariaDB, PostgreSQL and SQLite databases |
-| [Node Postgres](https://node-postgres.com/)                             | node-postgres is a collection of node.js modules for interfacing with your PostgreSQL database                                                             |
-
-#### Template to be developed
-
-| Name                                                                            | Description                                                                |
-| :------------------------------------------------------------------------------ | :------------------------------------------------------------------------- |
-| [Sequelize Typescript](https://github.com/RobinBuschmann/sequelize-typescript)  | Decorators and some other features for sequelize                           |
-| [TS SQL](https://github.com/codemix/ts-sql)                                     | A SQL database implemented purely in TypeScript type annotations           |
-| [inversify-express-utils](https://github.com/inversify/inversify-express-utils) | Some utilities for the development of Express application with InversifyJS |
-| [postgress typescript]()                                                        |                                                                            |
-| [graphql prisma]()                                                              |                                                                            |
+<img src="https://github.com/ljlm0402/typescript-express-starter/raw/images/cli.gif" alt="Example Cli" />                                    |
 
 ## 🛎 Available Commands for the Server
 
-- Run the Server in production mode : `npm run start` or `Start typescript-express-starter` in VS Code
-- Run the Server in development mode : `npm run dev` or `Dev typescript-express-starter` in VS Code
-- Run all unit-tests : `npm test` or `Test typescript-express-starter` in VS Code
-- Check for linting errors : `npm run lint` or `Lint typescript-express-starter` in VS Code
-- Fix for linting : `npm run lint:fix` or `Lint:Fix typescript-express-starter` in VS Code
+- **Run the Server in production mode**: Run with `npm run start` or use `Start typescript-express-starter` in VS Code.
+- **Run the Server in development mode**: Execute `npm run dev` or select `Dev typescript-express-starter` in VS Code.
+- **Run all unit-tests**: Use `npm test` or click on `Test typescript-express-starter` in VS Code.
+- **Check for linting errors**: Perform with `npm run lint` or select `Lint typescript-express-starter` in VS Code.
+- **Fix for linting**: Apply fixes with `npm run lint:fix` or use `Lint:Fix typescript-express-starter` in VS Code.
+- **Build the project for production**: Compile with `npm run build`.
+- **Alternative TypeScript build**: Execute `npm run build:tsc` for TypeScript compilation with aliases.
+- **Format code using Prettier**: Format your codebase using `npm run format`.
+- **Initialize Prisma**: Set up Prisma with `npm run prisma:init`.
+- **Run Prisma migrations**: Apply database migrations using `npm run prisma:migrate`.
+- **Generate Prisma client**: Generate or update the Prisma client with `npm run prisma:generate`.
+- **Open Prisma Studio**: Explore your data with `npm run prisma:studio`.
+- **Deploy to production using PM2**: Deploy your application in production mode with `npm run deploy:prod`.
+- **Deploy to development environment using PM2**: Deploy your application in development mode with `npm run deploy:dev`.
+
 
 ## 💎 The Package Features
 
@@ -324,20 +291,33 @@ Modify `Makefile` file to your source code.
 └── tsconfig.json
 ```
 
-## ⭐️ Stargazers
+| Folder Name  | Purpose                                                                 |
+|--------------|-------------------------------------------------------------------------|
+| `config`     | Contains configuration files, such as database and environment settings.|
+| `controllers`| Houses the logic for handling requests and responses.                  |
+| `dtos`       | Data Transfer Objects for type checking the data sent to and from the API.|
+| `exceptions` | Custom exception classes for error handling.                            |
+| `http`       | Contains files related to HTTP requests, possibly middleware or services.|
+| `interfaces` | TypeScript interfaces to enforce structure on objects and classes.      |
+| `middlewares`| Middleware functions for request processing in the API, such as authentication and error handling.|
+| `models`     | Database models for ORM (Object-Relational Mapping).                    |
+| `routes`     | Router files that define API endpoints and their corresponding handlers.|
+| `services`   | Business logic and service layer, abstracting the operations for controllers.|
+| `test`       | Contains test files for unit and integration testing.                   |
+| `utils`      | Utility functions and helpers, like logging and environment validation. |
 
-[![Stargazers repo roster for @ljlm0402/typescript-express-starter](https://reporoster.com/stars/ljlm0402/typescript-express-starter)](https://github.com/ljlm0402/typescript-express-starter/stargazers)
+### 🏃 Steps to Run the Server
 
-## 🍴 Forkers
+Follow these steps to get the server up and running:
 
-[![Forkers repo roster for @ljlm0402/typescript-express-starter](https://reporoster.com/forks/ljlm0402/typescript-express-starter)](https://github.com/ljlm0402/typescript-express-starter/network/members)
+1. **Read the README file**: Ensure you understand the project setup and requirements.
+2. **Install TypeScript Globally**: [TypeScript Installation Guide](https://www.typescriptlang.org/download). This is necessary to compile the TypeScript files to JavaScript.
+3. **Install Project Dependencies**: Run `npm install` to install all required npm packages that are defined in the `package.json` file.
+4. **Install Docker**: Make sure Docker is installed and running on your machine. Refer to the [Docker section](#docker-container-platform) for setup details and [Download Docker Desktop](https://www.docker.com/products/docker-desktop) if needed.
+5. **Start the Server in Development Mode**: Execute `npm run dev` within the server directory. This command uses nodemon and ts-node to run the TypeScript application in development mode.
+6. **Access the Application**: Open your web browser and go to `http://localhost:3000/` to view the application.
 
-## 🤝 Contributors
+Make sure to follow each step carefully to ensure the server runs smoothly on your local development environment.
 
-[![Contributors repo roster for @ljlm0402/typescript-express-starter](https://contributors-img.web.app/image?repo=ljlm0402/typescript-express-starter)](https://github.com/ljlm0402/typescript-express-starter/graphs/contributors)
-
-## 💳 License
-
-[MIT](LICENSE)
 
 # ദ്ദി*ˊᗜˋ*)
