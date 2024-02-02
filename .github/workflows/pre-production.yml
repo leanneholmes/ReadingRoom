@@ -25,6 +25,9 @@ jobs:
     - name: Check Directory
       run: pwd
 
+    - name: Change Directory
+      run: cd /Users/runner/work/ReadingRoom/ReadingRoom/vite-project
+
     - name: Install Dependencies
       run: npm install
 
