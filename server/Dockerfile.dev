@@ -16,4 +16,5 @@ ENV NODE_ENV development
 EXPOSE 3000
 
 # Cmd script
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "dev"] 
+# Change it start during prodution 
