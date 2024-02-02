@@ -291,6 +291,7 @@ Modify `Makefile` file to your source code.
 └── tsconfig.json
 ```
 
+
 | Folder Name  | Purpose                                                                 |
 |--------------|-------------------------------------------------------------------------|
 | `config`     | Contains configuration files, such as database and environment settings.|
@@ -306,9 +307,7 @@ Modify `Makefile` file to your source code.
 | `test`       | Contains test files for unit and integration testing.                   |
 | `utils`      | Utility functions and helpers, like logging and environment validation. |
 
-### 🏃 Steps to Run the Server
 
-Follow these steps to get the server up and running:
 
 ### 🏃 Steps to Run the Server
 
