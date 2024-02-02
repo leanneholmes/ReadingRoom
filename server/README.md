@@ -310,14 +310,46 @@ Modify `Makefile` file to your source code.
 
 Follow these steps to get the server up and running:
 
-1. **Read the README file**: Ensure you understand the project setup and requirements.
-2. **Install TypeScript Globally**: [TypeScript Installation Guide](https://www.typescriptlang.org/download). This is necessary to compile the TypeScript files to JavaScript.
-3. **Install Project Dependencies**: Run `npm install` to install all required npm packages that are defined in the `package.json` file.
-4. **Install Docker**: Make sure Docker is installed and running on your machine. Refer to the [Docker section](#docker-container-platform) for setup details and [Download Docker Desktop](https://www.docker.com/products/docker-desktop) if needed.
-5. **Start the Server in Development Mode**: Execute `npm run dev` within the server directory. This command uses nodemon and ts-node to run the TypeScript application in development mode.
-6. **Access the Application**: Open your web browser and go to `http://localhost:3000/` to view the application.
+### 🏃 Steps to Run the Server
 
-Make sure to follow each step carefully to ensure the server runs smoothly on your local development environment.
+Follow these steps to get the server up and running smoothly:
+
+1. **Read the README file**: Start by understanding the project setup and requirements outlined in the README file.
+
+2. **Install TypeScript Globally**: Ensure TypeScript is installed on your machine for compiling TypeScript files to JavaScript. Follow the [TypeScript Installation Guide](https://www.typescriptlang.org/download).
+
+3. **Install Project Dependencies**: Run `npm install` in the project directory to install all the necessary dependencies defined in the `package.json` file.
+
+4. **Set Up Environment Variables**: Configure the necessary environment variables. Create `.env` files for different environments (development, production, test) based on the examples provided in the repository. This includes setting up database connection details, port numbers, and other sensitive configurations. (The one I sent on Discord)
+
+5. **Install Docker**: If the application requires Docker, download and install [Docker Desktop](https://www.docker.com/products/docker-desktop). Ensure Docker is running before proceeding with steps that involve Docker commands.
+    - Starts the containers in the background and leaves them running : `docker-compose up -d`
+    - Stops containers and removes containers, networks, volumes, and images : `docker-compose down`
+
+6. **Database Setup**: Our application uses a database, ensure that it is correctly set up. This may involve:
+   - Running migrations: `npm run prisma:migrate` to update the database schema.
+   - Seeding the database with initial data if required. (Will add soon)
+
+7. **Start the Server in Development Mode**: Execute `npm run dev` within the server directory to start the application in development mode. This command uses `nodemon` and `ts-node` to dynamically reload the server upon file changes.
+
+8. **Access the Application**: Open `http://localhost8000/` in a web browser. The application should be running and accessible at this address.
+
+9. **NPM Scripts Explanation**: Familiarize yourself with the npm scripts defined in `package.json`:
+   - `npm run build`: Compiles the TypeScript application to JavaScript in the `dist` directory for production.
+   - `npm run prisma:migrate`: Runs Prisma migrations to update your database schema.
+   - `npm run deploy:prod`: Deploys the application in production mode using PM2.
+   - Additional scripts for linting, formatting, and testing are also available for maintaining code quality and reliability.
+
+10. **Port Configuration**: By default, the application runs on port `8000`. To use a different port, modify the port configuration in the `.env` files or the server's main entry point.
+
+11. **Troubleshooting**: If you encounter any issues during setup:
+    - Ensure all dependencies are correctly installed by running `npm install`.
+    - Verify that Docker is running if you're using Docker-related commands.
+    - Check database connections and environment variable configurations.
+
+12. **Security Considerations**: Do not commit sensitive configuration files (like `.env`) to version control. Always follow best practices for securing your application, especially when deploying to production environments.
+
+By following these detailed steps, you'll be well-prepared to get the TypeScript Express server application running effectively on your development machine. Make sure to follow each step carefully to ensure the server runs smoothly on your local development environment.
 
 
 # ദ്ദി*ˊᗜˋ*)
