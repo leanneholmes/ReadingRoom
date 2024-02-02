@@ -21,21 +21,12 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: 21
-        
-    - name: Check Directory
-      run: pwd
-
-    - name: Check contents
-      run: ls
-      
-    - name: Change Directory
-      run: cd vite-project
-
-    - name: Check contents
-      run: ls
       
     - name: Install Dependencies
-      run: npm install
+      run: |
+        cd vite-project
+        npm install
 
     - name: Build Vite App (Development)
+      working-directory: vite-project
       run: npm run build:development
