@@ -30,6 +30,9 @@ jobs:
       
     - name: Change Directory
       run: cd vite-project
+
+    - name: Check contents
+      run: ls
       
     - name: Install Dependencies
       run: npm install
