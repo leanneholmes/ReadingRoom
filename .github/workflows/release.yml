@@ -23,7 +23,9 @@ jobs:
         node-version: 21
 
     - name: Install Dependencies
-      run: npm install
+      run: |
+        cd vite-project
+        npm install
 
     - name: Build Vite App (Release)
       run: npm run build
