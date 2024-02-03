@@ -86,6 +86,7 @@ Express is a fast, open and concise web framework and is a Node.js based project
 - **Initialize Prisma**: Set up Prisma with `npm run prisma:init`.
 - **Run Prisma migrations**: Apply database migrations using `npm run prisma:migrate`.
 - **Generate Prisma client**: Generate or update the Prisma client with `npm run prisma:generate`.
+- **Seed the database**: Populate your database with initial data using `npm run seed`.
 - **Open Prisma Studio**: Explore your data with `npm run prisma:studio`.
 - **Deploy to production using PM2**: Deploy your application in production mode with `npm run deploy:prod`.
 - **Deploy to development environment using PM2**: Deploy your application in development mode with `npm run deploy:dev`.
@@ -321,18 +322,24 @@ Follow these steps to get the server up and running smoothly:
 
 5. **Database Setup**: Our application uses a database, ensure that it is correctly set up. This may involve:
 
-   - Running migrations: `npm run prisma:migrate` to update the database schema.
-   - Seeding the database with initial data if required. (Will add soon)
+   - Running migrations: Execute `npm run prisma:migrate` to update the database schema.
+   - Generating the Prisma client: Run `npm run prisma:generate` to ensure your application can communicate with the database using the latest schema.
+   - Seeding the database with initial data: Use `npm run seed` to populate your database with the initial data set up in your seed file.
 
 6. **Start the Server in Development Mode**: Execute `npm run dev` within the server directory to start the application in development mode. This command uses `nodemon` and `ts-node` to dynamically reload the server upon file changes.
 
 7. **Access the Application**: Open `http://localhost8000/` in a web browser. The application should be running and accessible at this address.
 
-8. **NPM Scripts Explanation**: Familiarize yourself with the npm scripts defined in `package.json`:
-   - `npm run build`: Compiles the TypeScript application to JavaScript in the `dist` directory for production.
-   - `npm run prisma:migrate`: Runs Prisma migrations to update your database schema.
-   - `npm run deploy:prod`: Deploys the application in production mode using PM2.
-   - Additional scripts for linting, formatting, and testing are also available for maintaining code quality and reliability.
+8. **NPM Scripts Explanation**: Become acquainted with the npm scripts defined in `package.json` to streamline development and deployment processes:
+   - `npm run dev`: Starts the application in development mode with hot reloading enabled, allowing for real-time updates as you modify the code. Ideal for development and debugging.
+   - `npm run build`: Compiles the TypeScript application to JavaScript in the `dist` directory for production deployment.
+   - `npm run prisma:migrate`: Executes Prisma migrations to keep your database schema up-to-date.
+   - `npm run seed`: Populates your database with initial data using the seeding script.
+   - `npm run deploy:prod`: Utilizes PM2 to deploy the application in a production environment.
+   - `npm run format`: Formats your codebase using Prettier to ensure consistency and readability. It's recommended to regularly run this command before commits and pushing to the repository to minimize merge conflicts and maintain code quality.
+   - Additional scripts for linting, formatting, and testing are available to uphold code quality and reliability. It is a good practice to integrate `npm run format` into your pre-commit hooks using tools like Husky to automate the formatting process.
+
+Regular use of `npm run format` before committing and pushing changes is advised to avoid merge conflicts and ensure a consistent
 
 9 **Port Configuration**: By default, the application runs on port `8000`. To use a different port, modify the port configuration in the `.env` files or the server's main entry point.
 
