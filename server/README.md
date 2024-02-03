@@ -69,10 +69,9 @@ Express is a fast, open and concise web framework and is a Node.js based project
 
 ### Install with the npm Global Package
 
-
 ### Select a Templates
 
-<img src="https://github.com/ljlm0402/typescript-express-starter/raw/images/cli.gif" alt="Example Cli" />                                    |
+<img src="https://github.com/ljlm0402/typescript-express-starter/raw/images/cli.gif" alt="Example Cli" /> |
 
 ## 🛎 Available Commands for the Server
 
@@ -90,7 +89,6 @@ Express is a fast, open and concise web framework and is a Node.js based project
 - **Open Prisma Studio**: Explore your data with `npm run prisma:studio`.
 - **Deploy to production using PM2**: Deploy your application in production mode with `npm run deploy:prod`.
 - **Deploy to development environment using PM2**: Deploy your application in development mode with `npm run deploy:dev`.
-
 
 ## 💎 The Package Features
 
@@ -291,23 +289,20 @@ Modify `Makefile` file to your source code.
 └── tsconfig.json
 ```
 
-
-| Folder Name  | Purpose                                                                 |
-|--------------|-------------------------------------------------------------------------|
-| `config`     | Contains configuration files, such as database and environment settings.|
-| `controllers`| Houses the logic for handling requests and responses.                  |
-| `dtos`       | Data Transfer Objects for type checking the data sent to and from the API.|
-| `exceptions` | Custom exception classes for error handling.                            |
-| `http`       | Contains files related to HTTP requests, possibly middleware or services.|
-| `interfaces` | TypeScript interfaces to enforce structure on objects and classes.      |
-| `middlewares`| Middleware functions for request processing in the API, such as authentication and error handling.|
-| `models`     | Database models for ORM (Object-Relational Mapping).                    |
-| `routes`     | Router files that define API endpoints and their corresponding handlers.|
-| `services`   | Business logic and service layer, abstracting the operations for controllers.|
-| `test`       | Contains test files for unit and integration testing.                   |
-| `utils`      | Utility functions and helpers, like logging and environment validation. |
-
-
+| Folder Name   | Purpose                                                                                            |
+| ------------- | -------------------------------------------------------------------------------------------------- |
+| `config`      | Contains configuration files, such as database and environment settings.                           |
+| `controllers` | Houses the logic for handling requests and responses.                                              |
+| `dtos`        | Data Transfer Objects for type checking the data sent to and from the API.                         |
+| `exceptions`  | Custom exception classes for error handling.                                                       |
+| `http`        | Contains files related to HTTP requests, possibly middleware or services.                          |
+| `interfaces`  | TypeScript interfaces to enforce structure on objects and classes.                                 |
+| `middlewares` | Middleware functions for request processing in the API, such as authentication and error handling. |
+| `models`      | Database models for ORM (Object-Relational Mapping).                                               |
+| `routes`      | Router files that define API endpoints and their corresponding handlers.                           |
+| `services`    | Business logic and service layer, abstracting the operations for controllers.                      |
+| `test`        | Contains test files for unit and integration testing.                                              |
+| `utils`       | Utility functions and helpers, like logging and environment validation.                            |
 
 ### 🏃 Steps to Run the Server
 
@@ -320,10 +315,12 @@ Follow these steps to get the server up and running smoothly:
 3. **Set Up Environment Variables**: Configure the necessary environment variables. Create `.env` files for different environments (development, production, test) based on the examples provided in the repository. This includes setting up database connection details, port numbers, and other sensitive configurations. (The one I sent on Discord)
 
 4. **Install Docker**: If the application requires Docker, download and install [Docker Desktop](https://www.docker.com/products/docker-desktop). Ensure Docker is running before proceeding with steps that involve Docker commands.
-    - Starts the containers in the background and leaves them running : `docker-compose up -d`
-    - Stops containers and removes containers, networks, volumes, and images : `docker-compose down`
+
+   - Starts the containers in the background and leaves them running : `docker-compose up -d`
+   - Stops containers and removes containers, networks, volumes, and images : `docker-compose down`
 
 5. **Database Setup**: Our application uses a database, ensure that it is correctly set up. This may involve:
+
    - Running migrations: `npm run prisma:migrate` to update the database schema.
    - Seeding the database with initial data if required. (Will add soon)
 
@@ -340,6 +337,7 @@ Follow these steps to get the server up and running smoothly:
 9 **Port Configuration**: By default, the application runs on port `8000`. To use a different port, modify the port configuration in the `.env` files or the server's main entry point.
 
 10. **Troubleshooting**: If you encounter any issues during setup:
+
     - Ensure all dependencies are correctly installed by running `npm install`.
     - Verify that Docker is running if you're using Docker-related commands.
     - Check database connections and environment variable configurations.
@@ -347,6 +345,5 @@ Follow these steps to get the server up and running smoothly:
 11. **Security Considerations**: Do not commit sensitive configuration files (like `.env`) to version control. Always follow best practices for securing your application, especially when deploying to production environments.
 
 By following these detailed steps, you'll be well-prepared to get the TypeScript Express server application running effectively on your development machine. Make sure to follow each step carefully to ensure the server runs smoothly on your local development environment.
-
 
 # ദ്ദി*ˊᗜˋ*)
