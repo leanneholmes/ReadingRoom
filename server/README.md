@@ -69,8 +69,6 @@ Express is a fast, open and concise web framework and is a Node.js based project
 
 ### Use npm Global Package
 
-## 🚀 Quick Start
-
 This TypeScript-Express starter kit is designed for rapid development of RESTful APIs with strong typing. It uses TypeScript for safer code, Express.js for the server framework, Prisma for ORM, Jest for testing, Docker for containerization, and PM2 for process management.
 
 ## 🛎 Available Commands for the Server
