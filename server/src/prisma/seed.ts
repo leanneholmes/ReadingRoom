@@ -44,7 +44,7 @@ async function main() {
       password: '$2b$10$qHzzSheigB4Z65OktqyfHOP6BYsl/kh3NOOEfFyv/VcN3iaZoz19S',
     },
   ];
-  console.log(`===============================================================`);
+  console.log(`=================================================================================================`);
   for (const user of users) {
     await prisma.user.upsert({
       where: { email: user.email },
@@ -53,7 +53,7 @@ async function main() {
     });
     console.log(`🚀 User ${JSON.stringify(user)} Created.\n`);
   }
-  console.log(`===============================================================`);
+  console.log(`=================================================================================================`);
   console.log(`${users.length} Users Created.`);
 }
 
