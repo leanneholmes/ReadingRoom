@@ -67,11 +67,11 @@ Express is a fast, open and concise web framework and is a Node.js based project
 
 ## 🚀 Quick Start
 
-### Install with the npm Global Package
+### Use npm Global Package
 
-### Select a Templates
+## 🚀 Quick Start
 
-<img src="https://github.com/ljlm0402/typescript-express-starter/raw/images/cli.gif" alt="Example Cli" /> |
+This TypeScript-Express starter kit is designed for rapid development of RESTful APIs with strong typing. It uses TypeScript for safer code, Express.js for the server framework, Prisma for ORM, Jest for testing, Docker for containerization, and PM2 for process management.
 
 ## 🛎 Available Commands for the Server
 
@@ -91,7 +91,7 @@ Express is a fast, open and concise web framework and is a Node.js based project
 - **Deploy to production using PM2**: Deploy your application in production mode with `npm run deploy:prod`.
 - **Deploy to development environment using PM2**: Deploy your application in development mode with `npm run deploy:dev`.
 
-## 💎 The Package Features
+## 💎 The Project Features
 
 <p>
   <img src="https://img.shields.io/badge/-TypeScript-007ACC?style=for-the-badge&logo=TypeScript&logoColor=fff" />&nbsp;&nbsp;
@@ -111,9 +111,7 @@ Express is a fast, open and concise web framework and is a Node.js based project
 </p>
 <p>
   <img src="https://img.shields.io/badge/-MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=fff" />&nbsp;&nbsp;
-  <img src="https://img.shields.io/badge/-MariaDB-003545?style=for-the-badge&logo=MariaDB&logoColor=fff" />&nbsp;&nbsp;
-  <img src="https://img.shields.io/badge/-PostgreSQL-336791?style=for-the-badge&logo=PostgreSQL&logoColor=fff" />&nbsp;&nbsp;
-  <img src="https://img.shields.io/badge/-MongoDB-47A248?style=for-the-badge&logo=MongoDB&logoColor=fff" />
+  <img src="https://img.shields.io/badge/-PRISMA-605EFE?style=for-the-badge&logo=prisma" />&nbsp;&nbsp;
 </p>
 
 ### 🐳 Docker :: Container Platform
