@@ -337,7 +337,7 @@ Follow these steps to get the server up and running smoothly:
 
 Regular use of `npm run format` before committing and pushing changes is advised to avoid merge conflicts and ensure a consistent
 
-9 **Port Configuration**: By default, the application runs on port `8000`. To use a different port, modify the port configuration in the `.env` files or the server's main entry point.
+9. **Port Configuration**: By default, the application runs on port `8000`. To use a different port, modify the port configuration in the `.env` files or the server's main entry point.
 
 10. **Troubleshooting**: If you encounter any issues during setup:
 
