@@ -21,13 +21,10 @@ up: ## Up the container images
 down: ## Down the container images
 	docker-compose down
 
-build: ## Build the container image - Production
-	docker build -t ${APP_NAME}\
-		-f Dockerfile.prod .
 
 build-dev: ## Build the container image - Development
 	docker build -t ${APP_NAME}\
-		-f Dockerfile.dev .
+		-f Dockerfile .
 
 run: ## Run the container image
 	docker run -d -it -p 3000:3000 ${APP_NAME}
