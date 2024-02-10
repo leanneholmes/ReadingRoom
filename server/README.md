@@ -47,7 +47,6 @@
 
 <br />
 
-
 Special thanks to the developers of the TypeScript Express Starter project. For more information and to explore the project further, visit [TypeScript-Express-Starter](https://github.com/ljlm0402/typescript-express-starter/blob/master/README.md).
 
 <br />
