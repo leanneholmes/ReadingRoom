@@ -13,7 +13,7 @@ function Register(props: RegisterProps) {
   const badUsername = props.badUsername;
   return (
     <>
-      <div>
+      <div data-testid="register-component">
         <form>
           <label>Username</label>
           <input type="text" placeholder="Enter username"></input>
