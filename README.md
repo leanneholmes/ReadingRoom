@@ -16,10 +16,6 @@ To fill out
 * Node 16.0 or higher
   - https://nodejs.org/en
 
-### Installing
-
-To fill out
-
 ### Executing program
 
 These instructions are for running the program locally.
