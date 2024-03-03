@@ -1,5 +1,18 @@
 import { observer } from "mobx-react-lite";
-import { List, Image, Segment, Item, Label } from "semantic-ui-react";
+import {
+  List,
+  Image,
+  Segment,
+  Item,
+  Label,
+  Header,
+  Grid,
+  GridRow,
+  GridColumn,
+  Feed,
+  FeedEvent,
+  FeedLabel,
+} from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { BookClub } from "../models/bookclub";
 
@@ -12,38 +25,31 @@ export default observer(function BookClubMemberList({
 }: Props) {
   if (!members) return null;
   return (
-    <div style={{ width: "30%" }}>
-      <Segment style={{ border: "none " }} secondary inverted color="teal">
-        {members.length} {members.length === 1 ? "Member" : "Members"}
-      </Segment>
-      <List relaxed divided>
+    <>
+      <Header as="h4" style={{ marginTop: "15px" }}>
+        Member List
+      </Header>
+      <Grid>
         {members.map((member) => (
-          <Item style={{ position: "relative" }} key={member.username}>
-            {member.username === owner?.username && (
-              <Label
-                style={{ position: "absolute" }}
-                color="orange"
-                ribbon="right"
-              >
-                Club Owner
-              </Label>
-            )}
-
-            <Image
-              circular
-              size="tiny"
-              src={member.image || "/assets/user.png"}
-            />
-            <Item.Content verticalAlign="middle">
-              <Item.Header as="h3">
+          <GridRow
+            key={member.username}
+            verticalAlign="middle"
+            style={{ padding: "7px 0px" }}
+          >
+            <GridColumn width={4}>
+              <Image circular src={member.image || "/assets/user.png"} />
+            </GridColumn>
+            <GridColumn width={12} style={{ padding: "2px" }}>
+              <Header as="h4">
                 <Link to={`/profile/${member.username}`}>
-                  {member.displayName}
+                  {member.displayName}{" "}
+                  {member.username === owner?.username && "(Club Owner)"}
                 </Link>
-              </Item.Header>
-            </Item.Content>
-          </Item>
+              </Header>
+            </GridColumn>
+          </GridRow>
         ))}
-      </List>
-    </div>
+      </Grid>
+    </>
   );
 });
