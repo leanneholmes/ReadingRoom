@@ -45,7 +45,7 @@ npm start
 ### Test Data 
 The following users will be populated into the database and can be used for test purposes:
 | E-mail | Username | Password |
-| --- | --- |
+| --- | --- | --- |
 | test@test.com | testuser | Pa$$w0rd |
 | deanna@test.com | deanna | Pa$$w0rd |
 | set@test.com | set | Pa$$w0rd |
