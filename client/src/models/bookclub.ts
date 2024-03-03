@@ -1,3 +1,5 @@
+import { Profile } from "./profile";
+
 export interface BookClub {
   id: string;
   name: string;
@@ -8,4 +10,9 @@ export interface BookClub {
   meetingLink: string;
   currentBook: string;
   currentBookAuthor: string;
+  ownerUsername?: string;
+  isMember?: boolean;
+  isOwner?: boolean;
+  owner?: Profile;
+  members?: Profile[];
 }

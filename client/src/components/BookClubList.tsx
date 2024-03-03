@@ -6,6 +6,7 @@ import {
   GridRow,
   GridColumn,
   Header,
+  Label,
 } from "semantic-ui-react";
 import { BookClub } from "../models/bookclub";
 import { Link } from "react-router-dom";
@@ -38,7 +39,21 @@ export default function BookClubList({ bookClubs }: Props) {
                     {bookclub.currentBookAuthor}
                   </div>
                 </Item.Description>
-                <Item.Extra style={{ marginTop: "60px" }}>
+                {bookclub.isOwner && (
+                  <Item.Description>
+                    <Label basic color="orange">
+                      You are the owner of this club
+                    </Label>
+                  </Item.Description>
+                )}
+                {bookclub.isMember && !bookclub.isOwner && (
+                  <Item.Description>
+                    <Label basic color="violet">
+                      You are a member of this club
+                    </Label>
+                  </Item.Description>
+                )}
+                <Item.Extra>
                   <Button
                     floated="left"
                     content={bookclub.category}

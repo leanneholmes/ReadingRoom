@@ -6,6 +6,7 @@ import { useParams } from "react-router";
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { format } from "date-fns";
+import BookClubMemberList from "../components/BookClubMemberList";
 
 export default observer(function BookClubDetails() {
   const { bookClubStore } = useStore();
@@ -32,7 +33,14 @@ export default observer(function BookClubDetails() {
   return (
     <Container style={{ marginTop: "6em" }}>
       <h1>View Book Club</h1>
+
       <h3>{bookClub.name}</h3>
+      <div>
+        Owned by{" "}
+        <Link to={`/profile/${bookClub.owner?.username}`}>
+          <strong>{bookClub.owner?.displayName}</strong>
+        </Link>
+      </div>
       <div>Description: {bookClub.description}</div>
       <div>Category: {bookClub.category}</div>
       <div>Reading Pace: {bookClub.readingPace}</div>
@@ -44,14 +52,28 @@ export default observer(function BookClubDetails() {
         {format(bookClub.nextMeeting!, "MMMM dd, yyyy - h:mm aa")}
       </div>
       <div>Meeting Link: {bookClub.meetingLink}</div>
-      <Button
-        as={Link}
-        to={`/edit/${bookClub.id}`}
-        basic
-        color="teal"
-        content="Edit"
-      />
-      <Button onClick={handleDelete} color="red" content="Delete" />
+      <BookClubMemberList bookClub={bookClub!} />
+      {bookClub.isOwner ? (
+        <>
+          <Button
+            as={Link}
+            to={`/edit/${bookClub.id}`}
+            basic
+            color="teal"
+            content="Edit"
+          />
+          <Button onClick={handleDelete} color="red" content="Delete" />
+        </>
+      ) : null}
+      {bookClub.isMember ? (
+        <>
+          <Button onClick={handleDelete} color="red" content="Leave Club" />
+        </>
+      ) : (
+        <>
+          <Button onClick={handleDelete} color="olive" content="Join Club" />
+        </>
+      )}
     </Container>
   );
 });

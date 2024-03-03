@@ -2,6 +2,7 @@ import { makeAutoObservable, runInAction } from "mobx";
 import { BookClub } from "../models/bookclub";
 import agent from "../utils/agent";
 import { v4 as uuid } from "uuid";
+import { store } from "./store";
 
 export default class BookClubStore {
   bookClubRegistry = new Map<string, BookClub>();
@@ -74,6 +75,16 @@ export default class BookClubStore {
   };
 
   private setBookClub = (bookClub: BookClub) => {
+    const user = store.userStore.user;
+    if (user) {
+      bookClub.isMember = bookClub.members!.some(
+        (a) => a.username === user.username
+      );
+      bookClub.isOwner = bookClub.ownerUsername === user.username;
+      bookClub.owner = bookClub.members?.find(
+        (x) => x.username === bookClub.ownerUsername
+      );
+    }
     bookClub.nextMeeting = new Date(bookClub.nextMeeting!);
     this.bookClubRegistry.set(bookClub.id, bookClub);
   };

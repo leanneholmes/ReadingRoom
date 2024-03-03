@@ -39,16 +39,16 @@ namespace Application.BookClubs
 
                 var membership = bookClub.Members.FirstOrDefault(x => x.AppUser.UserName == user.UserName);
 
-                if (membership != null && ownerUsername == user.UserName)
-                {
-                    _context.Remove(bookClub);
+                // if (membership != null && ownerUsername == user.UserName)
+                // {
+                //     _context.Remove(bookClub);
 
-                    var deleteResult = await _context.SaveChangesAsync() > 0;
+                //     var deleteResult = await _context.SaveChangesAsync() > 0;
 
-                    if (!deleteResult) return Result<Unit>.Failure("Failed to delete the book club");
+                //     if (!deleteResult) return Result<Unit>.Failure("Failed to delete the book club");
 
-                    return Result<Unit>.Success(Unit.Value);                    
-                }
+                //     return Result<Unit>.Success(Unit.Value);                    
+                // }
 
                 if (membership != null && ownerUsername != user.UserName)
                     bookClub.Members.Remove(membership);
