@@ -8,6 +8,7 @@ import {
   Header,
   Label,
   ItemMeta,
+  Icon,
 } from "semantic-ui-react";
 import { BookClub } from "../models/bookclub";
 import { Link } from "react-router-dom";
@@ -55,10 +56,12 @@ export default function BookClubList({ bookClubs }: Props) {
                   </Item.Description>
                 )}
                 <Item.Extra>
-                  <Label size="large" color="teal">
+                  <Label size="large" color="violet" as="a">
+                    <Icon name="book" />
                     {bookclub.category}
                   </Label>
-                  <Label size="large" color="violet">
+                  <Label size="large" color="teal" as="a">
+                    <Icon name="time" />
                     {bookclub.readingPace} Pace
                   </Label>
                   <Button
