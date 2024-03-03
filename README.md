@@ -15,17 +15,48 @@ To fill out
   - https://dotnet.microsoft.com/en-us/download/dotnet/7.0 
 * Node 16.0 or higher
   - https://nodejs.org/en
+ 
+### Initial Setup 
+When you first clone the repo, run through these steps. 
+
+Add a file to the /API folder called **appsettings.json** and populate it with the following code: 
+```
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "AllowedHosts": "*",
+  "Cloudinary": {
+    "CloudName": "dicszxcqo",
+    "ApiKey": "287649759218743",
+    "ApiSecret": "vaJiPE0neUwyyz_ij6YKn7DCy_E"
+  }
+}
+```
+
+Installing this tool is optional, but required if you want to clear out the local database. Run this command from the project level directory /ReadingRoom
+```
+dotnet tool install --global dotnet-ef --version 7.0.2
+```
+
+**ENV file instructions will be added here later**
 
 ### Executing program
 
 These instructions are for running the program locally.
-* Clone the repo and cd into the project folder
+* cd into the project folder and build the project
 ```
 cd readingroom
 dotnet build
 ```
 
-* Start the API server
+
+
+* From a terminal in the API folder, start the server
 ```
 cd API
 dotnet watch
@@ -59,9 +90,8 @@ dotnet restore
 dotnet build
 ```
 
-If you want to remove all of the extra test data you've added and start with a fresh set, stop the server. Run these commands from the project level directory
+If you want to remove all of the extra test data you've added and start with a fresh set, stop the server and run this command from the project level directory
 ```
-dotnet tool install --global dotnet-ef --version 7.0.2
 dotnet ef database -drop -s API -p Persistence
 ```
 Hit y to confirm. Then, cd to the /API folder and start the server again 
