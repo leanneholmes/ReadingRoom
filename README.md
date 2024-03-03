@@ -42,6 +42,14 @@ npm install --legacy-peer-deps
 npm start
 ```
 
+### Test Data 
+The following users will be populated into the database and can be used for test purposes:
+| E-mail | Password |
+| --- | --- |
+| test@test.com | Pa$$w0rd |
+| deanna@test.com | Pa$$w0rd |
+
+
 ## Help
 
 If you encounter problems on the server side, try to run the following commands from the project level directory /readingroom
