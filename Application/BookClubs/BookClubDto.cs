@@ -24,6 +24,6 @@ namespace Application.BookClubs
 
         public string OwnerUsername { get; set; }
 
-        public ICollection<Profile> Members { get; set; }
+        public ICollection<MemberDto> Members { get; set; }
     }
 }

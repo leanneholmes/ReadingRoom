@@ -20,6 +20,8 @@ namespace Domain
 
         public string CurrentBookAuthor { get; set; }
 
+        // public Photo Photo { get; set; }
+
         public ICollection<BookClubMember> Members { get; set; } = new List<BookClubMember>();
     }
 }
