@@ -1,7 +1,9 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import { BookClub } from "../models/bookclub";
+import { BookClub, BookClubFormValues } from "../models/bookclub";
 import agent from "../utils/agent";
 import { v4 as uuid } from "uuid";
+import { store } from "./store";
+import { Profile } from "../models/profile";
 
 export default class BookClubStore {
   bookClubRegistry = new Map<string, BookClub>();
@@ -74,6 +76,16 @@ export default class BookClubStore {
   };
 
   private setBookClub = (bookClub: BookClub) => {
+    const user = store.userStore.user;
+    if (user) {
+      bookClub.isMember = bookClub.members!.some(
+        (a) => a.username === user.username
+      );
+      bookClub.isOwner = bookClub.ownerUsername === user.username;
+      bookClub.owner = bookClub.members?.find(
+        (x) => x.username === bookClub.ownerUsername
+      );
+    }
     bookClub.nextMeeting = new Date(bookClub.nextMeeting!);
     this.bookClubRegistry.set(bookClub.id, bookClub);
   };
@@ -86,41 +98,41 @@ export default class BookClubStore {
     this.loadingInitial = state;
   };
 
-  createBookClub = async (bookClub: BookClub) => {
-    this.loading = true;
+  createBookClub = async (bookClub: BookClubFormValues) => {
+    const user = store.userStore.user;
+    const member = new Profile(user!);
     bookClub.id = uuid();
     try {
       await agent.BookClubs.create(bookClub);
+      const newBookClub = new BookClub(bookClub);
+      newBookClub.ownerUsername = user!.username;
+      newBookClub.members = [member];
+      this.setBookClub(newBookClub);
       runInAction(() => {
-        this.bookClubRegistry.set(bookClub.id, bookClub);
+        // this.bookClubRegistry.set(bookClub.id, bookClub);
+        this.selectedBookClub = newBookClub;
         // this.bookClubs.push(bookClub);
-        this.loading = false;
       });
     } catch (error) {
       console.log(error);
-      runInAction(() => {
-        this.loading = false;
-      });
     }
   };
 
-  updateBookClub = async (bookClub: BookClub) => {
-    this.loading = true;
+  updateBookClub = async (bookClub: BookClubFormValues) => {
     try {
       await agent.BookClubs.update(bookClub);
       runInAction(() => {
-        this.bookClubRegistry.set(bookClub.id, bookClub);
-        // this.bookClubs = [
-        //   ...this.bookClubs.filter((b) => b.id !== bookClub.id),
-        //   bookClub,
-        // ];
-        this.loading = false;
+        if (bookClub.id) {
+          const updatedBookClub = {
+            ...this.getBookClub(bookClub.id),
+            ...bookClub,
+          };
+          this.bookClubRegistry.set(bookClub.id, updatedBookClub as BookClub);
+          this.selectedBookClub = updatedBookClub as BookClub;
+        }
       });
     } catch (error) {
       console.log(error);
-      runInAction(() => {
-        this.loading = false;
-      });
     }
   };
 
@@ -137,6 +149,34 @@ export default class BookClubStore {
       runInAction(() => {
         this.loading = false;
       });
+    }
+  };
+
+  updateMembership = async () => {
+    const user = store.userStore.user;
+    this.loading = true;
+    try {
+      await agent.BookClubs.join(this.selectedBookClub!.id);
+      runInAction(() => {
+        if (this.selectedBookClub?.isMember) {
+          this.selectedBookClub.members = this.selectedBookClub.members?.filter(
+            (a) => a.username !== user?.username
+          );
+          this.selectedBookClub.isMember = false;
+        } else {
+          const member = new Profile(user!);
+          this.selectedBookClub?.members?.push(member);
+          this.selectedBookClub!.isMember = true;
+        }
+        this.bookClubRegistry.set(
+          this.selectedBookClub!.id,
+          this.selectedBookClub!
+        );
+      });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      runInAction(() => (this.loading = false));
     }
   };
 }

@@ -1,11 +1,21 @@
 import { observer } from "mobx-react-lite";
-import { Button, Container } from "semantic-ui-react";
+import {
+  Button,
+  Container,
+  Grid,
+  GridColumn,
+  GridRow,
+  Header,
+  Image,
+  Label,
+} from "semantic-ui-react";
 import { useStore } from "../stores/store";
 import LoadingComponent from "../components/LoadingComponent";
 import { useParams } from "react-router";
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { format } from "date-fns";
+import BookClubMemberList from "../components/BookClubMemberList";
 
 export default observer(function BookClubDetails() {
   const { bookClubStore } = useStore();
@@ -15,6 +25,8 @@ export default observer(function BookClubDetails() {
     loadBookClub,
     loadingInitial,
     deleteBookClub,
+    updateMembership,
+    loading,
   } = bookClubStore;
   const { id } = useParams();
 
@@ -23,35 +35,85 @@ export default observer(function BookClubDetails() {
   }, [id, loadBookClub]);
 
   function handleDelete() {
-    deleteBookClub(bookClub!.id);
-    navigate("/bookclubs");
+    if (confirm("Are you sure you want to delete this club?") == true) {
+      deleteBookClub(bookClub!.id);
+      navigate("/bookclubs");
+    }
   }
 
   if (loadingInitial || !bookClub) return <LoadingComponent />;
 
   return (
     <Container style={{ marginTop: "6em" }}>
-      <h1>View Book Club</h1>
-      <h3>{bookClub.name}</h3>
-      <div>Description: {bookClub.description}</div>
-      <div>Category: {bookClub.category}</div>
-      <div>Reading Pace: {bookClub.readingPace}</div>
-      <div>
-        Current Book: {bookClub.currentBook} by {bookClub.currentBookAuthor}{" "}
-      </div>
-      <div>
-        Next Meeting Date:{" "}
-        {format(bookClub.nextMeeting!, "MMMM dd, yyyy - h:mm aa")}
-      </div>
-      <div>Meeting Link: {bookClub.meetingLink}</div>
-      <Button
-        as={Link}
-        to={`/edit/${bookClub.id}`}
-        basic
-        color="teal"
-        content="Edit"
-      />
-      <Button onClick={handleDelete} color="red" content="Delete" />
+      <Header as="h1">View Book Club</Header>
+      <Grid relaxed>
+        <GridRow>
+          <GridColumn width={4}>
+            <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
+            <BookClubMemberList bookClub={bookClub!} />
+          </GridColumn>
+          <GridColumn width={9}>
+            <Header as="h2" color="blue" style={{ marginBottom: "3px" }}>
+              {bookClub.name}
+            </Header>
+            <div>
+              Owned by{" "}
+              <Link to={`/profile/${bookClub.owner?.username}`}>
+                <strong>{bookClub.owner?.displayName}</strong>
+              </Link>
+            </div>
+            <Header as="h4">Club Description</Header>
+            {bookClub.description}
+            <Header as="h4">Current Book</Header>
+            {bookClub.currentBook} by {bookClub.currentBookAuthor}
+            <Header as="h4">Next Meeting Date</Header>
+            {format(bookClub.nextMeeting!, "MMMM dd, yyyy - h:mm aa")}
+            <Header as="h4">Meeting Link</Header>
+            {bookClub.meetingLink}
+            <div style={{ height: "22px" }}></div>
+            <Label size="large" color="violet">
+              {bookClub.category}
+            </Label>
+            <Label size="large" color="teal">
+              {bookClub.readingPace} Pace
+            </Label>
+          </GridColumn>
+          <GridColumn width={3}>
+            {bookClub.isOwner ? (
+              <>
+                <Button
+                  as={Link}
+                  to={`/edit/${bookClub.id}`}
+                  basic
+                  color="teal"
+                  content="Edit"
+                />
+                <Button onClick={handleDelete} color="red" content="Delete" />
+              </>
+            ) : null}
+            {bookClub.isMember && !bookClub.isOwner ? (
+              <>
+                <Button
+                  loading={loading}
+                  onClick={updateMembership}
+                  color="red"
+                  content="Leave Club"
+                />
+              </>
+            ) : null}
+            {!bookClub.isMember && !bookClub.isOwner ? (
+              <>
+                <Button
+                  loading={loading}
+                  onClick={updateMembership}
+                  color="green"
+                  content="Join Club"
+                />
+              </>
+            ) : null}
+          </GridColumn>
+        </GridRow>
+      </Grid>
     </Container>
   );
 });

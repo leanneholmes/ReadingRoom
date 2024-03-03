@@ -6,6 +6,8 @@ import {
   GridRow,
   GridColumn,
   Header,
+  Label,
+  ItemMeta,
 } from "semantic-ui-react";
 import { BookClub } from "../models/bookclub";
 import { Link } from "react-router-dom";
@@ -31,24 +33,34 @@ export default function BookClubList({ bookClubs }: Props) {
                 <Item.Header>
                   <Header size="medium">{bookclub.name}</Header>
                 </Item.Header>
+                <ItemMeta>
+                  {bookclub.members?.length}{" "}
+                  {bookclub.members?.length === 1 ? "Member" : "Members"}
+                </ItemMeta>
                 <Item.Description>
                   <div>{bookclub.description}</div>
-                  <div>
-                    Current Book: {bookclub.currentBook} by{" "}
-                    {bookclub.currentBookAuthor}
-                  </div>
                 </Item.Description>
-                <Item.Extra style={{ marginTop: "60px" }}>
-                  <Button
-                    floated="left"
-                    content={bookclub.category}
-                    color="green"
-                  />
-                  <Button
-                    floated="left"
-                    content={bookclub.readingPace}
-                    color="purple"
-                  />
+                {bookclub.isOwner && (
+                  <Item.Description>
+                    <Label basic color="green">
+                      You are the owner of this club
+                    </Label>
+                  </Item.Description>
+                )}
+                {bookclub.isMember && !bookclub.isOwner && (
+                  <Item.Description>
+                    <Label basic color="orange">
+                      You are a member of this club
+                    </Label>
+                  </Item.Description>
+                )}
+                <Item.Extra>
+                  <Label size="large" color="teal">
+                    {bookclub.category}
+                  </Label>
+                  <Label size="large" color="violet">
+                    {bookclub.readingPace} Pace
+                  </Label>
                   <Button
                     as={Link}
                     to={`/bookclub/${bookclub.id}`}

@@ -4,7 +4,7 @@ import { Button, Header, Segment } from "semantic-ui-react";
 import { useStore } from "../stores/store";
 import { useNavigate } from "react-router";
 import { useParams } from "react-router-dom";
-import { BookClub } from "../models/bookclub";
+import { BookClubFormValues } from "../models/bookclub";
 import LoadingComponent from "../components/LoadingComponent";
 import { v4 as uuid } from "uuid";
 import { Formik, Form } from "formik";
@@ -18,27 +18,14 @@ import CustomDateInput from "../components/form/CustomDateInput";
 
 export default observer(function CreateBookClub() {
   const { bookClubStore } = useStore();
-  const {
-    createBookClub,
-    updateBookClub,
-    loading,
-    loadBookClub,
-    loadingInitial,
-  } = bookClubStore;
+  const { createBookClub, updateBookClub, loadBookClub, loadingInitial } =
+    bookClubStore;
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [bookClub, setBookClub] = useState<BookClub>({
-    id: "",
-    name: "",
-    description: "",
-    category: "",
-    readingPace: "",
-    nextMeeting: null,
-    meetingLink: "",
-    currentBook: "",
-    currentBookAuthor: "",
-  });
+  const [bookClub, setBookClub] = useState<BookClubFormValues>(
+    new BookClubFormValues()
+  );
 
   const validationSchema = Yup.object({
     name: Yup.string().required("The book club name is required"),
@@ -52,10 +39,13 @@ export default observer(function CreateBookClub() {
   });
 
   useEffect(() => {
-    if (id) loadBookClub(id).then((bookClub) => setBookClub(bookClub!));
+    if (id)
+      loadBookClub(id).then((bookClub) =>
+        setBookClub(new BookClubFormValues(bookClub))
+      );
   }, [id, loadBookClub]);
 
-  function handleFormSubmit(bookClub: BookClub) {
+  function handleFormSubmit(bookClub: BookClubFormValues) {
     if (!bookClub.id) {
       bookClub.id = uuid();
       createBookClub(bookClub).then(() => navigate(`/bookclub/${bookClub.id}`));
@@ -138,7 +128,7 @@ export default observer(function CreateBookClub() {
               <>
                 <Button
                   disabled={isSubmitting || !dirty || !isValid}
-                  loading={loading}
+                  loading={isSubmitting}
                   floated="right"
                   positive
                   type="submit"
@@ -155,7 +145,7 @@ export default observer(function CreateBookClub() {
               <>
                 <Button
                   disabled={isSubmitting || !dirty || !isValid}
-                  loading={loading}
+                  loading={isSubmitting}
                   floated="right"
                   positive
                   type="submit"

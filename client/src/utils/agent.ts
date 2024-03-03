@@ -1,5 +1,5 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
-import { BookClub } from "../models/bookclub";
+import { BookClub, BookClubFormValues } from "../models/bookclub";
 import { toast } from "react-toastify";
 import { router } from "../router/Routes";
 import { store } from "../stores/store";
@@ -77,10 +77,11 @@ const requests = {
 const BookClubs = {
   list: () => requests.get<BookClub[]>("/bookclubs"),
   details: (id: string) => requests.get<BookClub>(`/bookclubs/${id}`),
-  create: (bookClub: BookClub) => axios.post<void>("/bookclubs", bookClub),
-  update: (bookClub: BookClub) =>
-    axios.put<void>(`/bookclubs/${bookClub.id}`, bookClub),
-  delete: (id: string) => axios.delete<void>(`/bookclubs/${id}`),
+  create: (bookClub: BookClubFormValues) => requests.post<void>("/bookclubs", bookClub),
+  update: (bookClub: BookClubFormValues) =>
+    requests.put<void>(`/bookclubs/${bookClub.id}`, bookClub),
+  delete: (id: string) => requests.delete<void>(`/bookclubs/${id}`),
+  join: (id: string) => requests.post<void>(`/bookclubs/${id}/join`, {}),
 };
 
 const Account = {
