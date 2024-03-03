@@ -7,8 +7,6 @@ import {
   GridRow,
   Header,
   Image,
-  Item,
-  ItemHeader,
   Label,
 } from "semantic-ui-react";
 import { useStore } from "../stores/store";
@@ -27,6 +25,8 @@ export default observer(function BookClubDetails() {
     loadBookClub,
     loadingInitial,
     deleteBookClub,
+    updateMembership,
+    loading,
   } = bookClubStore;
   const { id } = useParams();
 
@@ -35,8 +35,10 @@ export default observer(function BookClubDetails() {
   }, [id, loadBookClub]);
 
   function handleDelete() {
-    deleteBookClub(bookClub!.id);
-    navigate("/bookclubs");
+    if (confirm("Are you sure you want to delete this club?") == true) {
+      deleteBookClub(bookClub!.id);
+      navigate("/bookclubs");
+    }
   }
 
   if (loadingInitial || !bookClub) return <LoadingComponent />;
@@ -50,7 +52,7 @@ export default observer(function BookClubDetails() {
             <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
             <BookClubMemberList bookClub={bookClub!} />
           </GridColumn>
-          <GridColumn width={10}>
+          <GridColumn width={9}>
             <Header as="h2" color="blue" style={{ marginBottom: "3px" }}>
               {bookClub.name}
             </Header>
@@ -76,33 +78,42 @@ export default observer(function BookClubDetails() {
               {bookClub.readingPace} Pace
             </Label>
           </GridColumn>
-          <GridColumn width={2}>
-            <Button content="Join Club" color="green"></Button>
+          <GridColumn width={3}>
+            {bookClub.isOwner ? (
+              <>
+                <Button
+                  as={Link}
+                  to={`/edit/${bookClub.id}`}
+                  basic
+                  color="teal"
+                  content="Edit"
+                />
+                <Button onClick={handleDelete} color="red" content="Delete" />
+              </>
+            ) : null}
+            {bookClub.isMember && !bookClub.isOwner ? (
+              <>
+                <Button
+                  loading={loading}
+                  onClick={updateMembership}
+                  color="red"
+                  content="Leave Club"
+                />
+              </>
+            ) : null}
+            {!bookClub.isMember && !bookClub.isOwner ? (
+              <>
+                <Button
+                  loading={loading}
+                  onClick={updateMembership}
+                  color="green"
+                  content="Join Club"
+                />
+              </>
+            ) : null}
           </GridColumn>
         </GridRow>
       </Grid>
-
-      {/* {bookClub.isOwner ? (
-        <>
-          <Button
-            as={Link}
-            to={`/edit/${bookClub.id}`}
-            basic
-            color="teal"
-            content="Edit"
-          />
-          <Button onClick={handleDelete} color="red" content="Delete" />
-        </>
-      ) : null}
-      {bookClub.isMember ? (
-        <>
-          <Button onClick={handleDelete} color="red" content="Leave Club" />
-        </>
-      ) : (
-        <>
-          <Button onClick={handleDelete} color="olive" content="Join Club" />
-        </>
-      )} */}
     </Container>
   );
 });
