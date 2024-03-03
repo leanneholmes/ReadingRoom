@@ -62,100 +62,107 @@ export default observer(function CreateBookClub() {
     return <LoadingComponent content="Loading book club..." />;
 
   return (
-    <Segment clearing>
-      <Formik
-        validationSchema={validationSchema}
-        enableReinitialize
-        initialValues={bookClub}
-        onSubmit={(values) => handleFormSubmit(values)}
-      >
-        {({ handleSubmit, isValid, isSubmitting, dirty }) => (
-          <Form
-            className="ui form"
-            onSubmit={handleSubmit}
-            autoComplete="off"
-            placeholder={undefined}
-          >
-            <CustomTextInput
-              name="name"
-              placeholder="Name"
-              label="Book Club Name"
-            />
-            <CustomTextArea
-              rows={3}
-              name="description"
-              placeholder="Description"
-              label="Club Description"
-            />
+    <>
+      {bookClub.id ? (
+        <Header as="h1">Edit Book Club</Header>
+      ) : (
+        <Header as="h1">Create a Book Club</Header>
+      )}
+      <Segment clearing>
+        <Formik
+          validationSchema={validationSchema}
+          enableReinitialize
+          initialValues={bookClub}
+          onSubmit={(values) => handleFormSubmit(values)}
+        >
+          {({ handleSubmit, isValid, isSubmitting, dirty }) => (
+            <Form
+              className="ui form"
+              onSubmit={handleSubmit}
+              autoComplete="off"
+              placeholder={undefined}
+            >
+              <CustomTextInput
+                name="name"
+                placeholder="Name"
+                label="Book Club Name"
+              />
+              <CustomTextArea
+                rows={3}
+                name="description"
+                placeholder="Description"
+                label="Club Description"
+              />
 
-            <CustomSelectInput
-              options={categoryOptions}
-              placeholder="Category"
-              name="category"
-              label="Category"
-            />
-            <CustomSelectInput
-              options={readingPaceOptions}
-              placeholder="Reading Pace"
-              name="readingPace"
-              label="Reading Pace"
-            />
-            <Header content="Next Meeting Date" sub color="blue" />
-            <CustomDateInput
-              placeholderText="Next Meeting Date"
-              name="nextMeeting"
-              showTimeSelect
-              timeCaption="time"
-              dateFormat="MMMM dd, yyyy - h:mm aa"
-              minDate={new Date()}
-            />
-            <CustomTextInput
-              placeholder="Meeting Link"
-              name="meetingLink"
-              label="Meeting Link"
-            />
-            <CustomTextInput
-              placeholder="Current Book"
-              name="currentBook"
-              label="Current Book"
-            />
-            <CustomTextInput
-              placeholder="Book Author"
-              name="currentBookAuthor"
-              label="Book Author"
-            />
-            {bookClub.id ? (
-              <>
-                <Button
-                  disabled={isSubmitting || !dirty || !isValid}
-                  loading={isSubmitting}
-                  floated="right"
-                  positive
-                  type="submit"
-                  content="Submit"
-                />
-                <Button
-                  floated="right"
-                  color="grey"
-                  content="Cancel"
-                  onClick={handleCancel}
-                />
-              </>
-            ) : (
-              <>
-                <Button
-                  disabled={isSubmitting || !dirty || !isValid}
-                  loading={isSubmitting}
-                  floated="right"
-                  positive
-                  type="submit"
-                  content="Create"
-                />
-              </>
-            )}
-          </Form>
-        )}
-      </Formik>
-    </Segment>
+              <CustomSelectInput
+                options={categoryOptions}
+                placeholder="Category"
+                name="category"
+                label="Category"
+              />
+              <CustomSelectInput
+                options={readingPaceOptions}
+                placeholder="Reading Pace"
+                name="readingPace"
+                label="Reading Pace"
+              />
+              <Header content="Next Meeting Date" sub color="blue" />
+              <CustomDateInput
+                placeholderText="Next Meeting Date"
+                name="nextMeeting"
+                showTimeSelect
+                timeCaption="time"
+                dateFormat="MMMM dd, yyyy - h:mm aa"
+                minDate={new Date()}
+              />
+              <CustomTextInput
+                placeholder="Meeting Link"
+                name="meetingLink"
+                label="Meeting Link"
+              />
+              <CustomTextInput
+                placeholder="Current Book"
+                name="currentBook"
+                label="Current Book"
+              />
+              <CustomTextInput
+                placeholder="Book Author"
+                name="currentBookAuthor"
+                label="Book Author"
+              />
+              {bookClub.id ? (
+                <>
+                  <Button
+                    disabled={isSubmitting || !dirty || !isValid}
+                    loading={isSubmitting}
+                    floated="right"
+                    positive
+                    type="submit"
+                    content="Submit"
+                  />
+                  <Button
+                    floated="right"
+                    color="grey"
+                    content="Cancel"
+                    onClick={handleCancel}
+                  />
+                </>
+              ) : (
+                <>
+                  <Button
+                    disabled={isSubmitting || !dirty || !isValid}
+                    loading={isSubmitting}
+                    floated="right"
+                    positive
+                    type="submit"
+                    content="Create"
+                  />
+                </>
+              )}
+            </Form>
+          )}
+        </Formik>
+      </Segment>
+    </>
   );
 });

@@ -1,17 +1,10 @@
 import { observer } from "mobx-react-lite";
 import {
-  List,
   Image,
-  Segment,
-  Item,
-  Label,
   Header,
   Grid,
   GridRow,
   GridColumn,
-  Feed,
-  FeedEvent,
-  FeedLabel,
 } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { BookClub } from "../models/bookclub";

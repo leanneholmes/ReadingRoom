@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Container } from "semantic-ui-react";
+import { Container, Header } from "semantic-ui-react";
 import BookClubList from "../components/BookClubList";
 import LoadingComponent from "../components/LoadingComponent";
 import { useStore } from "../stores/store";
@@ -18,7 +18,7 @@ function BookClubs() {
   if (bookClubStore.loadingInitial) return <LoadingComponent />;
   return (
     <Container style={{ marginTop: "6em" }}>
-      <h1>Book Clubs</h1>
+      <Header as="h1">All Book Clubs</Header>
       <BookClubList bookClubs={bookClubsAsMap} />
     </Container>
   );
