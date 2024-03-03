@@ -25,7 +25,26 @@ cd readingroom
 dotnet build
 ```
 
-* Start the API server
+Add a file to the /API folder called **appsettings.json** and populate it with the following code: 
+```
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "AllowedHosts": "*",
+  "Cloudinary": {
+    "CloudName": "dicszxcqo",
+    "ApiKey": "287649759218743",
+    "ApiSecret": "vaJiPE0neUwyyz_ij6YKn7DCy_E"
+  }
+}
+```
+
+* From a terminal in the API folder, start the server
 ```
 cd API
 dotnet watch
