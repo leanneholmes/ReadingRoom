@@ -15,15 +15,9 @@ To fill out
   - https://dotnet.microsoft.com/en-us/download/dotnet/7.0 
 * Node 16.0 or higher
   - https://nodejs.org/en
-
-### Executing program
-
-These instructions are for running the program locally.
-* Clone the repo and cd into the project folder
-```
-cd readingroom
-dotnet build
-```
+ 
+### Initial Setup 
+When you first clone the repo, run through these steps. 
 
 Add a file to the /API folder called **appsettings.json** and populate it with the following code: 
 ```
@@ -43,6 +37,18 @@ Add a file to the /API folder called **appsettings.json** and populate it with t
   }
 }
 ```
+**ENV file instructions will be added here later**
+
+### Executing program
+
+These instructions are for running the program locally.
+* cd into the project folder and build the project
+```
+cd readingroom
+dotnet build
+```
+
+
 
 * From a terminal in the API folder, start the server
 ```
