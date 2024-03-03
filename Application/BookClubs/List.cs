@@ -1,5 +1,6 @@
 using Application.Core;
-using Domain;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
@@ -8,18 +9,24 @@ namespace Application.BookClubs
 {
     public class List
     {
-        public class Query : IRequest<Result<List<BookClub>>> {}
+        public class Query : IRequest<Result<List<BookClubDto>>> {}
 
-        public class Handler : IRequestHandler<Query, Result<List<BookClub>>>
+        public class Handler : IRequestHandler<Query, Result<List<BookClubDto>>>
         {
             private readonly DataContext _context;
-            public Handler(DataContext context)
+            private readonly IMapper _mapper;
+            public Handler(DataContext context, IMapper mapper)
             {
+                _mapper = mapper;
                 _context = context;
             }
-            public async Task<Result<List<BookClub>>> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<Result<List<BookClubDto>>> Handle(Query request, CancellationToken cancellationToken)
             {
-                return Result<List<BookClub>>.Success(await _context.BookClubs.ToListAsync());
+                var bookClubs = await _context.BookClubs
+                    .ProjectTo<BookClubDto>(_mapper.ConfigurationProvider)
+                    .ToListAsync(cancellationToken);
+
+                return Result<List<BookClubDto>>.Success(bookClubs);
             }
         }
     }

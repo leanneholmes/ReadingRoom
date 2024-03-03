@@ -1,6 +1,8 @@
-namespace Domain
+using Application.Profiles;
+
+namespace Application.BookClubs
 {
-    public class BookClub
+    public class BookClubDto
     {
         public Guid Id { get; set; }
 
@@ -20,6 +22,8 @@ namespace Domain
 
         public string CurrentBookAuthor { get; set; }
 
-        public ICollection<BookClubMember> Members { get; set; } = new List<BookClubMember>();
+        public string OwnerUsername { get; set; }
+
+        public ICollection<Profile> Members { get; set; }
     }
 }
