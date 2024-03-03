@@ -37,6 +37,12 @@ Add a file to the /API folder called **appsettings.json** and populate it with t
   }
 }
 ```
+
+Installing this tool is optional, but required if you want to clear out the local database. Run this command from the project level directory /ReadingRoom
+```
+dotnet tool install --global dotnet-ef --version 7.0.2
+```
+
 **ENV file instructions will be added here later**
 
 ### Executing program
@@ -84,9 +90,8 @@ dotnet restore
 dotnet build
 ```
 
-If you want to remove all of the extra test data you've added and start with a fresh set, stop the server. Run these commands from the project level directory
+If you want to remove all of the extra test data you've added and start with a fresh set, stop the server and run this command from the project level directory
 ```
-dotnet tool install --global dotnet-ef --version 7.0.2
 dotnet ef database -drop -s API -p Persistence
 ```
 Hit y to confirm. Then, cd to the /API folder and start the server again 
