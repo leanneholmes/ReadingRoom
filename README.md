@@ -38,6 +38,8 @@ npm install --legacy-peer-deps
 npm start
 ```
 
+In a browser, navigate to http://localhost:3000/ to view the app. 
+
 ### Test Data 
 The following users will be populated into the database and can be used for test purposes:
 | E-mail | Username | Password |
