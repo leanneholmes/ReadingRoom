@@ -6,6 +6,7 @@ import {
   GridColumn,
   GridRow,
   Header,
+  Icon,
   Image,
   Label,
 } from "semantic-ui-react";
@@ -71,10 +72,12 @@ export default observer(function BookClubDetails() {
             <Header as="h4">Meeting Link</Header>
             {bookClub.meetingLink}
             <div style={{ height: "22px" }}></div>
-            <Label size="large" color="violet">
+            <Label size="large" color="violet" as="a">
+              <Icon name="book" />
               {bookClub.category}
             </Label>
-            <Label size="large" color="teal">
+            <Label size="large" color="teal" as="a">
+              <Icon name="time" />
               {bookClub.readingPace} Pace
             </Label>
           </GridColumn>
@@ -96,7 +99,6 @@ export default observer(function BookClubDetails() {
                 <Button
                   loading={loading}
                   onClick={updateMembership}
-                  color="red"
                   content="Leave Club"
                 />
               </>
