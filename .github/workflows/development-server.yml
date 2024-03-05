@@ -51,6 +51,7 @@ jobs:
         
     - name: Start npm server
       run: |
+        cd ./client &
         npm start &
         sleep 5
       
