@@ -29,8 +29,13 @@ jobs:
         run: |
           cd ./client
           npm install --legacy-peer-deps
+          
+      - name: stylelinter
+        uses: actions-hub/stylelint@v1.1.6
+        
+      # - name: Super-Linter
+      #   uses: super-linter/super-linter@v6.0.0
+      #   env:
+      #     RUN_LOCAL: true
 
-      - name: Super-Linter
-        uses: super-linter/super-linter@v6.0.0
-        env:
-          RUN_LOCAL: true
+  
