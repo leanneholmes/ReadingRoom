@@ -42,10 +42,23 @@ jobs:
         
     - name: Check if dotnet watch is running
       run: |
-        if pgrep -x "dotnet" > /dev/null; then
-          echo "dotnet watch is running"
+        if [ "$RUNNER_OS" == "Linux" ] || [ "$RUNNER_OS" == "macOS" ]; then
+          if pgrep -x "dotnet" > /dev/null; then
+            echo "dotnet watch is running"
+          else
+            echo "dotnet watch is not running"
+            exit 1
+          fi
+        elif [ "$RUNNER_OS" == "Windows" ]; then
+          tasklist | findstr /C:"dotnet.exe" > nul
+          if ERRORLEVEL 1 (
+            echo "dotnet watch is not running"
+            exit 1
+          ) else (
+            echo "dotnet watch is running"
+          )
         else
-          echo "dotnet watch is not running"
+          echo "Unsupported operating system"
           exit 1
         fi
         
