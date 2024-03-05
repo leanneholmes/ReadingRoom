@@ -38,5 +38,4 @@ jobs:
     - name: Build and Start Server
       run: |
         dotnet watch -p ./API &
-        npm start --prefix ./client &
-        wait
+        npm start --prefix ./client
