@@ -44,7 +44,7 @@ jobs:
       if: matrix.os == 'windows-latest'
       run: |
         tasklist | findstr /C:"dotnet.exe" > nul
-        if (%ERRORLEVEL% NEQ) 0 {
+        if (%ERRORLEVEL% NEQ 0){
           echo "dotnet watch is not running"
           exit 1
         } else {
