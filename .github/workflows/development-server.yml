@@ -49,20 +49,24 @@ jobs:
           exit 1
         fi
         
-    # - name: Wait for Server to Start
-    #   run: |
-    #     while ! nc -z localhost 5000; do sleep 1; done
-    #     echo "good"
-    #     if [ "$RUNNER_OS" == "Linux" ] || [ "$RUNNER_OS" == "macOS" ]; then
-    #       response_code=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:5000)
-    #       echo "$response_code"
-    #     elif [ "$RUNNER_OS" == "Windows" ]; then
-    #       response_code=$(curl -s -o NUL -w "%{http_code}" http://localhost:5000)
-    #       echo "$response_code"
-    #     else
-    #       echo "Unsupported operating system"
-    #       exit 1
-    #     fi
+    - name: Start npm server
+      run: |
+        npm start &
+        sleep 5
+      
+      # run: |
+      #   while ! nc -z localhost 5000; do sleep 1; done
+      #   echo "good"
+      #   if [ "$RUNNER_OS" == "Linux" ] || [ "$RUNNER_OS" == "macOS" ]; then
+      #     response_code=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:5000)
+      #     echo "$response_code"
+      #   elif [ "$RUNNER_OS" == "Windows" ]; then
+      #     response_code=$(curl -s -o NUL -w "%{http_code}" http://localhost:5000)
+      #     echo "$response_code"
+      #   else
+      #     echo "Unsupported operating system"
+      #     exit 1
+      #   fi
 
     #     # Check the response code
     #     if [ "$response_code" == "200" ]; then
