@@ -50,10 +50,7 @@ jobs:
         fi
         
     - name: Start npm server
-      run: |
-        cd ./client &
-        npm start &
-        sleep 5
+      run: ls
       
       # run: |
       #   while ! nc -z localhost 5000; do sleep 1; done
