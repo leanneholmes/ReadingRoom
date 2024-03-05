@@ -1,41 +1,46 @@
-name: Pre-Production Build with Super Linter
+name: Code Linting
 
 on:
   push:
     branches:
       - development
 
-permissions:
-  contents: read
-
 jobs:
   lint:
     runs-on: ${{ matrix.os }}
-
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [macos-latest, windows-latest, ubuntu-latest]
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 21
 
-      - name: Install Dependencies
+      - name: Install linting tools
         run: |
-          cd ./client
-          npm install --legacy-peer-deps
-          
-      - name: stylelinter
-        uses: actions-hub/stylelint@v1.1.6
-        
-      # - name: Super-Linter
-      #   uses: super-linter/super-linter@v6.0.0
-      #   env:
-      #     RUN_LOCAL: true
+          npm install stylelint eslint tslint
+
+      - name: Lint CSS/SCSS files
+        if: matrix.os == 'macos-latest' || matrix.os == 'windows-latest'
+        run: npx stylelint "**/*.css" "**/*.scss"
+
+      - name: Lint JavaScript files
+        if: matrix.os == 'macos-latest' || matrix.os == 'windows-latest'
+        run: npx eslint "**/*.js"
+
+      - name: Lint TypeScript files
+        if: matrix.os == 'macos-latest' || matrix.os == 'windows-latest'
+        run: npx tslint "**/*.ts"
+  
+      - name: Super-Linter (Linux Only)
+        if: matrix.os == 'ubuntu-latest'
+        uses: super-linter/super-linter@v6.0.0
+        env:
+          RUN_LOCAL: true
 
   
