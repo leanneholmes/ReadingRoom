@@ -43,6 +43,7 @@ jobs:
     - name: Wait for Server to Start
       run: |
         while ! nc -z localhost 5000; do sleep 1; done
+        echo "good"
 
     - name: Check Server Status
       run: |
