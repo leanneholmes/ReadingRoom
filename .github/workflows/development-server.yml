@@ -45,11 +45,12 @@ jobs:
       run: |
         tasklist | findstr /C:"dotnet.exe" > nul
         if (-not $?) {
-          echo "dotnet watch is not running"}
+          echo "dotnet watch is not running"
           exit 1
-        else {
+        } else {
           echo "dotnet watch is running"
         }
+
 
     - name: Check if dotnet watch is running (Linux & MacOS)
       if: matrix.os == 'ubuntu-latest' || matrix.os == 'macOS-latest'
