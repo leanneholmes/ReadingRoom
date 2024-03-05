@@ -44,9 +44,6 @@ jobs:
       run: |
         while ! nc -z localhost 5000; do sleep 1; done
         echo "good"
-
-    - name: Check Server Status
-      run: |
         if [ "$RUNNER_OS" == "Linux" ] || [ "$RUNNER_OS" == "macOS" ]; then
           response_code=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:5000)
           echo "$response_code"
@@ -66,3 +63,26 @@ jobs:
           echo "Server failed to start or is not responding"
           exit 1
         fi
+        
+
+    # - name: Check Server Status
+    #   run: |
+    #     if [ "$RUNNER_OS" == "Linux" ] || [ "$RUNNER_OS" == "macOS" ]; then
+    #       response_code=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:5000)
+    #       echo "$response_code"
+    #     elif [ "$RUNNER_OS" == "Windows" ]; then
+    #       response_code=$(curl -s -o NUL -w "%{http_code}" http://localhost:5000)
+    #       echo "$response_code"
+    #     else
+    #       echo "Unsupported operating system"
+    #       exit 1
+    #     fi
+
+    #     # Check the response code
+    #     if [ "$response_code" == "200" ]; then
+    #       echo "Server is running successfully"
+    #       pkill -f "dotnet watch"
+    #     else
+    #       echo "Server failed to start or is not responding"
+    #       exit 1
+    #     fi
