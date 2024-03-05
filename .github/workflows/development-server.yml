@@ -35,8 +35,39 @@ jobs:
         cd ./client
         npm install --legacy-peer-deps
 
-    - name: Build and Start Server
+    - name: Start Server
       run: |
-        dotnet watch -p ./API &
-        npm start --prefix ./client &
-        wait
+        dotnet watch --project ./API &
+        sleep 5
+        
+    - name: Check if dotnet watch is running (Windows)
+      if: matrix.os == 'windows-latest'
+      run: |
+        tasklist | findstr /C:"dotnet.exe" > nul
+        if (-not $?) {
+          echo "dotnet watch is not running"
+          exit 1
+        } else {
+          echo "dotnet watch is running"
+        }
+
+
+    - name: Check if dotnet watch is running (Linux & MacOS)
+      if: matrix.os == 'ubuntu-latest' || matrix.os == 'macOS-latest'
+      run: |
+        if pgrep -x "dotnet" > /dev/null; then
+          echo "dotnet watch is running"
+        else
+          echo "dotnet watch is not running"
+          exit 1
+        fi
+
+        
+    - name: Start npm server
+      run: |
+        cd ./client
+        ls
+        npm start &
+    #       echo "Server failed to start or is not responding"
+    #       exit 1
+    #     fi
