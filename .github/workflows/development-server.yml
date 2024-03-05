@@ -52,6 +52,7 @@ jobs:
         )
 
     - name: Check if dotnet watch is running (Linux & MacOS)
+      if: matrix.os == 'ubuntu-latest' || matrix.os == 'macOS-latest'
       run: |
         if pgrep -x "dotnet" > /dev/null; then
           echo "dotnet watch is running"
@@ -59,6 +60,7 @@ jobs:
           echo "dotnet watch is not running"
           exit 1
         fi
+
         
     - name: Start npm server
       run: |
