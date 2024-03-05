@@ -28,7 +28,7 @@ jobs:
       - name: Install Dependencies
         run: |
           cd ./client
-          npm install
+          npm install --legacy-peer-deps
 
       - name: Super-Linter
         uses: super-linter/super-linter@v6.0.0
