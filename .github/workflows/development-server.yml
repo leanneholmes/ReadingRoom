@@ -53,7 +53,7 @@ jobs:
       run: |
         cd ./client
         ls
-        npm start
+        npm start &
       
       # run: |
       #   while ! nc -z localhost 5000; do sleep 1; done
