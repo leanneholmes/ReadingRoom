@@ -10,9 +10,14 @@ import {
   ItemMeta,
   Icon,
   Segment,
+  Dropdown,
+  Select,
 } from "semantic-ui-react";
 import { BookClub } from "../models/bookclub";
 import { Link } from "react-router-dom";
+import CustomSelectInput from "./form/CustomSelectInput";
+import { categoryOptions } from "../options/CategoryOptions";
+import { readingPaceOptions } from "../options/ReadingPaceOptions";
 
 interface Props {
   bookClubs: BookClub[];
@@ -21,6 +26,17 @@ interface Props {
 export default function BookClubList({ bookClubs }: Props) {
   return (
     <>
+      <Select
+        options={categoryOptions}
+        placeholder="Filter by Category"
+        name="category"
+      />
+      <Select
+        options={readingPaceOptions}
+        placeholder="Filter by Pace"
+        name="category"
+        style={{ marginLeft: "10px" }}
+      />
       {bookClubs.map((bookclub) => (
         <Segment style={{ marginBottom: "25px" }}>
           <Grid>
