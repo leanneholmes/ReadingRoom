@@ -35,6 +35,10 @@ textarea {
   }
 }
 
+.label-dark-green {
+  color: "red";
+}
+
 .ui.top.fixed.menu {
   background-color: #f2f2f2;
 }
