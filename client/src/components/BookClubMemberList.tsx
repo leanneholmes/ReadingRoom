@@ -28,7 +28,10 @@ export default observer(function BookClubMemberList({
             </GridColumn>
             <GridColumn width={12} style={{ padding: "2px" }}>
               <Header as="h4">
-                <Link to={`/profiles/${member.username}`}>
+                <Link
+                  to={`/profiles/${member.username}`}
+                  style={{ color: "#384776" }}
+                >
                   {member.displayName}{" "}
                   {member.username === owner?.username && "(Club Owner)"}
                 </Link>

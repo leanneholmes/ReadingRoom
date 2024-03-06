@@ -35,12 +35,22 @@ textarea {
   }
 }
 
-.label-dark-green {
-  color: "red";
+.btn-dark-blue {
+  background-color: #303955 !important;
+  &:hover {
+    background-color: #364161 !important;
+  }
+}
+
+.btn-dark-red {
+  background-color: #ba1d2c !important;
+  &:hover {
+    background-color: #ca2131 !important;
+  }
 }
 
 .ui.top.fixed.menu {
-  background-color: #f2f2f2;
+  background-color: #06282d;
 }
 
 .react-datepicker-wrapper {

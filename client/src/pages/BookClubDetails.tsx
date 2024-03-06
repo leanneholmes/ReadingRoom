@@ -56,12 +56,15 @@ export default observer(function BookClubDetails() {
             <BookClubMemberList bookClub={bookClub!} />
           </GridColumn>
           <GridColumn width={8}>
-            <Header as="h2" color="blue" style={{ marginBottom: "3px" }}>
+            <Header as="h2" style={{ marginBottom: "3px", color: "#384776" }}>
               {bookClub.name}
             </Header>
             <div>
               Owned by{" "}
-              <Link to={`/profiles/${bookClub.owner?.username}`}>
+              <Link
+                to={`/profiles/${bookClub.owner?.username}`}
+                style={{ color: "#384776" }}
+              >
                 <strong>{bookClub.owner?.displayName}</strong>
               </Link>
             </div>
@@ -74,11 +77,15 @@ export default observer(function BookClubDetails() {
             <Header as="h4">Meeting Link</Header>
             {bookClub.meetingLink}
             <div style={{ height: "22px" }}></div>
-            <Label size="large" color="violet" as="a">
+            <Label
+              size="large"
+              as="a"
+              style={{ backgroundColor: "#06282d", color: "#fff" }}
+            >
               <Icon name="book" />
               {bookClub.category}
             </Label>
-            <Label size="large" color="teal" as="a">
+            <Label size="large" color="black" as="a">
               <Icon name="time" />
               {bookClub.readingPace} Pace
             </Label>
@@ -89,11 +96,16 @@ export default observer(function BookClubDetails() {
                 <Button
                   as={Link}
                   to={`/edit/${bookClub.id}`}
-                  basic
-                  color="teal"
+                  color="black"
                   content="Edit"
+                  className="btn-dark-blue"
                 />
-                <Button onClick={handleDelete} color="red" content="Delete" />
+                <Button
+                  onClick={handleDelete}
+                  color="red"
+                  content="Delete"
+                  className="btn-dark-red"
+                />
               </>
             ) : null}
             {bookClub.isMember && !bookClub.isOwner ? (
