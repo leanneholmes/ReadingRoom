@@ -36,9 +36,9 @@ textarea {
 }
 
 .btn-dark-blue {
-  background-color: #303955 !important;
+  background-color: #414d72 !important;
   &:hover {
-    background-color: #364161 !important;
+    background-color: #4c5b87 !important;
   }
 }
 

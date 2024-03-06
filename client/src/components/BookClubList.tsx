@@ -7,15 +7,12 @@ import {
   GridColumn,
   Header,
   Label,
-  ItemMeta,
   Icon,
   Segment,
-  Dropdown,
   Select,
 } from "semantic-ui-react";
 import { BookClub } from "../models/bookclub";
 import { Link } from "react-router-dom";
-import CustomSelectInput from "./form/CustomSelectInput";
 import { categoryOptions } from "../options/CategoryOptions";
 import { readingPaceOptions } from "../options/ReadingPaceOptions";
 
@@ -30,11 +27,22 @@ export default function BookClubList({ bookClubs }: Props) {
         options={categoryOptions}
         placeholder="Filter by Category"
         name="category"
+        style={{ backgroundColor: "#f3f4f6", borderColor: "#f3f4f6" }}
       />
       <Select
         options={readingPaceOptions}
         placeholder="Filter by Pace"
         name="category"
+        style={{
+          backgroundColor: "#f3f4f6",
+          borderColor: "#f3f4f6",
+          marginLeft: "10px",
+        }}
+      />
+      <Button
+        color="black"
+        className="btn-dark-blue"
+        content="Reset Filters"
         style={{ marginLeft: "10px" }}
       />
       {bookClubs.map((bookclub) => (
