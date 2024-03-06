@@ -51,7 +51,7 @@ namespace Persistence {
           new BookClub {
             Name = "Classic Literature Society",
               Description = "Exploring the world of classic literature",
-              Category = "Classic",
+              Category = "Classics",
               ReadingPace = "Slow",
               NextMeeting = DateTime.UtcNow.AddMonths(2),
               MeetingLink = "www.zoomlink.com/classicsociety",
@@ -75,7 +75,7 @@ namespace Persistence {
           new BookClub {
             Name = "Sci-Fi Galaxy Explorers",
               Description = "Diving into the realms of science fiction",
-              Category = "Science Fiction",
+              Category = "Sci-Fi",
               ReadingPace = "Fast",
               NextMeeting = DateTime.UtcNow.AddMonths(1),
               MeetingLink = "www.zoomlink.com/scifigalaxy",
@@ -95,7 +95,7 @@ namespace Persistence {
           new BookClub {
             Name = "Historical Fiction Voyage",
               Description = "Embarking on historical journeys through fiction",
-              Category = "Historical Fiction",
+              Category = "Fiction",
               ReadingPace = "Moderate",
               NextMeeting = DateTime.UtcNow.AddMonths(2),
               MeetingLink = "www.zoomlink.com/historicalvoyage",
