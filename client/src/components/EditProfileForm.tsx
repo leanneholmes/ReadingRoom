@@ -30,9 +30,10 @@ export default observer(function ProfileEditForm({ setEditMode }: Props) {
           <CustomTextArea rows={3} placeholder="Add your bio" name="bio" />
           <Button
             positive
+            className="btn-dark-green"
             type="submit"
             loading={isSubmitting}
-            content="Update profile"
+            content="Save Changes"
             floated="left"
             disabled={!isValid || !dirty}
           />

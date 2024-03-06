@@ -82,14 +82,16 @@ export default observer(function ProfilePage() {
 
   return (
     <>
-      <Header as="h1">View Profile</Header>
+      <Header as="h1" className="playfair">
+        View Profile
+      </Header>
       <Grid
         style={{
           marginTop: "10px",
         }}
       >
         <Grid.Row>
-          <Grid.Column width={4}>
+          <Grid.Column width={3}>
             <Image
               avatar
               size="small"
@@ -100,14 +102,14 @@ export default observer(function ProfilePage() {
                 circular
                 icon
                 color="teal"
-                style={{ position: "absolute", left: "42%" }}
+                style={{ position: "absolute", left: "60%" }}
                 onClick={showConfirm}
               >
                 <Icon name="pencil" />
               </Button>
             )}
           </Grid.Column>
-          <Grid.Column width={9}>
+          <Grid.Column width={10}>
             <Confirm
               confirmButton={myCustomButton}
               onCancel={handleCancel}
@@ -137,21 +139,23 @@ export default observer(function ProfilePage() {
               open={open}
               style={{ marginTop: "-10%" }}
             ></Confirm>
-            <Header as="h2">{profile?.displayName}</Header>
 
             {editMode ? (
               <EditProfileForm setEditMode={setEditMode} />
             ) : (
-              <span style={{ whiteSpace: "pre-wrap" }}>{profile?.bio}</span>
+              <>
+                <Header as="h2">{profile?.displayName}</Header>
+                <span style={{ whiteSpace: "pre-wrap" }}>{profile?.bio}</span>
+              </>
             )}
           </Grid.Column>
           <Grid.Column width={3}>
             {isCurrentUser && !editMode && (
               <Button
-                basic
-                color="orange"
+                color="blue"
                 content="Edit Profile"
                 onClick={handleEdit}
+                className="btn-dark-blue"
               />
             )}
 
