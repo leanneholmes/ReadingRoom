@@ -92,7 +92,7 @@ dotnet build
 
 If you want to remove all of the extra test data you've added and start with a fresh set, stop the server and run this command from the project level directory
 ```
-dotnet ef database -drop -s API -p Persistence
+dotnet ef database drop -s API -p Persistence
 ```
 Hit y to confirm. Then, cd to the /API folder and start the server again 
 ```
