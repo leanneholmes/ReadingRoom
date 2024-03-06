@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { router } from "../router/Routes";
 import { store } from "../stores/store";
 import { User, UserFormValues } from "../models/user";
+import { Photo, Profile } from "../models/profile";
 
 const sleep = (delay: number) => {
   return new Promise((resolve) => {
@@ -77,7 +78,8 @@ const requests = {
 const BookClubs = {
   list: () => requests.get<BookClub[]>("/bookclubs"),
   details: (id: string) => requests.get<BookClub>(`/bookclubs/${id}`),
-  create: (bookClub: BookClubFormValues) => requests.post<void>("/bookclubs", bookClub),
+  create: (bookClub: BookClubFormValues) =>
+    requests.post<void>("/bookclubs", bookClub),
   update: (bookClub: BookClubFormValues) =>
     requests.put<void>(`/bookclubs/${bookClub.id}`, bookClub),
   delete: (id: string) => requests.delete<void>(`/bookclubs/${id}`),
@@ -91,9 +93,23 @@ const Account = {
     requests.post<User>("/account/register", user),
 };
 
+const Profiles = {
+  get: (username: string) => requests.get<Profile>(`/profiles/${username}`),
+  uploadPhoto: (file: Blob) => {
+    let formData = new FormData();
+    formData.append("File", file);
+    return axios.post<Photo>("photos", formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+  },
+  updateProfile: (profile: Partial<Profile>) =>
+    requests.put(`/profiles`, profile),
+};
+
 const agent = {
   BookClubs,
   Account,
+  Profiles,
 };
 
 export default agent;

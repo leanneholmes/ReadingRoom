@@ -59,7 +59,7 @@ export default observer(function BookClubDetails() {
             </Header>
             <div>
               Owned by{" "}
-              <Link to={`/profile/${bookClub.owner?.username}`}>
+              <Link to={`/profiles/${bookClub.owner?.username}`}>
                 <strong>{bookClub.owner?.displayName}</strong>
               </Link>
             </div>

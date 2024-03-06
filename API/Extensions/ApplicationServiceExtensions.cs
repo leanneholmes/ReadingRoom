@@ -1,7 +1,6 @@
 using Application.BookClubs;
 using Application.Core;
 using Application.Interfaces;
-using Application.Photos;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Infrastructure.Photos;

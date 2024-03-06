@@ -11,7 +11,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240303211526_PhotoEntityAdded")]
+    [Migration("20240306043735_PhotoEntityAdded")]
     partial class PhotoEntityAdded
     {
         /// <inheritdoc />
@@ -27,6 +27,9 @@ namespace Persistence.Migrations
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("AvatarId")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Bio")
                         .HasColumnType("TEXT");
@@ -80,6 +83,8 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AvatarId");
+
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
@@ -108,6 +113,9 @@ namespace Persistence.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("LogoId")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("MeetingLink")
                         .HasColumnType("TEXT");
 
@@ -121,6 +129,8 @@ namespace Persistence.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("LogoId");
 
                     b.ToTable("BookClubs");
                 });
@@ -148,18 +158,10 @@ namespace Persistence.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("AppUserId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("IsMain")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Url")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
 
                     b.ToTable("Photos");
                 });
@@ -292,6 +294,24 @@ namespace Persistence.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.AppUser", b =>
+                {
+                    b.HasOne("Domain.Photo", "Avatar")
+                        .WithMany()
+                        .HasForeignKey("AvatarId");
+
+                    b.Navigation("Avatar");
+                });
+
+            modelBuilder.Entity("Domain.BookClub", b =>
+                {
+                    b.HasOne("Domain.Photo", "Logo")
+                        .WithMany()
+                        .HasForeignKey("LogoId");
+
+                    b.Navigation("Logo");
+                });
+
             modelBuilder.Entity("Domain.BookClubMember", b =>
                 {
                     b.HasOne("Domain.AppUser", "AppUser")
@@ -309,13 +329,6 @@ namespace Persistence.Migrations
                     b.Navigation("AppUser");
 
                     b.Navigation("BookClub");
-                });
-
-            modelBuilder.Entity("Domain.Photo", b =>
-                {
-                    b.HasOne("Domain.AppUser", null)
-                        .WithMany("Photos")
-                        .HasForeignKey("AppUserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -372,8 +385,6 @@ namespace Persistence.Migrations
             modelBuilder.Entity("Domain.AppUser", b =>
                 {
                     b.Navigation("BookClubs");
-
-                    b.Navigation("Photos");
                 });
 
             modelBuilder.Entity("Domain.BookClub", b =>

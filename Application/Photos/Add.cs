@@ -12,7 +12,7 @@ namespace Application.Photos
     {
         public class Command : IRequest<Result<Photo>>
         {
-            public IFormFile File { get; set; }
+            public IFormFile File {get; set;}
         }
 
         public class Handler : IRequestHandler<Command, Result<Photo>>
@@ -22,35 +22,35 @@ namespace Application.Photos
             private readonly DataContext _context;
             public Handler(DataContext context, IPhotoAccessor photoAccessor, IUserAccessor userAccessor)
             {
-                _userAccessor = userAccessor;
                 _photoAccessor = photoAccessor;
+                _userAccessor = userAccessor;
                 _context = context;
             }
 
             public async Task<Result<Photo>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var user = await _context.Users.Include(p => p.Photos)
+                var user = await _context.Users.Include(p => p.Avatar)
                     .FirstOrDefaultAsync(x => x.UserName == _userAccessor.GetUsername());
 
-                if (user == null) return null;
+                if (user == null) return null; 
 
                 var photoUploadResult = await _photoAccessor.AddPhoto(request.File);
 
                 var photo = new Photo
                 {
                     Url = photoUploadResult.Url,
-                    Id = photoUploadResult.PublicId,
+                    Id = photoUploadResult.PublicId
                 };
 
-                if (!user.Photos.Any(x => x.IsMain)) photo.IsMain = true;
-
-                user.Photos.Add(photo);
+                if (user.Avatar != null) {
+                    var photoDeleteResult = await _photoAccessor.DeletePhoto(user.Avatar.Id);
+                } 
+                user.Avatar = photo;
 
                 var result = await _context.SaveChangesAsync() > 0;
-
                 if (result) return Result<Photo>.Success(photo);
 
-                return Result<Photo>.Failure("Problem uploading photo");
+                return Result<Photo>.Failure("Problem adding photo");
             }
         }
     }

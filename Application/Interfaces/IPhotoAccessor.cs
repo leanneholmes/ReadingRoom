@@ -7,6 +7,5 @@ namespace Application.Interfaces
     {
         Task<PhotoUploadResult> AddPhoto(IFormFile file);
         Task<string> DeletePhoto(string publicId);
-
     }
 }

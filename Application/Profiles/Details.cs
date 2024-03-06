@@ -16,12 +16,12 @@ namespace Application.Profiles
 
         public class Handler : IRequestHandler<Query, Result<Profile>>
         {
-            private readonly IMapper _mapper;
             private readonly DataContext _context;
+            private readonly IMapper _mapper;
             public Handler(DataContext context, IMapper mapper)
             {
-                _context = context;
                 _mapper = mapper;
+                _context = context;
             }
 
             public async Task<Result<Profile>> Handle(Query request, CancellationToken cancellationToken)

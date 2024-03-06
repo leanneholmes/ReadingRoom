@@ -19,3 +19,8 @@ export class Profile implements IProfile {
   image?: string;
   bio?: string;
 }
+
+export interface Photo {
+  id: string;
+  url: string;
+}

@@ -1,4 +1,3 @@
-using System.Dynamic;
 using Domain;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +13,7 @@ namespace Persistence
         // This will represent the table in our SQL database
         public DbSet<BookClub> BookClubs { get; set; }
         public DbSet<BookClubMember> BookClubMembers { get; set; }
-        public DbSet<Photo> Photos { get; set; }
+        public DbSet<Photo> Photos { get; set;}
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

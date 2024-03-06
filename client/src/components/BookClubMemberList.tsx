@@ -1,11 +1,5 @@
 import { observer } from "mobx-react-lite";
-import {
-  Image,
-  Header,
-  Grid,
-  GridRow,
-  GridColumn,
-} from "semantic-ui-react";
+import { Image, Header, Grid, GridRow, GridColumn } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { BookClub } from "../models/bookclub";
 
@@ -34,7 +28,7 @@ export default observer(function BookClubMemberList({
             </GridColumn>
             <GridColumn width={12} style={{ padding: "2px" }}>
               <Header as="h4">
-                <Link to={`/profile/${member.username}`}>
+                <Link to={`/profiles/${member.username}`}>
                   {member.displayName}{" "}
                   {member.username === owner?.username && "(Club Owner)"}
                 </Link>
