@@ -94,7 +94,11 @@ export default function BookClubList({ bookClubs }: Props) {
                     <Icon name="book" />
                     {bookclub.category}
                   </Label>
-                  <Label size="large" color="black" as="a">
+                  <Label
+                    size="large"
+                    as="a"
+                    style={{ backgroundColor: "#0f0f0f", color: "#fff" }}
+                  >
                     <Icon name="time" />
                     {bookclub.readingPace} Pace
                   </Label>
