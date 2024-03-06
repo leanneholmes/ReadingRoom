@@ -46,14 +46,16 @@ export default observer(function BookClubDetails() {
 
   return (
     <Container style={{ marginTop: "6em" }}>
-      <Header as="h1">View Book Club</Header>
-      <Grid relaxed>
+      <Header as="h1" className="playfair">
+        View Book Club
+      </Header>
+      <Grid relaxed style={{ marginTop: "15px" }}>
         <GridRow>
-          <GridColumn width={4}>
-            <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
+          <GridColumn width={5}>
+            <Image src={`/assets/${bookClub.category}.png`} />
             <BookClubMemberList bookClub={bookClub!} />
           </GridColumn>
-          <GridColumn width={9}>
+          <GridColumn width={8}>
             <Header as="h2" color="blue" style={{ marginBottom: "3px" }}>
               {bookClub.name}
             </Header>

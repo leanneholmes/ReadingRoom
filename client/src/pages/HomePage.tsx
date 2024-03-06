@@ -1,4 +1,4 @@
-import { Container } from "semantic-ui-react";
+import { Container, Divider, Header } from "semantic-ui-react";
 import { observer } from "mobx-react-lite";
 import { Link } from "react-router-dom";
 import LoginForm from "../components/LoginForm";
@@ -15,10 +15,12 @@ function HomePage() {
 
   return (
     <Container style={{ marginTop: "6em" }} textAlign="center">
-      <h1>Welcome to the Reading Room</h1>
-      {/* <h3>
-        Go to <Link to="/bookclubs">Book Clubs</Link>
-      </h3> */}
+      <Header as="h1" className="playfair" style={{ marginBottom: "25px" }}>
+        Welcome to the Reading Room
+      </Header>
+      <Divider
+        style={{ width: "50%", marginLeft: "auto", marginRight: "auto" }}
+      />
       <Container style={{ width: "60%", marginTop: "2em" }} textAlign="left">
         {loginForm ? (
           <>

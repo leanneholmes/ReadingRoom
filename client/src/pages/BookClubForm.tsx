@@ -64,11 +64,15 @@ export default observer(function CreateBookClub() {
   return (
     <>
       {bookClub.id ? (
-        <Header as="h1">Edit Book Club</Header>
+        <Header as="h1" className="playfair">
+          Edit Book Club
+        </Header>
       ) : (
-        <Header as="h1">Create a Book Club</Header>
+        <Header as="h1" className="playfair">
+          Create a Book Club
+        </Header>
       )}
-      <Segment clearing>
+      <Segment clearing style={{ marginTop: "20px" }}>
         <Formik
           validationSchema={validationSchema}
           enableReinitialize
@@ -106,7 +110,11 @@ export default observer(function CreateBookClub() {
                 name="readingPace"
                 label="Reading Pace"
               />
-              <Header content="Next Meeting Date" sub color="blue" />
+              <Header
+                as="h4"
+                content="Next Meeting Date"
+                className="form-label"
+              />
               <CustomDateInput
                 placeholderText="Next Meeting Date"
                 name="nextMeeting"
@@ -137,6 +145,7 @@ export default observer(function CreateBookClub() {
                     loading={isSubmitting}
                     floated="right"
                     positive
+                    className="btn-dark-green"
                     type="submit"
                     content="Submit"
                   />
@@ -155,6 +164,7 @@ export default observer(function CreateBookClub() {
                     floated="right"
                     positive
                     type="submit"
+                    className="btn-dark-green"
                     content="Create"
                   />
                 </>

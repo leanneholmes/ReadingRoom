@@ -22,13 +22,10 @@ export default function BookClubList({ bookClubs }: Props) {
     <Grid divided="vertically">
       {bookClubs.map((bookclub) => (
         <GridRow key={bookclub.id}>
-          <GridColumn width={3}>
-            <Image
-              src="https://react.semantic-ui.com/images/wireframe/image.png"
-              style={{ width: "200px" }}
-            />
+          <GridColumn width={4}>
+            <Image src={`/assets/${bookclub.category}.png`} />
           </GridColumn>
-          <GridColumn width={13}>
+          <GridColumn width={12}>
             <Item>
               <Item.Content>
                 <Item.Header>

@@ -12,7 +12,7 @@ export default function CustomSelectInput(props: Props) {
   const [field, meta, helpers] = useField(props.name);
   return (
     <Form.Field error={meta.touched && !!meta.error}>
-      <Header content={props.label} sub color="blue" />
+      <Header as="h4" content={props.label} className="form-label" />
       <Select
         clearable
         options={props.options}
@@ -20,6 +20,7 @@ export default function CustomSelectInput(props: Props) {
         onChange={(_, d) => helpers.setValue(d.value)}
         onBlur={() => helpers.setTouched(true)}
         placeholder={props.placeholder}
+        style={{ backgroundColor: "#f3f4f6", border: "none" }}
       />
       {meta.touched && meta.error ? (
         <Label basic color="red">
