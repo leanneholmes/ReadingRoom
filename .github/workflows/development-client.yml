@@ -42,5 +42,3 @@ jobs:
         uses: super-linter/super-linter@v6.0.0
         env:
           RUN_LOCAL: true
-
-  
