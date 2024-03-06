@@ -113,6 +113,8 @@ export default observer(function BookClubDetails() {
                 <Button
                   loading={loading}
                   onClick={updateMembership}
+                  color="red"
+                  className="btn-dark-red"
                   content="Leave Club"
                 />
               </>
@@ -122,8 +124,9 @@ export default observer(function BookClubDetails() {
                 <Button
                   loading={loading}
                   onClick={updateMembership}
-                  color="green"
+                  color="blue"
                   content="Join Club"
+                  className="btn-dark-blue"
                 />
               </>
             ) : null}

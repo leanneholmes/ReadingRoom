@@ -25,12 +25,17 @@ export default observer(function ProfilePage() {
   function myCustomButton() {
     if (files.length > 0)
       return (
-        <Button positive onClick={handleConfirm}>
+        <Button positive className="btn-dark-green" onClick={handleConfirm}>
           Upload
         </Button>
       );
     return (
-      <Button disabled positive onClick={handleConfirm}>
+      <Button
+        disabled
+        positive
+        className="btn-dark-green"
+        onClick={handleConfirm}
+      >
         Upload
       </Button>
     );
