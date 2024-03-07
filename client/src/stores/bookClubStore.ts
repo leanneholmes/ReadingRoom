@@ -4,6 +4,7 @@ import agent from "../utils/agent";
 import { v4 as uuid } from "uuid";
 import { store } from "./store";
 import { Profile } from "../models/profile";
+import { Pagination, PagingParams } from "../models/pagination";
 
 export default class BookClubStore {
   bookClubRegistry = new Map<string, BookClub>();
@@ -12,28 +13,45 @@ export default class BookClubStore {
   bookClubs: BookClub[] = [];
   loadingInitial = false;
   loading = false;
+  pagination: Pagination | null = null;
+  pagingParams = new PagingParams();
 
   constructor() {
     makeAutoObservable(this);
   }
 
+  setPagingParams = (pagingParams: PagingParams) => {
+    this.pagingParams = pagingParams;
+  };
+
+  get axiosParams() {
+    const params = new URLSearchParams();
+    params.append("pageNumber", this.pagingParams.pageNumber.toString());
+    params.append("pagesize", this.pagingParams.pageSize.toString());
+    return params;
+  }
+
   get bookClubsAsMap() {
-    // Possibly add sorting logic here
     return Array.from(this.bookClubRegistry.values());
   }
 
   loadBookClubs = async () => {
     this.setLoadingInitial(true);
     try {
-      const bookClubs = await agent.BookClubs.list();
-      bookClubs.forEach((bookClub) => {
+      const result = await agent.BookClubs.list(this.axiosParams);
+      result.data.forEach((bookClub) => {
         this.setBookClub(bookClub);
       });
+      this.setPagination(result.pagination);
       this.setLoadingInitial(false);
     } catch (error) {
       console.log(error);
       this.setLoadingInitial(false);
     }
+  };
+
+  setPagination = (pagination: Pagination) => {
+    this.pagination = pagination;
   };
 
   selectBookClub = (id: string) => {

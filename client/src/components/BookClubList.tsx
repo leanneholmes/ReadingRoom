@@ -46,7 +46,7 @@ export default function BookClubList({ bookClubs }: Props) {
         style={{ marginLeft: "10px" }}
       />
       {bookClubs.map((bookclub) => (
-        <Segment style={{ marginBottom: "25px" }}>
+        <Segment style={{ marginBottom: "25px" }} key={bookclub.id}>
           <Grid>
             <GridRow key={bookclub.id} stretched style={{ fontSize: "1.05em" }}>
               <GridColumn width={4}>
@@ -59,9 +59,9 @@ export default function BookClubList({ bookClubs }: Props) {
                   {bookclub.members?.length === 1 ? "Member" : "Members"}
                 </GridRow>
                 <GridRow style={{ height: "50%", marginTop: "10px" }}>
-                  <p>{bookclub.description}</p>
-                  <p>
-                    {bookclub.isOwner && (
+                  {bookclub.description}
+                  {bookclub.isOwner && (
+                    <div style={{ marginTop: "8px" }}>
                       <Item.Description>
                         <Label
                           basic
@@ -71,8 +71,10 @@ export default function BookClubList({ bookClubs }: Props) {
                           You are the owner of this club
                         </Label>
                       </Item.Description>
-                    )}
-                    {bookclub.isMember && !bookclub.isOwner && (
+                    </div>
+                  )}
+                  {bookclub.isMember && !bookclub.isOwner && (
+                    <div style={{ marginTop: "8px" }}>
                       <Item.Description>
                         <Label
                           basic
@@ -82,8 +84,8 @@ export default function BookClubList({ bookClubs }: Props) {
                           You are a member of this club
                         </Label>
                       </Item.Description>
-                    )}
-                  </p>
+                    </div>
+                  )}
                 </GridRow>
                 <GridRow style={{ height: "20%" }}>
                   <Label

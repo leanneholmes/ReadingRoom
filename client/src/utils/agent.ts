@@ -5,6 +5,7 @@ import { router } from "../router/Routes";
 import { store } from "../stores/store";
 import { User, UserFormValues } from "../models/user";
 import { Photo, Profile } from "../models/profile";
+import { PaginatedResult } from "../models/pagination";
 
 const sleep = (delay: number) => {
   return new Promise((resolve) => {
@@ -16,7 +17,15 @@ axios.defaults.baseURL = "http://localhost:5000/api";
 
 axios.interceptors.response.use(
   async (response) => {
-    await sleep(500);
+    await sleep(200);
+    const pagination = response.headers["pagination"];
+    if (pagination) {
+      response.data = new PaginatedResult(
+        response.data,
+        JSON.parse(pagination)
+      );
+      return response as AxiosResponse<PaginatedResult<unknown>>;
+    }
     return response;
   },
   (error: AxiosError) => {
@@ -76,7 +85,10 @@ const requests = {
 };
 
 const BookClubs = {
-  list: () => requests.get<BookClub[]>("/bookclubs"),
+  list: (params: URLSearchParams) =>
+    axios
+      .get<PaginatedResult<BookClub[]>>("bookclubs", { params })
+      .then(responseBody),
   details: (id: string) => requests.get<BookClub>(`/bookclubs/${id}`),
   create: (bookClub: BookClubFormValues) =>
     requests.post<void>("/bookclubs", bookClub),

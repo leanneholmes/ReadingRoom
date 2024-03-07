@@ -1,4 +1,5 @@
 using Application.BookClubs;
+using Application.Core;
 using Domain;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -8,9 +9,9 @@ namespace API.Controllers
     public class BookClubsController : BaseApiController
     {
         [HttpGet] //api/bookclubs
-        public async Task<IActionResult> GetBookClubs()
+        public async Task<IActionResult> GetBookClubs([FromQuery]BookClubParams param)
         {
-            return HandleResult(await Mediator.Send(new List.Query()));
+            return HandlePagedResult(await Mediator.Send(new List.Query{Params = param}));
         }
 
         [HttpGet("{id}")] //api/bookclubs/id
