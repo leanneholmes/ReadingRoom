@@ -27,7 +27,7 @@ export default function BookClubList({ bookClubs }: Props) {
               <GridColumn width={4}>
                 <Image src={`/assets/${bookclub.category}.png`} />
               </GridColumn>
-              <GridColumn width={9}>
+              <GridColumn width={10}>
                 <GridRow style={{ height: "30%" }}>
                   <Header size="large">{bookclub.name}</Header>
                   {bookclub.members?.length}{" "}
@@ -62,7 +62,7 @@ export default function BookClubList({ bookClubs }: Props) {
                     </div>
                   )}
                 </GridRow>
-                <GridRow style={{ height: "20%" }}>
+                <GridRow style={{ height: "20%", marginTop: "10px" }}>
                   <Label
                     size="large"
                     as="a"
@@ -81,7 +81,7 @@ export default function BookClubList({ bookClubs }: Props) {
                   </Label>
                 </GridRow>
               </GridColumn>
-              <GridColumn width={3}>
+              <GridColumn width={2}>
                 <GridRow style={{ height: "20%" }}>
                   <Button
                     as={Link}
