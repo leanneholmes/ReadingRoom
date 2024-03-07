@@ -2,10 +2,11 @@ import { useField } from "formik";
 import { Form, Header, Label } from "semantic-ui-react";
 
 interface Props {
-  placeholder: string;
+  placeholder?: string;
   name: string;
   label?: string;
   type?: string;
+  id?: string;
 }
 
 export default function CustomTextInput(props: Props) {

@@ -30,12 +30,14 @@ export default observer(function LoginForm() {
               placeholder="Email"
               name="email"
               label="Email Address"
+              id="email"
             />
             <CustomTextInput
               placeholder="Password"
               name="password"
               label="Password"
               type="password"
+              id="password"
             />
             <ErrorMessage
               name="error"
@@ -54,6 +56,7 @@ export default observer(function LoginForm() {
               positive
               content="Sign In"
               type="submit"
+              id="submit"
               fluid
             />
           </Form>

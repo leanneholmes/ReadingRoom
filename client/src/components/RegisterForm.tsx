@@ -37,13 +37,22 @@ export default observer(function RegsiterForm() {
           <Header as="h2" textAlign="center">
             Create an Account
           </Header>
-          <CustomTextInput placeholder="Display Name" name="displayName" />
-          <CustomTextInput placeholder="Username" name="username" />
-          <CustomTextInput placeholder="Email" name="email" />
+          <CustomTextInput
+            placeholder="Display Name"
+            name="displayName"
+            id="displayName"
+          />
+          <CustomTextInput
+            placeholder="Username"
+            name="username"
+            id="username"
+          />
+          <CustomTextInput placeholder="Email" name="email" id="email" />
           <CustomTextInput
             placeholder="Password"
             name="password"
             type="password"
+            id="password"
           />
           <ErrorMessage
             name="error"
@@ -58,6 +67,7 @@ export default observer(function RegsiterForm() {
             positive
             content="Sign Up"
             type="submit"
+            id="submit"
             fluid
           />
         </Form>

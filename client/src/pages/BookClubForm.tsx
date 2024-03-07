@@ -90,12 +90,14 @@ export default observer(function CreateBookClub() {
                 name="name"
                 placeholder="Name"
                 label="Book Club Name"
+                id="name"
               />
               <CustomTextArea
                 rows={3}
                 name="description"
                 placeholder="Description"
                 label="Club Description"
+                id="description"
               />
 
               <CustomSelectInput
@@ -103,12 +105,14 @@ export default observer(function CreateBookClub() {
                 placeholder="Category"
                 name="category"
                 label="Category"
+                id="category"
               />
               <CustomSelectInput
                 options={readingPaceOptions}
                 placeholder="Reading Pace"
                 name="readingPace"
                 label="Reading Pace"
+                id="readingPace"
               />
               <Header
                 as="h4"
@@ -122,21 +126,25 @@ export default observer(function CreateBookClub() {
                 timeCaption="time"
                 dateFormat="MMMM dd, yyyy - h:mm aa"
                 minDate={new Date()}
+                id="nextMeeting"
               />
               <CustomTextInput
                 placeholder="Meeting Link"
                 name="meetingLink"
                 label="Meeting Link"
+                id="meetingLink"
               />
               <CustomTextInput
                 placeholder="Current Book"
                 name="currentBook"
                 label="Current Book"
+                id="currentBook"
               />
               <CustomTextInput
                 placeholder="Book Author"
                 name="currentBookAuthor"
                 label="Book Author"
+                id="bookAuthor"
               />
               {bookClub.id ? (
                 <>
@@ -148,12 +156,14 @@ export default observer(function CreateBookClub() {
                     className="btn-dark-green"
                     type="submit"
                     content="Submit"
+                    id="submit"
                   />
                   <Button
                     floated="right"
                     color="grey"
                     content="Cancel"
                     onClick={handleCancel}
+                    id="cancel"
                   />
                 </>
               ) : (
@@ -166,6 +176,7 @@ export default observer(function CreateBookClub() {
                     type="submit"
                     className="btn-dark-green"
                     content="Create"
+                    id="create"
                   />
                 </>
               )}

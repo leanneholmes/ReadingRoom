@@ -6,6 +6,7 @@ interface Props {
   name: string;
   options: { text: string; value: string }[];
   label?: string;
+  id?: string;
 }
 
 export default function CustomSelectInput(props: Props) {
