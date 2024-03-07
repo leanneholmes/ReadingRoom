@@ -1,9 +1,10 @@
-import { makeAutoObservable, runInAction } from "mobx";
+import { makeAutoObservable, reaction, runInAction } from "mobx";
 import { BookClub, BookClubFormValues } from "../models/bookclub";
 import agent from "../utils/agent";
 import { v4 as uuid } from "uuid";
 import { store } from "./store";
 import { Profile } from "../models/profile";
+import { Pagination, PagingParams } from "../models/pagination";
 
 export default class BookClubStore {
   bookClubRegistry = new Map<string, BookClub>();
@@ -12,28 +13,88 @@ export default class BookClubStore {
   bookClubs: BookClub[] = [];
   loadingInitial = false;
   loading = false;
+  pagination: Pagination | null = null;
+  pagingParams = new PagingParams();
+  predicate = new Map().set("all", true);
 
   constructor() {
     makeAutoObservable(this);
+
+    reaction(
+      () => this.predicate.keys(),
+      () => {
+        this.pagingParams = new PagingParams();
+        this.bookClubRegistry.clear();
+        this.loadBookClubs();
+      }
+    );
+  }
+
+  setPagingParams = (pagingParams: PagingParams) => {
+    this.pagingParams = pagingParams;
+  };
+
+  setPredicate = (predicate: string, value: string) => {
+    const resetPredicate = () => {
+      this.predicate.forEach((value, key) => {
+        this.predicate.delete(key);
+      });
+    };
+    switch (predicate) {
+      case "all":
+        resetPredicate();
+        this.predicate.set("all", true);
+        break;
+      case "isMember":
+        resetPredicate();
+        this.predicate.set("isGoing", true);
+        break;
+      case "isOwner":
+        resetPredicate();
+        this.predicate.set("isHost", true);
+        break;
+      case "Category":
+        this.predicate.delete("Category");
+        this.predicate.set("Category", value);
+        break;
+      case "ReadingPace":
+        this.predicate.delete("ReadingPace");
+        this.predicate.set("ReadingPace", value);
+        break;
+    }
+  };
+
+  get axiosParams() {
+    const params = new URLSearchParams();
+    params.append("pageNumber", this.pagingParams.pageNumber.toString());
+    params.append("pagesize", this.pagingParams.pageSize.toString());
+    this.predicate.forEach((value, key) => {
+      params.append(key, value);
+    });
+    return params;
   }
 
   get bookClubsAsMap() {
-    // Possibly add sorting logic here
     return Array.from(this.bookClubRegistry.values());
   }
 
   loadBookClubs = async () => {
     this.setLoadingInitial(true);
     try {
-      const bookClubs = await agent.BookClubs.list();
-      bookClubs.forEach((bookClub) => {
+      const result = await agent.BookClubs.list(this.axiosParams);
+      result.data.forEach((bookClub) => {
         this.setBookClub(bookClub);
       });
+      this.setPagination(result.pagination);
       this.setLoadingInitial(false);
     } catch (error) {
       console.log(error);
       this.setLoadingInitial(false);
     }
+  };
+
+  setPagination = (pagination: Pagination) => {
+    this.pagination = pagination;
   };
 
   selectBookClub = (id: string) => {

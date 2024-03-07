@@ -9,12 +9,9 @@ import {
   Label,
   Icon,
   Segment,
-  Select,
 } from "semantic-ui-react";
 import { BookClub } from "../models/bookclub";
 import { Link } from "react-router-dom";
-import { categoryOptions } from "../options/CategoryOptions";
-import { readingPaceOptions } from "../options/ReadingPaceOptions";
 
 interface Props {
   bookClubs: BookClub[];
@@ -23,45 +20,23 @@ interface Props {
 export default function BookClubList({ bookClubs }: Props) {
   return (
     <>
-      <Select
-        options={categoryOptions}
-        placeholder="Filter by Category"
-        name="category"
-        style={{ backgroundColor: "#f3f4f6", borderColor: "#f3f4f6" }}
-      />
-      <Select
-        options={readingPaceOptions}
-        placeholder="Filter by Pace"
-        name="category"
-        style={{
-          backgroundColor: "#f3f4f6",
-          borderColor: "#f3f4f6",
-          marginLeft: "10px",
-        }}
-      />
-      <Button
-        color="black"
-        className="btn-dark-blue"
-        content="Reset Filters"
-        style={{ marginLeft: "10px" }}
-      />
       {bookClubs.map((bookclub) => (
-        <Segment style={{ marginBottom: "25px" }}>
+        <Segment style={{ marginBottom: "25px" }} key={bookclub.id}>
           <Grid>
             <GridRow key={bookclub.id} stretched style={{ fontSize: "1.05em" }}>
               <GridColumn width={4}>
                 <Image src={`/assets/${bookclub.category}.png`} />
               </GridColumn>
-              <GridColumn width={9}>
+              <GridColumn width={10}>
                 <GridRow style={{ height: "30%" }}>
                   <Header size="large">{bookclub.name}</Header>
                   {bookclub.members?.length}{" "}
                   {bookclub.members?.length === 1 ? "Member" : "Members"}
                 </GridRow>
                 <GridRow style={{ height: "50%", marginTop: "10px" }}>
-                  <p>{bookclub.description}</p>
-                  <p>
-                    {bookclub.isOwner && (
+                  {bookclub.description}
+                  {bookclub.isOwner && (
+                    <div style={{ marginTop: "8px" }}>
                       <Item.Description>
                         <Label
                           basic
@@ -71,8 +46,10 @@ export default function BookClubList({ bookClubs }: Props) {
                           You are the owner of this club
                         </Label>
                       </Item.Description>
-                    )}
-                    {bookclub.isMember && !bookclub.isOwner && (
+                    </div>
+                  )}
+                  {bookclub.isMember && !bookclub.isOwner && (
+                    <div style={{ marginTop: "8px" }}>
                       <Item.Description>
                         <Label
                           basic
@@ -82,10 +59,10 @@ export default function BookClubList({ bookClubs }: Props) {
                           You are a member of this club
                         </Label>
                       </Item.Description>
-                    )}
-                  </p>
+                    </div>
+                  )}
                 </GridRow>
-                <GridRow style={{ height: "20%" }}>
+                <GridRow style={{ height: "20%", marginTop: "10px" }}>
                   <Label
                     size="large"
                     as="a"
@@ -104,7 +81,7 @@ export default function BookClubList({ bookClubs }: Props) {
                   </Label>
                 </GridRow>
               </GridColumn>
-              <GridColumn width={3}>
+              <GridColumn width={2}>
                 <GridRow style={{ height: "20%" }}>
                   <Button
                     as={Link}
