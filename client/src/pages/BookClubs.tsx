@@ -8,6 +8,7 @@ import { PagingParams } from "../models/pagination";
 import InfiniteScroll from "react-infinite-scroller";
 import { categoryOptions } from "../options/CategoryOptions";
 import { readingPaceOptions } from "../options/ReadingPaceOptions";
+import { Navigate } from "react-router-dom";
 
 function BookClubs(this: any) {
   const { bookClubStore } = useStore();

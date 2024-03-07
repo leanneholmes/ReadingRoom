@@ -22,8 +22,9 @@ export default observer(function NavBar() {
         as={NavLink}
         to="/bookclubs"
         name="View Book Clubs"
+        id="bookclubs"
       ></Menu.Item>
-      <Menu.Item as={NavLink} to="/create" name="Create a Club"></Menu.Item>
+      <Menu.Item as={NavLink} to="/create" name="Create a Club" id="create"></Menu.Item>
       <MenuMenu position="right">
         <MenuItem style={{ position: "relative", top: "7px" }}>
           <Image
@@ -38,8 +39,14 @@ export default observer(function NavBar() {
                 to={`/profiles/${user?.username}`}
                 text="My Profile"
                 icon="user"
+                id="profile"
               />
-              <Dropdown.Item onClick={logout} text="Logout" icon="log out" />
+              <Dropdown.Item
+                onClick={logout}
+                text="Logout"
+                icon="log out"
+                id="logout"
+              />
             </Dropdown.Menu>
           </Dropdown>
         </MenuItem>

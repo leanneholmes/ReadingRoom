@@ -99,12 +99,14 @@ export default observer(function BookClubDetails() {
                   color="black"
                   content="Edit"
                   className="btn-dark-blue"
+                  id="edit"
                 />
                 <Button
                   onClick={handleDelete}
                   color="red"
                   content="Delete"
                   className="btn-dark-red"
+                  id="delete"
                 />
               </>
             ) : null}
@@ -116,6 +118,7 @@ export default observer(function BookClubDetails() {
                   color="red"
                   className="btn-dark-red"
                   content="Leave Club"
+                  id="leave"
                 />
               </>
             ) : null}
@@ -127,6 +130,7 @@ export default observer(function BookClubDetails() {
                   color="blue"
                   content="Join Club"
                   className="btn-dark-blue"
+                  id="join"
                 />
               </>
             ) : null}

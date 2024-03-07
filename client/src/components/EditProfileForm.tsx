@@ -26,8 +26,17 @@ export default observer(function ProfileEditForm({ setEditMode }: Props) {
     >
       {({ isSubmitting, isValid, dirty }) => (
         <Form className="ui form" placeholder={undefined}>
-          <CustomTextInput placeholder="Display Name" name="displayName" />
-          <CustomTextArea rows={3} placeholder="Add your bio" name="bio" />
+          <CustomTextInput
+            placeholder="Display Name"
+            name="displayName"
+            id="displayName"
+          />
+          <CustomTextArea
+            rows={3}
+            placeholder="Add your bio"
+            name="bio"
+            id="bio"
+          />
           <Button
             positive
             className="btn-dark-green"
@@ -35,6 +44,7 @@ export default observer(function ProfileEditForm({ setEditMode }: Props) {
             loading={isSubmitting}
             content="Save Changes"
             floated="left"
+            id="submit"
             disabled={!isValid || !dirty}
           />
         </Form>

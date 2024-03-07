@@ -25,7 +25,12 @@ export default observer(function ProfilePage() {
   function myCustomButton() {
     if (files.length > 0)
       return (
-        <Button positive className="btn-dark-green" onClick={handleConfirm}>
+        <Button
+          positive
+          className="btn-dark-green"
+          id="upload"
+          onClick={handleConfirm}
+        >
           Upload
         </Button>
       );
@@ -34,6 +39,7 @@ export default observer(function ProfilePage() {
         disabled
         positive
         className="btn-dark-green"
+        id="upload"
         onClick={handleConfirm}
       >
         Upload
@@ -108,6 +114,7 @@ export default observer(function ProfilePage() {
                 icon
                 color="teal"
                 style={{ position: "absolute", left: "60%" }}
+                id="editAvatar"
                 onClick={showConfirm}
               >
                 <Icon name="pencil" />
@@ -161,11 +168,12 @@ export default observer(function ProfilePage() {
                 content="Edit Profile"
                 onClick={handleEdit}
                 className="btn-dark-blue"
+                id="edit"
               />
             )}
 
             {isCurrentUser && editMode && (
-              <Button content="Cancel" onClick={handleEdit} />
+              <Button content="Cancel" onClick={handleEdit} id="cancel" />
             )}
           </Grid.Column>
         </Grid.Row>
