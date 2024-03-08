@@ -4,9 +4,10 @@ describe("register flow", () => {
       "registerRequest"
     );
 
-    cy.intercept("GET", "http://localhost:5000/api/bookclubs").as(
-      "bookclubsLoad"
-    );
+    cy.intercept(
+      "GET",
+      "http://localhost:5000/api/bookclubs?pageNumber=1&pagesize=20&all=true"
+    ).as("bookclubsLoad");
 
     cy.intercept("GET", "http://localhost:5000/api/account").as("accountLoad");
 

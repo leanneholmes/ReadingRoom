@@ -1,5 +1,6 @@
-describe("login flow", () => {
-  it("logs in", () => {
+describe("viewing a book club", () => {
+  it("views a book club", () => {
+    //login first
     cy.intercept("POST", "http://localhost:5000/api/account/login").as(
       "loginRequest"
     );
@@ -24,21 +25,19 @@ describe("login flow", () => {
     cy.wait("@bookclubsLoad").its("response.statusCode").should("eq", 200);
 
     cy.wait("@accountLoad").its("response.statusCode").should("eq", 200);
-  });
 
-  it("enters wrong username and password", () => {
-    cy.intercept("POST", "http://localhost:5000/api/account/login").as(
-      "loginRequest"
-    );
+    cy.get(".segment")
+      .contains("Historical Fiction Voyage")
+      .get("a")
+      .contains("View Club")
+      .click();
 
-    cy.visit("localhost:3000");
-
-    cy.get("input[name=email]").type("wrong@test.com");
-
-    cy.get("input[name=password]").type("Pa$$w0rd??");
-
-    cy.get("button[type=submit]").click();
-
-    cy.wait("@loginRequest").its("response.statusCode").should("eq", 401);
+    // check original
+    cy.get("h4")
+      .contains("Club Description")
+      .parent()
+      .within(() => {
+        cy.contains("Exploring the world of classic literature");
+      });
   });
 });

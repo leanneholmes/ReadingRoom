@@ -5,9 +5,10 @@ describe("book club creation", () => {
       "loginRequest"
     );
 
-    cy.intercept("GET", "http://localhost:5000/api/bookclubs").as(
-      "bookclubsLoad"
-    );
+    cy.intercept(
+      "GET",
+      "http://localhost:5000/api/bookclubs?pageNumber=1&pagesize=20&all=true"
+    ).as("bookclubsLoad");
 
     cy.intercept("GET", "http://localhost:5000/api/account").as("accountLoad");
 
@@ -27,19 +28,23 @@ describe("book club creation", () => {
 
     // logged in, now create club
 
+    cy.intercept("POST", "http://localhost:5000/api/bookclubs").as(
+      "clubCreateRequest"
+    );
+
     cy.get("a").contains("Create A Club").click();
 
     cy.get("input[name=name]").type("new club");
 
     cy.get("textarea[name=description]").type("a new club for readers");
 
+    cy.get("h4").contains("Category").siblings("div[role=listbox]").click();
     cy.get("span").contains("Mystery").click();
 
+    cy.get("h4").contains("Reading Pace").siblings("div[role=listbox]").click();
     cy.get("span").contains("Slow").click();
 
-    cy.get("div").contains("21").click();
-
-    cy.get("div").contains("1:30 AM").click();
+    cy.get("input[name=nextMeeting]").type("March 18, 2024 1:30AM");
 
     cy.get("input[name=meetingLink]").type("zoom.ca");
 
@@ -48,5 +53,7 @@ describe("book club creation", () => {
     cy.get("input[name=currentBookAuthor").type("some author");
 
     cy.get("button[type=submit]").click();
+
+    cy.wait("@clubCreateRequest").its("response.statusCode").should("eq", 200);
   });
 });
