@@ -66,6 +66,15 @@ textarea {
   margin-right: 5px !important;
 }
 
+.header.item {
+  /* font-family: "Playfair" !important;
+  font-weight: 600 !important; */
+  font-size: 15pt !important;
+  position: relative;
+  top: 6px !important;
+  margin-right: 12px !important;
+}
+
 .react-datepicker-wrapper {
   width: 100%;
 }
