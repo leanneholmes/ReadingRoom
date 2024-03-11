@@ -78,3 +78,8 @@ textarea {
 .react-datepicker-wrapper {
   width: 100%;
 }
+
+.login-image {
+  background-image: url("/assets/landing.jpg");
+  background-size: cover;
+}
