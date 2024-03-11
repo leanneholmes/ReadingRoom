@@ -10,27 +10,27 @@ namespace Application.BookClubs
 {
     public class Create
     {
-        public class Command : IRequest<Result<Unit>>
+        public class Command : IRequest<Result<Unit>> //MediatR Unit means not returning anything
         {
             public BookClub BookClub { get; set; }
         }
 
         public class CommandValidator : AbstractValidator<Command>
         {
-            public CommandValidator(DataContext context)
+            public CommandValidator()
             {
-                RuleFor(x => x.BookClub).SetValidator(new BookClubValidator(context));
+                RuleFor(x => x.BookClub).SetValidator(new BookClubValidator());
             }
         }
 
         public class Handler : IRequestHandler<Command, Result<Unit>>
         {
-            private readonly DataContext _context;
-            private readonly IUserAccessor _userAccessor;
+        private readonly DataContext _context;
+        private readonly IUserAccessor _userAccessor;
             public Handler(DataContext context, IUserAccessor userAccessor)
             {
-                _userAccessor = userAccessor;
-                _context = context;
+            _userAccessor = userAccessor;
+            _context = context;
             }
 
             public async Task<Result<Unit>> Handle(Command request, CancellationToken cancellationToken)
@@ -50,7 +50,7 @@ namespace Application.BookClubs
 
                 var result = await _context.SaveChangesAsync() > 0;
 
-                if (!result) return Result<Unit>.Failure("Failed to create book club");
+                if (!result) return Result<Unit>.Failure("Failred to create book club");
 
                 return Result<Unit>.Success(Unit.Value);
             }

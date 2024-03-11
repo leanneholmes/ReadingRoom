@@ -25,6 +25,7 @@ function App() {
     return <LoadingComponent content="Loading app..." />;
 
   if (!commonStore.token && location.pathname !== "/") {
+    // Redirect unauthenticated users to the home page ("/")
     return <Navigate to="/" />;
   }
 

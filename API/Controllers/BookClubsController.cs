@@ -8,13 +8,13 @@ namespace API.Controllers
 {
     public class BookClubsController : BaseApiController
     {
-        [HttpGet]
+        [HttpGet] //api/bookclubs
         public async Task<IActionResult> GetBookClubs([FromQuery]BookClubParams param)
         {
             return HandlePagedResult(await Mediator.Send(new List.Query{Params = param}));
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}")] //api/bookclubs/id
         public async Task<IActionResult> GetBookClub(Guid id)
         {
             return HandleResult(await Mediator.Send(new Details.Query{Id = id}));

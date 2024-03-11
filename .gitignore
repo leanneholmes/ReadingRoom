@@ -5,10 +5,6 @@
 
 appsettings.json
 
-# DB Files 
-./API/readingroom.db-shm
-./API/readingroom.db-wal
-
 # User-specific files
 *.rsuser
 *.suo

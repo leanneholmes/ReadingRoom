@@ -45,7 +45,7 @@ export default observer(function CreateBookClub() {
       );
   }, [id, loadBookClub]);
 
-  async function handleFormSubmit(bookClub: BookClubFormValues) {
+  function handleFormSubmit(bookClub: BookClubFormValues) {
     if (!bookClub.id) {
       bookClub.id = uuid();
       createBookClub(bookClub).then(() => navigate(`/bookclub/${bookClub.id}`));

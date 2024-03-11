@@ -6,7 +6,7 @@ import { useState } from "react";
 import RegisterForm from "../components/RegisterForm";
 import { useStore } from "../stores/store";
 
-export default observer(function HomePage() {
+function HomePage() {
   const { userStore } = useStore();
   const { isLoggedIn } = userStore;
   const [loginForm, setLoginForm] = useState(true);
@@ -62,4 +62,4 @@ export default observer(function HomePage() {
   );
 }
 
-);
+export default observer(HomePage);

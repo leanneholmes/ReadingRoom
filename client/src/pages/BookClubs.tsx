@@ -8,6 +8,7 @@ import { PagingParams } from "../models/pagination";
 import InfiniteScroll from "react-infinite-scroller";
 import { categoryOptions } from "../options/CategoryOptions";
 import { readingPaceOptions } from "../options/ReadingPaceOptions";
+import { Navigate } from "react-router-dom";
 
 function BookClubs(this: any) {
   const { bookClubStore } = useStore();
@@ -32,7 +33,7 @@ function BookClubs(this: any) {
   }
 
   function handleCategoryChange(
-    _event: SyntheticEvent<HTMLElement>,
+    _event: SyntheticEvent<HTMLSelectElement>,
     data: any
   ) {
     const selectedCategory = data.value;
@@ -40,7 +41,7 @@ function BookClubs(this: any) {
   }
 
   function handleReadingPaceChange(
-    _event: SyntheticEvent<HTMLElement>,
+    _event: SyntheticEvent<HTMLSelectElement>,
     data: any
   ) {
     const selectedReadingPace = data.value;

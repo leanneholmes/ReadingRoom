@@ -16,9 +16,9 @@ namespace Application.BookClubs
 
         public class CommandValidator : AbstractValidator<Command>
         {
-            public CommandValidator(DataContext context)
+            public CommandValidator()
             {
-                RuleFor(x => x.BookClub).SetValidator(new BookClubValidator(context));
+                RuleFor(x => x.BookClub).SetValidator(new BookClubValidator());
             }
         }        
 
