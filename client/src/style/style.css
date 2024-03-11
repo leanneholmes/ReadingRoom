@@ -53,7 +53,7 @@ textarea {
   background-color: #06282d;
 }
 
-.item.active {
+/* .item.active {
   border-bottom: 2px solid white !important;
   padding-bottom: 5px !important;
   margin-bottom: 7px !important;
@@ -64,7 +64,7 @@ textarea {
   padding-right: 10px !important;
   margin-left: 5px !important;
   margin-right: 5px !important;
-}
+} */
 
 .header.item {
   /* font-family: "Playfair" !important;
@@ -82,4 +82,8 @@ textarea {
 .login-image {
   background-image: url("/assets/landing.jpg");
   background-size: cover;
+}
+
+.pagination {
+  text-align: center;
 }

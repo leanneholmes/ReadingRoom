@@ -79,6 +79,7 @@ export default class BookClubStore {
   }
 
   loadBookClubs = async () => {
+    this.bookClubRegistry.clear();
     this.setLoadingInitial(true);
     try {
       const result = await agent.BookClubs.list(this.axiosParams);

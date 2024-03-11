@@ -1,14 +1,18 @@
 import { SyntheticEvent, useEffect, useState } from "react";
-import { Button, Container, Header, Loader, Select } from "semantic-ui-react";
+import {
+  Button,
+  Container,
+  Header,
+  Pagination,
+  Select,
+} from "semantic-ui-react";
 import BookClubList from "../components/BookClubList";
 import LoadingComponent from "../components/LoadingComponent";
 import { useStore } from "../stores/store";
 import { observer } from "mobx-react-lite";
 import { PagingParams } from "../models/pagination";
-import InfiniteScroll from "react-infinite-scroller";
 import { categoryOptions } from "../options/CategoryOptions";
 import { readingPaceOptions } from "../options/ReadingPaceOptions";
-import { Navigate } from "react-router-dom";
 
 function BookClubs(this: any) {
   const { bookClubStore } = useStore();
@@ -20,12 +24,12 @@ function BookClubs(this: any) {
     predicate,
     setPredicate,
   } = bookClubStore;
-  const [loadingNext, setLoadingNext] = useState(false);
+  const [activePage, setActivePage] = useState(1);
 
-  function handleGetNext() {
-    setLoadingNext(true);
-    setPagingParams(new PagingParams(pagination!.currentPage + 1));
-    loadBookClubs().then(() => setLoadingNext(false));
+  function handlePageChange(_event: SyntheticEvent<HTMLElement>, data: any) {
+    setActivePage(data.activePage);
+    setPagingParams(new PagingParams(data.activePage));
+    loadBookClubs();
   }
 
   function handleReset() {
@@ -33,7 +37,7 @@ function BookClubs(this: any) {
   }
 
   function handleCategoryChange(
-    _event: SyntheticEvent<HTMLSelectElement>,
+    _event: SyntheticEvent<HTMLElement>,
     data: any
   ) {
     const selectedCategory = data.value;
@@ -41,7 +45,7 @@ function BookClubs(this: any) {
   }
 
   function handleReadingPaceChange(
-    _event: SyntheticEvent<HTMLSelectElement>,
+    _event: SyntheticEvent<HTMLElement>,
     data: any
   ) {
     const selectedReadingPace = data.value;
@@ -49,10 +53,11 @@ function BookClubs(this: any) {
   }
 
   useEffect(() => {
+    setPredicate("all", "true");
     loadBookClubs();
   }, [loadBookClubs]);
 
-  if (bookClubStore.loadingInitial && !loadingNext) return <LoadingComponent />;
+  if (bookClubStore.loadingInitial) return <LoadingComponent />;
   return (
     <Container style={{ marginTop: "6em", paddingBottom: "3em" }}>
       <Header as="h1" className="playfair" style={{ marginBottom: "30px" }}>
@@ -87,21 +92,18 @@ function BookClubs(this: any) {
           onClick={handleReset}
         />
       </Container>
-
-      <InfiniteScroll
-        pageStart={0}
-        loadMore={handleGetNext}
-        hasMore={
-          !loadingNext &&
-          !!pagination &&
-          pagination.currentPage < pagination.totalPages
-        }
-        initialLoad={false}
-      >
-        <BookClubList bookClubs={bookClubsAsMap} />
-      </InfiniteScroll>
-      <div style={{ textAlign: "center" }}>
-        <Loader active={loadingNext} />
+      <BookClubList bookClubs={bookClubsAsMap} />
+      <div className="pagination">
+        {pagination && (
+          <Pagination
+            activePage={activePage}
+            boundaryRange={0}
+            defaultActivePage={1}
+            siblingRange={1}
+            totalPages={pagination.totalPages}
+            onPageChange={handlePageChange}
+          />
+        )}
       </div>
     </Container>
   );
