@@ -14,6 +14,7 @@ export default observer(function NavBar() {
       fixed="top"
       style={{ fontSize: "12pt", height: "40px" }}
       inverted
+      className="navbar"
     >
       <MenuMenu position="left" style={{ position: "relative", top: "2px" }}>
         <Menu.Item header>Reading Room</Menu.Item>
@@ -24,7 +25,12 @@ export default observer(function NavBar() {
         name="View Book Clubs"
         id="bookclubs"
       ></Menu.Item>
-      <Menu.Item as={NavLink} to="/create" name="Create a Club" id="create"></Menu.Item>
+      <Menu.Item
+        as={NavLink}
+        to="/create"
+        name="Create a Club"
+        id="create"
+      ></Menu.Item>
       <MenuMenu position="right">
         <MenuItem style={{ position: "relative", top: "7px" }}>
           <Image

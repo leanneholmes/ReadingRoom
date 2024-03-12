@@ -49,30 +49,29 @@ textarea {
   }
 }
 
-.ui.top.fixed.menu {
-  background-color: #06282d;
+.navbar {
+  background-color: #06282d !important;
 }
 
-/* .item.active {
+.navbar .item.active {
   border-bottom: 2px solid white !important;
   padding-bottom: 5px !important;
   margin-bottom: 7px !important;
 }
 
-.item {
+.navbar .item {
   padding-left: 10px !important;
   padding-right: 10px !important;
   margin-left: 5px !important;
   margin-right: 5px !important;
-} */
+}
 
 .header.item {
-  /* font-family: "Playfair" !important;
-  font-weight: 600 !important; */
+  font-weight: 400 !important;
   font-size: 15pt !important;
   position: relative;
   top: 6px !important;
-  margin-right: 12px !important;
+  margin-right: 20px !important;
 }
 
 .react-datepicker-wrapper {
