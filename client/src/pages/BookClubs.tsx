@@ -68,7 +68,7 @@ function BookClubs(this: any) {
           options={categoryOptions}
           value={predicate.get("Category") || ""}
           onChange={handleCategoryChange}
-          placeholder="Filter by Category"
+          placeholder="Filter by Genre"
           name="category"
           style={{ backgroundColor: "#f3f4f6", borderColor: "#f3f4f6" }}
         />

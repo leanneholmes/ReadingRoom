@@ -14,6 +14,7 @@ namespace Persistence
         public DbSet<BookClub> BookClubs { get; set; }
         public DbSet<BookClubMember> BookClubMembers { get; set; }
         public DbSet<Photo> Photos { get; set;}
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -30,6 +31,11 @@ namespace Persistence
                 .HasOne(u => u.BookClub)
                 .WithMany(a => a.Members)
                 .HasForeignKey(aa => aa.BookClubId);
+
+            builder.Entity<Comment>()
+                .HasOne(a => a.BookClub)
+                .WithMany(c => c.Comments)
+                .OnDelete(DeleteBehavior.Cascade); // Deleting a book club will delete all comments
         }
     }
 }
