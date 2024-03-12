@@ -32,11 +32,19 @@ export default class CommentStore {
         );
 
       this.hubConnnection.on("LoadComments", (comments: ChatComment[]) => {
-        runInAction(() => (this.comments = comments));
+        runInAction(() => {
+          comments.forEach((comment) => {
+            comment.createdAt = new Date(comment.createdAt + "Z");
+          });
+          this.comments = comments;
+        });
       });
 
       this.hubConnnection.on("ReceiveComment", (comment: ChatComment) => {
-        runInAction(() => this.comments.push(comment));
+        runInAction(() => {
+          comment.createdAt = new Date(comment.createdAt);
+          this.comments.unshift(comment);
+        });
       });
     }
   };
@@ -50,5 +58,14 @@ export default class CommentStore {
   clearComments = () => {
     this.comments = [];
     this.stopHubConnection();
+  };
+
+  addComment = async (values: { body: string; bookClubId?: string }) => {
+    values.bookClubId = store.bookClubStore.selectedBookClub?.id;
+    try {
+      await this.hubConnnection?.invoke("SendComment", values);
+    } catch (error) {
+      console.log(error);
+    }
   };
 }

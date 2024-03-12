@@ -1,7 +1,29 @@
 import { observer } from "mobx-react-lite";
-import { Segment, Header, Comment, Form, Button } from "semantic-ui-react";
+import { Segment, Header, Comment, Button, Loader } from "semantic-ui-react";
+import { useStore } from "../stores/store";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Formik, Form, Field, FieldProps } from "formik";
+import CustomTextArea from "./form/CustomTextArea";
+import * as Yup from "yup";
+import { formatDistanceToNow } from "date-fns";
 
-export default observer(function BookClubChat() {
+interface Props {
+  bookClubId: string;
+}
+
+export default observer(function BookClubChat({ bookClubId }: Props) {
+  const { commentStore } = useStore();
+
+  useEffect(() => {
+    if (bookClubId) {
+      commentStore.createHubConnection(bookClubId);
+    }
+    return () => {
+      commentStore.clearComments();
+    };
+  }, [commentStore, bookClubId]);
+
   return (
     <div style={{ width: "85%", marginTop: "20px" }}>
       <Segment
@@ -14,45 +36,56 @@ export default observer(function BookClubChat() {
       </Segment>
       <Segment attached clearing style={{ marginBottom: "20px" }}>
         <Comment.Group>
-          <Comment>
-            <Comment.Avatar src="/assets/user.png" />
-            <Comment.Content>
-              <Comment.Author as="a">Matt</Comment.Author>
-              <Comment.Metadata>
-                <div>Today at 5:42PM</div>
-              </Comment.Metadata>
-              <Comment.Text>How artistic!</Comment.Text>
-              <Comment.Actions>
-                <Comment.Action>Reply</Comment.Action>
-              </Comment.Actions>
-            </Comment.Content>
-          </Comment>
+          {commentStore.comments.map((comment) => (
+            <Comment key={comment.id} style={{ marginBottom: "10px" }}>
+              <Comment.Avatar src={comment.avatar || "/assets/user.png"} />
+              <Comment.Content>
+                <Comment.Author as={Link} to={`/profiles/${comment.username}`}>
+                  {comment.displayName}
+                </Comment.Author>
+                <Comment.Metadata>
+                  <div>{formatDistanceToNow(comment.createdAt)} ago</div>
+                </Comment.Metadata>
+                <Comment.Text style={{ whiteSpace: "pre-wrap" }}>
+                  {comment.body}
+                </Comment.Text>
+              </Comment.Content>
+            </Comment>
+          ))}
 
-          <Comment>
-            <Comment.Avatar src="/assets/user.png" />
-            <Comment.Content>
-              <Comment.Author as="a">Joe Henderson</Comment.Author>
-              <Comment.Metadata>
-                <div>5 days ago</div>
-              </Comment.Metadata>
-              <Comment.Text>Dude, this is awesome. Thanks so much</Comment.Text>
-              <Comment.Actions>
-                <Comment.Action>Reply</Comment.Action>
-              </Comment.Actions>
-            </Comment.Content>
-          </Comment>
-
-          <Form reply>
-            <Form.TextArea style={{ height: "100px" }} />
-            <Button
-              floated="right"
-              content="Post Message"
-              labelPosition="left"
-              icon="edit"
-              primary
-              className="btn-dark-blue"
-            />
-          </Form>
+          <Formik
+            onSubmit={(values, { resetForm }) =>
+              commentStore.addComment(values).then(() => resetForm())
+            }
+            initialValues={{ body: "" }}
+            validationSchema={Yup.object({ body: Yup.string().required() })}
+          >
+            {({ isSubmitting, isValid, handleSubmit }) => (
+              <Form className="ui form" placeholder={undefined}>
+                <Field name="body">
+                  {(props: FieldProps) => (
+                    <div style={{ position: "relative" }}>
+                      <Loader active={isSubmitting} />
+                      <textarea
+                        placeholder="Write your message (Hit enter to submit)"
+                        rows={2}
+                        {...props.field}
+                        onKeyDown={(e) => {
+                          if (e.key == "Enter" && e.shiftKey) {
+                            return;
+                          }
+                          if (e.key === "Enter" && !e.shiftKey) {
+                            e.preventDefault();
+                            isValid && handleSubmit();
+                          }
+                        }}
+                      />
+                    </div>
+                  )}
+                </Field>
+              </Form>
+            )}
+          </Formik>
         </Comment.Group>
       </Segment>
     </div>

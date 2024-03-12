@@ -29,12 +29,14 @@ export default observer(function BookClubDetails() {
     deleteBookClub,
     updateMembership,
     loading,
+    clearSelectedBookClub,
   } = bookClubStore;
   const { id } = useParams();
 
   useEffect(() => {
     if (id) loadBookClub(id);
-  }, [id, loadBookClub]);
+    return () => clearSelectedBookClub();
+  }, [id, loadBookClub, clearSelectedBookClub]);
 
   function handleDelete() {
     if (confirm("Are you sure you want to delete this club?") == true) {
@@ -147,7 +149,7 @@ export default observer(function BookClubDetails() {
               <Icon name="time" />
               {bookClub.readingPace} Pace
             </Label>
-            <BookClubChat />
+            <BookClubChat bookClubId={bookClub.id} />
           </GridColumn>
         </GridRow>
       </Grid>
