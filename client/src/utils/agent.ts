@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { router } from "../router/Routes";
 import { store } from "../stores/store";
 import { User, UserFormValues } from "../models/user";
-import { Photo, Profile } from "../models/profile";
+import { Photo, Profile, UserBookClub } from "../models/profile";
 import { PaginatedResult } from "../models/pagination";
 
 const sleep = (delay: number) => {
@@ -116,6 +116,8 @@ const Profiles = {
   },
   updateProfile: (profile: Partial<Profile>) =>
     requests.put(`/profiles`, profile),
+  listBookClubs: (username: string) =>
+    requests.get<UserBookClub[]>(`/profiles/${username}/bookclubs`),
 };
 
 const agent = {

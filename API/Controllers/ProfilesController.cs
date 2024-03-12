@@ -16,5 +16,11 @@ namespace API.Controllers
         {
             return HandleResult(await Mediator.Send(command));
         }
+
+        [HttpGet("{username}/bookclubs")]
+        public async Task<IActionResult> GetUserBookClubs(string username)
+        {
+            return HandleResult(await Mediator.Send(new ListBookClubs.Query{ Username = username }));
+        }
     }
 }

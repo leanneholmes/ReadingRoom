@@ -24,3 +24,10 @@ export interface Photo {
   id: string;
   url: string;
 }
+
+export interface UserBookClub {
+  id: string;
+  name: string;
+  category: string;
+  readingPace: string;
+}

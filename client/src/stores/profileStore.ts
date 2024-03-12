@@ -1,5 +1,5 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import { Profile } from "../models/profile";
+import { Profile, UserBookClub } from "../models/profile";
 import agent from "../utils/agent";
 import { store } from "./store";
 
@@ -8,6 +8,8 @@ export default class ProfileStore {
   loadingProfile = false;
   uploading = false;
   loading = false;
+  userBookClubs: UserBookClub[] = [];
+  loadingBookClubs = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -70,6 +72,22 @@ export default class ProfileStore {
     } catch (error) {
       console.log(error);
       runInAction(() => (this.loading = false));
+    }
+  };
+
+  loadUserBookClubs = async (username: string) => {
+    this.loadingBookClubs = true;
+    try {
+      const bookClubs = await agent.Profiles.listBookClubs(username);
+      runInAction(() => {
+        this.userBookClubs = bookClubs;
+        this.loadingBookClubs = false;
+      });
+    } catch (error) {
+      console.log(error);
+      runInAction(() => {
+        this.loadingBookClubs = false;
+      });
     }
   };
 }

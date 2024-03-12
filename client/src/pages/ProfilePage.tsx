@@ -6,6 +6,7 @@ import LoadingComponent from "../components/LoadingComponent";
 import { observer } from "mobx-react-lite";
 import PhotoWidgetDropzone from "../components/PhotoWidgetDropzone";
 import EditProfileForm from "../components/EditProfileForm";
+import ProfileBookClubs from "../components/ProfileBookClubs";
 
 export default observer(function ProfilePage() {
   const [open, setOpen] = useState(false);
@@ -102,7 +103,7 @@ export default observer(function ProfilePage() {
         }}
       >
         <Grid.Row>
-          <Grid.Column width={3}>
+          <Grid.Column width={3} style={{ position: "relative" }}>
             <Image
               avatar
               size="small"
@@ -113,7 +114,12 @@ export default observer(function ProfilePage() {
                 circular
                 icon
                 color="teal"
-                style={{ position: "absolute", left: "60%" }}
+                style={{
+                  position: "absolute",
+                  left: "60%",
+                  top: "0%",
+                  transform: "translate(0%, 0%)",
+                }}
                 id="editAvatar"
                 onClick={showConfirm}
               >
@@ -176,6 +182,9 @@ export default observer(function ProfilePage() {
               <Button content="Cancel" onClick={handleEdit} id="cancel" />
             )}
           </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <ProfileBookClubs username={profile?.username} />
         </Grid.Row>
       </Grid>
     </>

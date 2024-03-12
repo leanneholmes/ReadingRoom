@@ -83,9 +83,11 @@ export default class BookClubStore {
     this.setLoadingInitial(true);
     try {
       const result = await agent.BookClubs.list(this.axiosParams);
-      result.data.forEach((bookClub) => {
-        this.setBookClub(bookClub);
-      });
+      if (result.data) {
+        result.data.forEach((bookClub) => {
+          this.setBookClub(bookClub);
+        });
+      }
       this.setPagination(result.pagination);
       this.setLoadingInitial(false);
     } catch (error) {
