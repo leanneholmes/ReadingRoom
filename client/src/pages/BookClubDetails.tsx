@@ -17,6 +17,7 @@ import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { format } from "date-fns";
 import BookClubMemberList from "../components/BookClubMemberList";
+import BookClubChat from "../components/BookClubChat";
 
 export default observer(function BookClubDetails() {
   const { bookClubStore } = useStore();
@@ -28,12 +29,14 @@ export default observer(function BookClubDetails() {
     deleteBookClub,
     updateMembership,
     loading,
+    clearSelectedBookClub,
   } = bookClubStore;
   const { id } = useParams();
 
   useEffect(() => {
     if (id) loadBookClub(id);
-  }, [id, loadBookClub]);
+    return () => clearSelectedBookClub();
+  }, [id, loadBookClub, clearSelectedBookClub]);
 
   function handleDelete() {
     if (confirm("Are you sure you want to delete this club?") == true) {
@@ -55,18 +58,75 @@ export default observer(function BookClubDetails() {
             <Image src={`/assets/${bookClub.category}.png`} />
             <BookClubMemberList bookClub={bookClub!} />
           </GridColumn>
-          <GridColumn width={8}>
-            <Header as="h2" style={{ marginBottom: "3px", color: "#384776" }}>
-              {bookClub.name}
-            </Header>
-            <div>
-              Owned by{" "}
-              <Link
-                to={`/profiles/${bookClub.owner?.username}`}
-                style={{ color: "#384776" }}
-              >
-                <strong>{bookClub.owner?.displayName}</strong>
-              </Link>
+          <GridColumn width={11}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
+              <div>
+                <Header
+                  as="h2"
+                  style={{ marginBottom: "3px", color: "#384776" }}
+                >
+                  {bookClub.name}
+                </Header>
+                <div>
+                  Owned by{" "}
+                  <Link
+                    to={`/profiles/${bookClub.owner?.username}`}
+                    style={{ color: "#384776" }}
+                  >
+                    <strong>{bookClub.owner?.displayName}</strong>
+                  </Link>
+                </div>
+              </div>
+              <div style={{ float: "right" }}>
+                {bookClub.isOwner ? (
+                  <>
+                    <Button
+                      as={Link}
+                      to={`/edit/${bookClub.id}`}
+                      color="black"
+                      content="Edit"
+                      className="btn-dark-blue"
+                      id="edit"
+                    />
+                    <Button
+                      onClick={handleDelete}
+                      color="red"
+                      content="Delete"
+                      className="btn-dark-red"
+                      id="delete"
+                    />
+                  </>
+                ) : null}
+                {bookClub.isMember && !bookClub.isOwner ? (
+                  <>
+                    <Button
+                      loading={loading}
+                      onClick={updateMembership}
+                      color="red"
+                      className="btn-dark-red"
+                      content="Leave Club"
+                      id="leave"
+                    />
+                  </>
+                ) : null}
+                {!bookClub.isMember && !bookClub.isOwner ? (
+                  <>
+                    <Button
+                      loading={loading}
+                      onClick={updateMembership}
+                      color="blue"
+                      content="Join Club"
+                      className="btn-dark-blue"
+                      id="join"
+                    />
+                  </>
+                ) : null}
+              </div>
             </div>
             <Header as="h4">Club Description</Header>
             {bookClub.description}
@@ -89,51 +149,7 @@ export default observer(function BookClubDetails() {
               <Icon name="time" />
               {bookClub.readingPace} Pace
             </Label>
-          </GridColumn>
-          <GridColumn width={3}>
-            {bookClub.isOwner ? (
-              <>
-                <Button
-                  as={Link}
-                  to={`/edit/${bookClub.id}`}
-                  color="black"
-                  content="Edit"
-                  className="btn-dark-blue"
-                  id="edit"
-                />
-                <Button
-                  onClick={handleDelete}
-                  color="red"
-                  content="Delete"
-                  className="btn-dark-red"
-                  id="delete"
-                />
-              </>
-            ) : null}
-            {bookClub.isMember && !bookClub.isOwner ? (
-              <>
-                <Button
-                  loading={loading}
-                  onClick={updateMembership}
-                  color="red"
-                  className="btn-dark-red"
-                  content="Leave Club"
-                  id="leave"
-                />
-              </>
-            ) : null}
-            {!bookClub.isMember && !bookClub.isOwner ? (
-              <>
-                <Button
-                  loading={loading}
-                  onClick={updateMembership}
-                  color="blue"
-                  content="Join Club"
-                  className="btn-dark-blue"
-                  id="join"
-                />
-              </>
-            ) : null}
+            <BookClubChat bookClubId={bookClub.id} />
           </GridColumn>
         </GridRow>
       </Grid>

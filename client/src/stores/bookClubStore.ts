@@ -171,9 +171,7 @@ export default class BookClubStore {
       newBookClub.members = [member];
       this.setBookClub(newBookClub);
       runInAction(() => {
-        // this.bookClubRegistry.set(bookClub.id, bookClub);
         this.selectedBookClub = newBookClub;
-        // this.bookClubs.push(bookClub);
       });
     } catch (error) {
       console.log(error);
@@ -240,5 +238,9 @@ export default class BookClubStore {
     } finally {
       runInAction(() => (this.loading = false));
     }
+  };
+
+  clearSelectedBookClub = () => {
+    this.selectedBookClub = undefined;
   };
 }

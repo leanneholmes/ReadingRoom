@@ -30,7 +30,7 @@ export default observer(function CreateBookClub() {
   const validationSchema = Yup.object({
     name: Yup.string().required("The book club name is required"),
     description: Yup.string().required("The book club description is required"),
-    category: Yup.string().required("Club category is required"),
+    category: Yup.string().required("Club genre is required"),
     readingPace: Yup.string().required("Reading pace is required"),
     nextMeeting: Yup.string().required("Meeting date is required").nullable(),
     meetingLink: Yup.string().required("A meeting link is required"),
@@ -102,9 +102,9 @@ export default observer(function CreateBookClub() {
 
               <CustomSelectInput
                 options={categoryOptions}
-                placeholder="Category"
+                placeholder="Genre"
                 name="category"
-                label="Category"
+                label="Genre"
                 id="category"
               />
               <CustomSelectInput
