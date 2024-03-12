@@ -25,7 +25,7 @@ export default observer(function BookClubChat({ bookClubId }: Props) {
   }, [commentStore, bookClubId]);
 
   return (
-    <div style={{ width: "85%", marginTop: "20px" }}>
+    <div style={{ width: "80%", marginTop: "20px" }}>
       <Segment
         textAlign="center"
         attached="top"

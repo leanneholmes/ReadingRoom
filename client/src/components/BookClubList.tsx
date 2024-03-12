@@ -18,6 +18,7 @@ interface Props {
 }
 
 export default function BookClubList({ bookClubs }: Props) {
+  if (bookClubs.length < 1) return <>There are no results to display.</>;
   return (
     <>
       {bookClubs.map((bookclub) => (
