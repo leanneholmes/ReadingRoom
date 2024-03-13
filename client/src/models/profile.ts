@@ -30,4 +30,5 @@ export interface UserBookClub {
   name: string;
   category: string;
   readingPace: string;
+  image: string;
 }

@@ -42,7 +42,11 @@ export default observer(function ProfileBookClubs({ username }: Props) {
               style={{ minWidth: 250 }}
             >
               <Image
-                src={`/assets/${bookClub.category}.png`}
+                src={
+                  bookClub.image
+                    ? bookClub.image
+                    : `/assets/${bookClub.category}.png`
+                }
                 style={{ minHeight: 100, objectFit: "cover" }}
               />
               <Card.Content>

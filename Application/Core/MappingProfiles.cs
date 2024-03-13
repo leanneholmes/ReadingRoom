@@ -28,6 +28,7 @@ namespace Application.Core
             CreateMap<BookClubMember, UserBookClubDto>()
                 .ForMember(d => d.Id, o => o.MapFrom(s => s.BookClub.Id))
                 .ForMember(d => d.Name, o => o.MapFrom(s => s.BookClub.Name))
+                .ForMember(d => d.Image, o => o.MapFrom(s => s.BookClub.Image))
                 .ForMember(d => d.Category, o => o.MapFrom(s => s.BookClub.Category))        
                 .ForMember(d => d.ReadingPace, o => o.MapFrom(s => s.BookClub.ReadingPace)); 
         }
