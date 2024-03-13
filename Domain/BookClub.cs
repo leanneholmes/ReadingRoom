@@ -22,7 +22,7 @@ namespace Domain
 
         public ICollection<BookClubMember> Members { get; set; } = new List<BookClubMember>();
 
-        public Photo Logo {get; set;}
+        public string Image { get; set; }
         
         public ICollection<Comment> Comments { get; set; } = new List<Comment>();
     }

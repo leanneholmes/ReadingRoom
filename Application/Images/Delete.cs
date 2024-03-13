@@ -1,32 +1,31 @@
 using Application.Core;
+using Application.Interfaces;
 using MediatR;
 using Persistence;
 
-namespace Application.BookClubs
+namespace Application.Images
 {
     public class Delete
     {
         public class Command: IRequest<Result<Unit>>
         {
-            public Guid Id { get; set; }
+            public string Id { get; set; }
 
             public class Handler : IRequestHandler<Command, Result<Unit>>
             {
                 private readonly DataContext _context;
-                public Handler(DataContext context)
+                private readonly IImageAccessor _imageAccessor;
+                public Handler(DataContext context, IImageAccessor imageAccessor)
                 {
                     _context = context;
+                    _imageAccessor = imageAccessor;
                 }
 
                 public async Task<Result<Unit>> Handle(Command request, CancellationToken cancellationToken)
                 {
-                    var bookClub = await _context.BookClubs.FindAsync(request.Id);
+                    var result = await _imageAccessor.DeleteImage(request.Id);
 
-                    _context.Remove(bookClub);
-
-                    var result = await _context.SaveChangesAsync() > 0;
-
-                    if (!result) return Result<Unit>.Failure("Failed to delete the book club");
+                    if (result == null) return Result<Unit>.Failure("Failed to delete the image");
 
                     return Result<Unit>.Success(Unit.Value);
                 }
