@@ -202,6 +202,12 @@ export default class BookClubStore {
   deleteBookClub = async (id: string) => {
     this.loading = true;
     try {
+      var bookClubToDelete = await agent.BookClubs.details(id);
+      var imageToDelete = bookClubToDelete.image;
+      if (imageToDelete) {
+        var imageIdToDelete = this.getImageId(imageToDelete);
+        if (imageIdToDelete) this.deleteImage(imageIdToDelete);
+      }
       await agent.BookClubs.delete(id);
       runInAction(() => {
         this.bookClubRegistry.delete(id);
@@ -256,6 +262,27 @@ export default class BookClubStore {
     } catch (error) {
       console.log(error);
       runInAction(() => (this.uploading = false));
+    }
+  };
+
+  getImageId = (url: string): string | null => {
+    const regex = /\/([^/]+)(?=\.[^.]+($|\?))/;
+    const match = url.match(regex);
+    return match ? match[1] : null;
+  };
+
+  deleteImage = async (id: string) => {
+    this.loading = true;
+    try {
+      await agent.BookClubs.deleteImage(id);
+      runInAction(() => {
+        this.loading = false;
+      });
+    } catch (error) {
+      console.log(error);
+      runInAction(() => {
+        this.loading = false;
+      });
     }
   };
 }

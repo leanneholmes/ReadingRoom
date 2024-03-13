@@ -34,6 +34,8 @@ export default observer(function CreateBookClub() {
     loadingInitial,
     uploadImage,
     uploading,
+    getImageId,
+    deleteImage,
   } = bookClubStore;
   const { id } = useParams();
   const navigate = useNavigate();
@@ -52,6 +54,7 @@ export default observer(function CreateBookClub() {
       try {
         const imageUploadResult = await uploadImage(e.target.files[0]);
         const imageURL = imageUploadResult?.url;
+        console.log(imageURL);
         if (imageURL) setImageURL(imageURL);
         setImageChanged(true);
         console.log("Image URL:", imageURL);
@@ -62,6 +65,9 @@ export default observer(function CreateBookClub() {
   };
 
   const handleRemoveFile = () => {
+    var idToDelete = getImageId(imageURL);
+    console.log(idToDelete);
+    if (idToDelete) deleteImage(idToDelete);
     setFile(undefined);
     const fileInput = document.getElementById("fileInput") as HTMLInputElement;
     if (fileInput) {
@@ -70,7 +76,17 @@ export default observer(function CreateBookClub() {
   };
 
   const handleRemoveImage = () => {
-    console.log("Delete image here");
+    if (bookClub.image) {
+      var idToDelete = getImageId(bookClub.image);
+      console.log(idToDelete);
+      if (idToDelete) deleteImage(idToDelete);
+    }
+    bookClub.image = "";
+    setFile(undefined);
+    const fileInput = document.getElementById("fileInput") as HTMLInputElement;
+    if (fileInput) {
+      fileInput.value = "";
+    }
   };
 
   const validationSchema = Yup.object({
@@ -119,7 +135,7 @@ export default observer(function CreateBookClub() {
           Create a Book Club
         </Header>
       )}
-      <Segment clearing style={{ marginTop: "20px" }}>
+      <Segment clearing style={{ marginTop: "20px", marginBottom: "20px" }}>
         <Formik
           validationSchema={validationSchema}
           enableReinitialize
@@ -182,7 +198,11 @@ export default observer(function CreateBookClub() {
                       {file ? (
                         <>
                           <div className="image-preview-container">
-                            <img src={file} className="image-preview" />
+                            <img
+                              src={file}
+                              className="image-preview"
+                              id="image-preview"
+                            />
                             <Label
                               as="a"
                               color="red"
@@ -195,7 +215,11 @@ export default observer(function CreateBookClub() {
                         </>
                       ) : bookClub.image ? (
                         <div className="image-preview-container">
-                          <img src={bookClub.image} className="image-preview" />
+                          <img
+                            src={bookClub.image}
+                            className="image-preview"
+                            id="image-preview"
+                          />
                           <Label
                             as="a"
                             color="red"
