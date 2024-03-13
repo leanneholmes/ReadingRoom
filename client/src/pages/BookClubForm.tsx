@@ -33,6 +33,7 @@ export default observer(function CreateBookClub() {
     loadBookClub,
     loadingInitial,
     uploadImage,
+    uploading,
   } = bookClubStore;
   const { id } = useParams();
   const navigate = useNavigate();
@@ -41,6 +42,7 @@ export default observer(function CreateBookClub() {
     new BookClubFormValues()
   );
   const [imageURL, setImageURL] = useState("");
+  const [imageChanged, setImageChanged] = useState(false);
 
   const [file, setFile] = useState<string | undefined>();
 
@@ -51,6 +53,7 @@ export default observer(function CreateBookClub() {
         const imageUploadResult = await uploadImage(e.target.files[0]);
         const imageURL = imageUploadResult?.url;
         if (imageURL) setImageURL(imageURL);
+        setImageChanged(true);
         console.log("Image URL:", imageURL);
       } catch (error) {
         console.error("Error uploading image:", error);
@@ -330,8 +333,12 @@ export default observer(function CreateBookClub() {
                       {bookClub.id ? (
                         <>
                           <Button
-                            disabled={isSubmitting || !dirty || !isValid}
-                            loading={isSubmitting}
+                            disabled={
+                              isSubmitting ||
+                              (!dirty && !imageChanged) ||
+                              !isValid
+                            }
+                            loading={isSubmitting || uploading}
                             floated="right"
                             positive
                             className="btn-dark-green"
