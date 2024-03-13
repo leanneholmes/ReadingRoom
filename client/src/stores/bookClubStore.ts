@@ -1,5 +1,5 @@
 import { makeAutoObservable, reaction, runInAction } from "mobx";
-import { BookClub, BookClubFormValues, Image } from "../models/bookclub";
+import { BookClub, BookClubFormValues } from "../models/bookclub";
 import agent from "../utils/agent";
 import { v4 as uuid } from "uuid";
 import { store } from "./store";
@@ -257,7 +257,7 @@ export default class BookClubStore {
     this.uploading = true;
     try {
       const response = await agent.BookClubs.uploadImage(file);
-      this.uploading = false;
+      runInAction(() => (this.uploading = false));
       return response.data;
     } catch (error) {
       console.log(error);

@@ -49,15 +49,19 @@ export default observer(function CreateBookClub() {
   const [file, setFile] = useState<string | undefined>();
 
   const handleChange = async (e: ChangeEvent<HTMLInputElement>) => {
+    const imagePreviewContainer = document.getElementById(
+      "image-preview-container"
+    ) as HTMLImageElement;
+    if (imagePreviewContainer) {
+      imagePreviewContainer.style.display = "block";
+    }
     if (e.target.files && e.target.files.length > 0) {
       setFile(URL.createObjectURL(e.target.files[0]));
       try {
         const imageUploadResult = await uploadImage(e.target.files[0]);
         const imageURL = imageUploadResult?.url;
-        console.log(imageURL);
         if (imageURL) setImageURL(imageURL);
         setImageChanged(true);
-        console.log("Image URL:", imageURL);
       } catch (error) {
         console.error("Error uploading image:", error);
       }
@@ -66,7 +70,6 @@ export default observer(function CreateBookClub() {
 
   const handleRemoveFile = () => {
     var idToDelete = getImageId(imageURL);
-    console.log(idToDelete);
     if (idToDelete) deleteImage(idToDelete);
     setFile(undefined);
     const fileInput = document.getElementById("fileInput") as HTMLInputElement;
@@ -76,12 +79,24 @@ export default observer(function CreateBookClub() {
   };
 
   const handleRemoveImage = () => {
+    setImageChanged(true);
     if (bookClub.image) {
       var idToDelete = getImageId(bookClub.image);
-      console.log(idToDelete);
       if (idToDelete) deleteImage(idToDelete);
     }
     bookClub.image = "";
+    const imagePreview = document.getElementById(
+      "image-preview"
+    ) as HTMLImageElement;
+    if (imagePreview) {
+      imagePreview.src = "";
+    }
+    const imagePreviewContainer = document.getElementById(
+      "image-preview-container"
+    ) as HTMLImageElement;
+    if (imagePreviewContainer) {
+      imagePreviewContainer.style.display = "none";
+    }
     setFile(undefined);
     const fileInput = document.getElementById("fileInput") as HTMLInputElement;
     if (fileInput) {
