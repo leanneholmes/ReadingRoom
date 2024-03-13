@@ -21,7 +21,7 @@ export default function CustomSelectInput(props: Props) {
         onChange={(_, d) => helpers.setValue(d.value)}
         onBlur={() => helpers.setTouched(true)}
         placeholder={props.placeholder}
-        style={{ backgroundColor: "#f3f4f6", border: "none" }}
+        style={{ backgroundColor: "#f3f4f6", border: "none", width: "30%" }}
       />
       {meta.touched && meta.error ? (
         <Label basic color="red">

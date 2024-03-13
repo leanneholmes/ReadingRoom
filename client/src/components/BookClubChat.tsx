@@ -67,6 +67,7 @@ export default observer(function BookClubChat({ bookClubId }: Props) {
                     <div style={{ position: "relative" }}>
                       <Loader active={isSubmitting} />
                       <textarea
+                        id="message"
                         placeholder="Write your message (Hit enter to submit)"
                         rows={2}
                         {...props.field}

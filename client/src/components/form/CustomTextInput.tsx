@@ -7,6 +7,7 @@ interface Props {
   label?: string;
   type?: string;
   id?: string;
+  className?: string;
 }
 
 export default function CustomTextInput(props: Props) {

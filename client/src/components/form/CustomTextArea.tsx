@@ -7,6 +7,7 @@ interface Props {
   rows: number;
   label?: string;
   id?: string;
+  className?: string;
 }
 
 export default function CustomTextArea(props: Props) {

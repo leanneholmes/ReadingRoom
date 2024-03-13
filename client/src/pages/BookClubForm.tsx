@@ -1,6 +1,14 @@
 import { observer } from "mobx-react-lite";
-import { useEffect, useState } from "react";
-import { Button, Header, Segment } from "semantic-ui-react";
+import { ChangeEvent, useEffect, useState } from "react";
+import {
+  Button,
+  Grid,
+  GridColumn,
+  GridRow,
+  Header,
+  Image,
+  Segment,
+} from "semantic-ui-react";
 import { useStore } from "../stores/store";
 import { useNavigate } from "react-router";
 import { useParams } from "react-router-dom";
@@ -27,6 +35,21 @@ export default observer(function CreateBookClub() {
     new BookClubFormValues()
   );
 
+  const [file, setFile] = useState<string | undefined>();
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setFile(URL.createObjectURL(e.target.files[0]));
+    }
+  };
+
+  const handleRemoveImage = () => {
+    setFile(undefined); // Reset the file state when removing the image
+    const fileInput = document.getElementById("fileInput") as HTMLInputElement;
+    if (fileInput) {
+      fileInput.value = ""; // Reset the file input value to allow re-uploading
+    }
+  };
   const validationSchema = Yup.object({
     name: Yup.string().required("The book club name is required"),
     description: Yup.string().required("The book club description is required"),
@@ -80,107 +103,226 @@ export default observer(function CreateBookClub() {
           onSubmit={(values) => handleFormSubmit(values)}
         >
           {({ handleSubmit, isValid, isSubmitting, dirty }) => (
-            <Form
-              className="ui form"
-              onSubmit={handleSubmit}
-              autoComplete="off"
-              placeholder={undefined}
-            >
-              <CustomTextInput
-                name="name"
-                placeholder="Name"
-                label="Book Club Name"
-                id="name"
-              />
-              <CustomTextArea
-                rows={3}
-                name="description"
-                placeholder="Description"
-                label="Club Description"
-                id="description"
-              />
-
-              <CustomSelectInput
-                options={categoryOptions}
-                placeholder="Genre"
-                name="category"
-                label="Genre"
-                id="category"
-              />
-              <CustomSelectInput
-                options={readingPaceOptions}
-                placeholder="Reading Pace"
-                name="readingPace"
-                label="Reading Pace"
-                id="readingPace"
-              />
-              <Header
-                as="h4"
-                content="Next Meeting Date"
-                className="form-label"
-              />
-              <CustomDateInput
-                placeholderText="Next Meeting Date"
-                name="nextMeeting"
-                showTimeSelect
-                timeCaption="time"
-                dateFormat="MMMM dd, yyyy - h:mm aa"
-                minDate={new Date()}
-                id="nextMeeting"
-              />
-              <CustomTextInput
-                placeholder="Meeting Link"
-                name="meetingLink"
-                label="Meeting Link"
-                id="meetingLink"
-              />
-              <CustomTextInput
-                placeholder="Current Book"
-                name="currentBook"
-                label="Current Book"
-                id="currentBook"
-              />
-              <CustomTextInput
-                placeholder="Book Author"
-                name="currentBookAuthor"
-                label="Book Author"
-                id="bookAuthor"
-              />
-              {bookClub.id ? (
-                <>
-                  <Button
-                    disabled={isSubmitting || !dirty || !isValid}
-                    loading={isSubmitting}
-                    floated="right"
-                    positive
-                    className="btn-dark-green"
-                    type="submit"
-                    content="Submit"
-                    id="submit"
-                  />
-                  <Button
-                    floated="right"
-                    color="grey"
-                    content="Cancel"
-                    onClick={handleCancel}
-                    id="cancel"
-                  />
-                </>
-              ) : (
-                <>
-                  <Button
-                    disabled={isSubmitting || !dirty || !isValid}
-                    loading={isSubmitting}
-                    floated="right"
-                    positive
-                    type="submit"
-                    className="btn-dark-green"
-                    content="Create"
-                    id="create"
-                  />
-                </>
-              )}
-            </Form>
+            <>
+              <Form
+                className="ui form"
+                onSubmit={handleSubmit}
+                autoComplete="off"
+                placeholder={undefined}
+              >
+                <Grid columns="equal">
+                  <GridRow>
+                    <GridColumn width={3} textAlign="right">
+                      <Header
+                        as="h4"
+                        content="Book Club Name"
+                        className="form-label-2"
+                      />
+                    </GridColumn>
+                    <GridColumn>
+                      <CustomTextInput
+                        name="name"
+                        placeholder="Name"
+                        id="name"
+                        className="create-form-input"
+                      />
+                    </GridColumn>
+                  </GridRow>
+                  <GridRow>
+                    <GridColumn width={3} textAlign="right">
+                      <Header
+                        as="h4"
+                        content="Club Description"
+                        className="form-label-2"
+                      />
+                    </GridColumn>
+                    <GridColumn>
+                      <CustomTextArea
+                        rows={4}
+                        name="description"
+                        placeholder="Description"
+                        id="description"
+                        className="create-form-input"
+                      />
+                    </GridColumn>
+                  </GridRow>
+                  <GridRow>
+                    <GridColumn width={3} textAlign="right">
+                      <Header
+                        as="h4"
+                        content="Club Logo (Optional)"
+                        className="form-label-2"
+                      />
+                    </GridColumn>
+                    <GridColumn>
+                      {file && (
+                        <div className="image-preview-container">
+                          <img src={file} className="image-preview" />
+                          <Button
+                            basic
+                            color="red"
+                            icon="remove"
+                            onClick={handleRemoveImage}
+                            style={{ border: "none" }}
+                          />
+                        </div>
+                      )}
+                      <input
+                        type="file"
+                        onChange={handleChange}
+                        id="fileInput"
+                        className="create-file-input"
+                      />
+                    </GridColumn>
+                  </GridRow>
+                  <GridRow>
+                    <GridColumn width={3} textAlign="right">
+                      <Header
+                        as="h4"
+                        content="Meeting Link"
+                        className="form-label-2"
+                      />
+                    </GridColumn>
+                    <GridColumn>
+                      <CustomTextInput
+                        placeholder="Meeting Link"
+                        name="meetingLink"
+                        id="meetingLink"
+                        className="create-form-input"
+                      />
+                    </GridColumn>
+                  </GridRow>
+                  <GridRow>
+                    <GridColumn width={3} textAlign="right">
+                      <Header
+                        as="h4"
+                        content="Next Meeting Time"
+                        className="form-label-2"
+                      />
+                    </GridColumn>
+                    <GridColumn>
+                      <CustomDateInput
+                        placeholderText="Next Meeting Time"
+                        name="nextMeeting"
+                        showTimeSelect
+                        timeCaption="time"
+                        dateFormat="MMMM dd, yyyy - h:mm aa"
+                        minDate={new Date()}
+                        id="nextMeeting"
+                        className="create-form-input-sm"
+                      />
+                    </GridColumn>
+                  </GridRow>
+                  <GridRow>
+                    <GridColumn width={3} textAlign="right">
+                      <Header
+                        as="h4"
+                        content="Genre"
+                        className="form-label-2"
+                      />
+                    </GridColumn>
+                    <GridColumn>
+                      <CustomSelectInput
+                        options={categoryOptions}
+                        placeholder="Genre"
+                        name="category"
+                        id="category"
+                      />
+                    </GridColumn>
+                  </GridRow>
+                  <GridRow>
+                    <GridColumn width={3} textAlign="right">
+                      <Header
+                        as="h4"
+                        content="Reading Pace"
+                        className="form-label-2"
+                      />
+                    </GridColumn>
+                    <GridColumn>
+                      <CustomSelectInput
+                        options={readingPaceOptions}
+                        placeholder="Reading Pace"
+                        name="readingPace"
+                        id="readingPace"
+                      />
+                    </GridColumn>
+                  </GridRow>
+                  <GridRow>
+                    <GridColumn width={3} textAlign="right">
+                      <Header
+                        as="h4"
+                        content="Current Book"
+                        className="form-label-2"
+                      />
+                    </GridColumn>
+                    <GridColumn>
+                      <CustomTextInput
+                        placeholder="Current Book"
+                        name="currentBook"
+                        id="currentBook"
+                        className="create-form-input-sm"
+                      />
+                    </GridColumn>
+                  </GridRow>
+                  <GridRow>
+                    <GridColumn width={3} textAlign="right">
+                      <Header
+                        as="h4"
+                        content="Book Author"
+                        className="form-label-2"
+                      />
+                    </GridColumn>
+                    <GridColumn>
+                      <CustomTextInput
+                        placeholder="Book Author"
+                        name="currentBookAuthor"
+                        id="bookAuthor"
+                        className="create-form-input-sm"
+                      />
+                    </GridColumn>
+                  </GridRow>
+                  <GridRow>
+                    <GridColumn>
+                      {" "}
+                      {bookClub.id ? (
+                        <>
+                          <Button
+                            disabled={isSubmitting || !dirty || !isValid}
+                            loading={isSubmitting}
+                            floated="right"
+                            positive
+                            className="btn-dark-green"
+                            type="submit"
+                            content="Submit"
+                            id="submit"
+                          />
+                          <Button
+                            floated="right"
+                            color="grey"
+                            content="Cancel"
+                            onClick={handleCancel}
+                            id="cancel"
+                          />
+                        </>
+                      ) : (
+                        <>
+                          <Button
+                            disabled={isSubmitting || !dirty || !isValid}
+                            loading={isSubmitting}
+                            floated="right"
+                            positive
+                            type="submit"
+                            className="btn-dark-green"
+                            content="Create"
+                            id="create"
+                          />
+                        </>
+                      )}
+                    </GridColumn>
+                  </GridRow>
+                </Grid>
+              </Form>
+            </>
           )}
         </Formik>
       </Segment>
