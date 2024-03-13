@@ -1,5 +1,5 @@
 import { makeAutoObservable, reaction, runInAction } from "mobx";
-import { BookClub, BookClubFormValues } from "../models/bookclub";
+import { BookClub, BookClubFormValues, Image } from "../models/bookclub";
 import agent from "../utils/agent";
 import { v4 as uuid } from "uuid";
 import { store } from "./store";
@@ -16,6 +16,7 @@ export default class BookClubStore {
   pagination: Pagination | null = null;
   pagingParams = new PagingParams();
   predicate = new Map().set("all", true);
+  uploading = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -244,5 +245,21 @@ export default class BookClubStore {
 
   clearSelectedBookClub = () => {
     this.selectedBookClub = undefined;
+  };
+
+  uploadImage = async (file: Blob) => {
+    this.uploading = true;
+    try {
+      const response = await agent.BookClubs.uploadImage(file);
+      this.uploading = false;
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      runInAction(() => (this.uploading = false));
+    }
+  };
+
+  getImageURL = (image: Image) => {
+    return image.url;
   };
 }

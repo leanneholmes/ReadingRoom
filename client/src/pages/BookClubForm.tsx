@@ -6,7 +6,6 @@ import {
   GridColumn,
   GridRow,
   Header,
-  Image,
   Segment,
 } from "semantic-ui-react";
 import { useStore } from "../stores/store";
@@ -26,8 +25,14 @@ import CustomDateInput from "../components/form/CustomDateInput";
 
 export default observer(function CreateBookClub() {
   const { bookClubStore } = useStore();
-  const { createBookClub, updateBookClub, loadBookClub, loadingInitial } =
-    bookClubStore;
+  const {
+    createBookClub,
+    updateBookClub,
+    loadBookClub,
+    loadingInitial,
+    uploadImage,
+    getImageURL,
+  } = bookClubStore;
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -37,9 +42,18 @@ export default observer(function CreateBookClub() {
 
   const [file, setFile] = useState<string | undefined>();
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = async (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       setFile(URL.createObjectURL(e.target.files[0]));
+      try {
+        const imageUploadResult = await uploadImage(e.target.files[0]);
+        console.log(imageUploadResult);
+        // Access the URL from imageUploadResult if it contains the necessary information
+        const imageURL = imageUploadResult?.url;
+        console.log("Image URL:", imageURL);
+      } catch (error) {
+        console.error("Error uploading image:", error);
+      }
     }
   };
 

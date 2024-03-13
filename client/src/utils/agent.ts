@@ -1,5 +1,5 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
-import { BookClub, BookClubFormValues } from "../models/bookclub";
+import { BookClub, BookClubFormValues, Image } from "../models/bookclub";
 import { toast } from "react-toastify";
 import { router } from "../router/Routes";
 import { store } from "../stores/store";
@@ -96,6 +96,14 @@ const BookClubs = {
     requests.put<void>(`/bookclubs/${bookClub.id}`, bookClub),
   delete: (id: string) => requests.delete<void>(`/bookclubs/${id}`),
   join: (id: string) => requests.post<void>(`/bookclubs/${id}/join`, {}),
+  uploadImage: (file: Blob) => {
+    let formData = new FormData();
+    formData.append("File", file);
+    return axios.post<Image>("images", formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+  },
+  deleteImage: (id: string) => requests.delete<void>(`/images/${id}`),
 };
 
 const Account = {

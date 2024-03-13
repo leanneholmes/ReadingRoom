@@ -71,3 +71,8 @@ export class BookClubFormValues {
     }
   }
 }
+
+export interface Image {
+  id: string;
+  url: string;
+}
