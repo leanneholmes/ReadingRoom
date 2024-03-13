@@ -26,7 +26,13 @@ export default function BookClubList({ bookClubs }: Props) {
           <Grid>
             <GridRow key={bookclub.id} stretched style={{ fontSize: "1.05em" }}>
               <GridColumn width={4}>
-                <Image src={`/assets/${bookclub.category}.png`} />
+                <Image
+                  src={
+                    bookclub.image
+                      ? bookclub.image
+                      : `/assets/${bookclub.category}.png`
+                  }
+                />
               </GridColumn>
               <GridColumn width={12}>
                 <GridRow style={{ height: "30%" }}>

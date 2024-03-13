@@ -64,6 +64,18 @@ textarea {
   left: 50%;
 }
 
+.remove-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  margin-right: 3px !important;
+  padding-right: 0px !important;
+  padding-left: 8px !important;
+  border-radius: 50% !important;
+  margin-top: 2px !important;
+}
+
 .create-file-input {
   background-color: white !important;
 }
@@ -125,4 +137,8 @@ textarea {
 
 .pagination {
   text-align: center;
+}
+
+.hidden {
+  display: none;
 }

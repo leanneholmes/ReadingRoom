@@ -7,6 +7,8 @@ import {
   GridRow,
   Header,
   Segment,
+  Icon,
+  Label,
 } from "semantic-ui-react";
 import { useStore } from "../stores/store";
 import { useNavigate } from "react-router";
@@ -31,7 +33,6 @@ export default observer(function CreateBookClub() {
     loadBookClub,
     loadingInitial,
     uploadImage,
-    getImageURL,
   } = bookClubStore;
   const { id } = useParams();
   const navigate = useNavigate();
@@ -39,6 +40,7 @@ export default observer(function CreateBookClub() {
   const [bookClub, setBookClub] = useState<BookClubFormValues>(
     new BookClubFormValues()
   );
+  const [imageURL, setImageURL] = useState("");
 
   const [file, setFile] = useState<string | undefined>();
 
@@ -47,9 +49,8 @@ export default observer(function CreateBookClub() {
       setFile(URL.createObjectURL(e.target.files[0]));
       try {
         const imageUploadResult = await uploadImage(e.target.files[0]);
-        console.log(imageUploadResult);
-        // Access the URL from imageUploadResult if it contains the necessary information
         const imageURL = imageUploadResult?.url;
+        if (imageURL) setImageURL(imageURL);
         console.log("Image URL:", imageURL);
       } catch (error) {
         console.error("Error uploading image:", error);
@@ -57,13 +58,18 @@ export default observer(function CreateBookClub() {
     }
   };
 
-  const handleRemoveImage = () => {
-    setFile(undefined); // Reset the file state when removing the image
+  const handleRemoveFile = () => {
+    setFile(undefined);
     const fileInput = document.getElementById("fileInput") as HTMLInputElement;
     if (fileInput) {
-      fileInput.value = ""; // Reset the file input value to allow re-uploading
+      fileInput.value = "";
     }
   };
+
+  const handleRemoveImage = () => {
+    console.log("Delete image here");
+  };
+
   const validationSchema = Yup.object({
     name: Yup.string().required("The book club name is required"),
     description: Yup.string().required("The book club description is required"),
@@ -83,6 +89,7 @@ export default observer(function CreateBookClub() {
   }, [id, loadBookClub]);
 
   function handleFormSubmit(bookClub: BookClubFormValues) {
+    bookClub.image = imageURL;
     if (!bookClub.id) {
       bookClub.id = uuid();
       createBookClub(bookClub).then(() => navigate(`/bookclub/${bookClub.id}`));
@@ -169,23 +176,46 @@ export default observer(function CreateBookClub() {
                       />
                     </GridColumn>
                     <GridColumn>
-                      {file && (
+                      {file ? (
+                        <>
+                          <div className="image-preview-container">
+                            <img src={file} className="image-preview" />
+                            <Label
+                              as="a"
+                              color="red"
+                              onClick={handleRemoveFile}
+                              className="remove-label"
+                            >
+                              <Icon name="remove" />
+                            </Label>
+                          </div>
+                        </>
+                      ) : bookClub.image ? (
                         <div className="image-preview-container">
-                          <img src={file} className="image-preview" />
-                          <Button
-                            basic
+                          <img src={bookClub.image} className="image-preview" />
+                          <Label
+                            as="a"
                             color="red"
-                            icon="remove"
                             onClick={handleRemoveImage}
-                            style={{ border: "none" }}
-                          />
+                            className="remove-label"
+                          >
+                            <Icon name="remove" />
+                          </Label>
                         </div>
-                      )}
+                      ) : null}
                       <input
                         type="file"
                         onChange={handleChange}
                         id="fileInput"
                         className="create-file-input"
+                        style={{ marginBottom: "-10px" }}
+                      />
+                      <CustomTextInput
+                        placeholder="image"
+                        name="image"
+                        id="image"
+                        value={bookClub.image}
+                        className="hidden"
                       />
                     </GridColumn>
                   </GridRow>
@@ -297,7 +327,6 @@ export default observer(function CreateBookClub() {
                   </GridRow>
                   <GridRow>
                     <GridColumn>
-                      {" "}
                       {bookClub.id ? (
                         <>
                           <Button

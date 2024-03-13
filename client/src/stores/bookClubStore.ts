@@ -258,8 +258,4 @@ export default class BookClubStore {
       runInAction(() => (this.uploading = false));
     }
   };
-
-  getImageURL = (image: Image) => {
-    return image.url;
-  };
 }

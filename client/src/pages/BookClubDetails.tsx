@@ -55,7 +55,13 @@ export default observer(function BookClubDetails() {
       <Grid relaxed style={{ marginTop: "15px" }}>
         <GridRow>
           <GridColumn width={5}>
-            <Image src={`/assets/${bookClub.category}.png`} />
+            <Image
+              src={
+                bookClub.image
+                  ? bookClub.image
+                  : `/assets/${bookClub.category}.png`
+              }
+            />
             <BookClubMemberList bookClub={bookClub!} />
           </GridColumn>
           <GridColumn width={11}>

@@ -4,6 +4,7 @@ export interface IBookClub {
   id: string;
   name: string;
   description: string;
+  image?: string;
   category: string;
   readingPace: string;
   nextMeeting: Date | null;
@@ -22,6 +23,7 @@ export class BookClub implements IBookClub {
     this.id = init.id!;
     this.name = init.name;
     this.description = init.description;
+    this.image = init.image;
     this.category = init.category;
     this.readingPace = init.readingPace;
     this.nextMeeting = init.nextMeeting;
@@ -33,6 +35,7 @@ export class BookClub implements IBookClub {
   id: string;
   name: string;
   description: string;
+  image?: string;
   category: string;
   readingPace: string;
   nextMeeting: Date | null;
@@ -50,6 +53,7 @@ export class BookClubFormValues {
   id?: string = undefined;
   name: string = "";
   description: string = "";
+  image?: string = "";
   category: string = "";
   readingPace: string = "";
   nextMeeting: Date | null = null;
@@ -62,6 +66,7 @@ export class BookClubFormValues {
       this.id = bookClub.id;
       this.name = bookClub.name;
       this.description = bookClub.description;
+      this.image = bookClub.image;
       this.category = bookClub.category;
       this.readingPace = bookClub.readingPace;
       this.nextMeeting = bookClub.nextMeeting;
