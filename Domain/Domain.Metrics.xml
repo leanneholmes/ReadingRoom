@@ -1,0 +1,973 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeMetricsReport Version="1.0">
+  <Targets>
+    <Target Name="Domain.csproj">
+      <Assembly Name="Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Metrics>
+          <Metric Name="MaintainabilityIndex" Value="100" />
+          <Metric Name="CyclomaticComplexity" Value="60" />
+          <Metric Name="ClassCoupling" Value="11" />
+          <Metric Name="DepthOfInheritance" Value="3" />
+          <Metric Name="SourceLines" Value="72" />
+          <Metric Name="ExecutableLines" Value="3" />
+        </Metrics>
+        <Namespaces>
+          <Namespace Name="Domain">
+            <Metrics>
+              <Metric Name="MaintainabilityIndex" Value="100" />
+              <Metric Name="CyclomaticComplexity" Value="60" />
+              <Metric Name="ClassCoupling" Value="11" />
+              <Metric Name="DepthOfInheritance" Value="3" />
+              <Metric Name="SourceLines" Value="72" />
+              <Metric Name="ExecutableLines" Value="3" />
+            </Metrics>
+            <Types>
+              <NamedType Name="AppUser">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="8" />
+                  <Metric Name="ClassCoupling" Value="4" />
+                  <Metric Name="DepthOfInheritance" Value="3" />
+                  <Metric Name="SourceLines" Value="7" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Property Name="string AppUser.DisplayName" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\AppUser.cs" Line="7">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string AppUser.DisplayName.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\AppUser.cs" Line="7">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void AppUser.DisplayName.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\AppUser.cs" Line="7">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="string AppUser.Bio" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\AppUser.cs" Line="8">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string AppUser.Bio.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\AppUser.cs" Line="8">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void AppUser.Bio.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\AppUser.cs" Line="8">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="ICollection&lt;BookClubMember&gt; AppUser.BookClubs" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\AppUser.cs" Line="9">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="2" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="ICollection&lt;BookClubMember&gt; AppUser.BookClubs.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\AppUser.cs" Line="9">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="2" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void AppUser.BookClubs.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\AppUser.cs" Line="9">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="2" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="Photo AppUser.Avatar" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\AppUser.cs" Line="10">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="Photo AppUser.Avatar.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\AppUser.cs" Line="10">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void AppUser.Avatar.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\AppUser.cs" Line="10">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                </Members>
+              </NamedType>
+              <NamedType Name="BookClub">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="24" />
+                  <Metric Name="ClassCoupling" Value="6" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="26" />
+                  <Metric Name="ExecutableLines" Value="2" />
+                </Metrics>
+                <Members>
+                  <Property Name="Guid BookClub.Id" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="5">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="Guid BookClub.Id.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="5">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void BookClub.Id.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="5">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="string BookClub.Name" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="7">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string BookClub.Name.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="7">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void BookClub.Name.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="7">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="string BookClub.Description" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="9">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string BookClub.Description.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="9">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void BookClub.Description.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="9">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="string BookClub.Category" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="11">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string BookClub.Category.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="11">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void BookClub.Category.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="11">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="string BookClub.ReadingPace" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="13">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string BookClub.ReadingPace.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="13">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void BookClub.ReadingPace.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="13">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="DateTime BookClub.NextMeeting" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="15">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="DateTime BookClub.NextMeeting.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="15">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void BookClub.NextMeeting.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="15">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="string BookClub.MeetingLink" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="17">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string BookClub.MeetingLink.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="17">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void BookClub.MeetingLink.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="17">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="string BookClub.CurrentBook" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="19">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string BookClub.CurrentBook.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="19">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void BookClub.CurrentBook.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="19">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="string BookClub.CurrentBookAuthor" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="21">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string BookClub.CurrentBookAuthor.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="21">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void BookClub.CurrentBookAuthor.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="21">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="ICollection&lt;BookClubMember&gt; BookClub.Members" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="23">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="3" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="ICollection&lt;BookClubMember&gt; BookClub.Members.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="23">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="2" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void BookClub.Members.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="23">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="2" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="string BookClub.Image" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="25">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string BookClub.Image.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="25">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void BookClub.Image.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="25">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="ICollection&lt;Comment&gt; BookClub.Comments" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="27">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="3" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="ICollection&lt;Comment&gt; BookClub.Comments.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="27">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="2" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void BookClub.Comments.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClub.cs" Line="27">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="2" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                </Members>
+              </NamedType>
+              <NamedType Name="BookClubMember">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="10" />
+                  <Metric Name="ClassCoupling" Value="3" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="8" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Property Name="string BookClubMember.AppUserId" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClubMember.cs" Line="5">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string BookClubMember.AppUserId.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClubMember.cs" Line="5">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void BookClubMember.AppUserId.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClubMember.cs" Line="5">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="AppUser BookClubMember.AppUser" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClubMember.cs" Line="6">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="AppUser BookClubMember.AppUser.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClubMember.cs" Line="6">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void BookClubMember.AppUser.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClubMember.cs" Line="6">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="Guid BookClubMember.BookClubId" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClubMember.cs" Line="7">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="Guid BookClubMember.BookClubId.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClubMember.cs" Line="7">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void BookClubMember.BookClubId.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClubMember.cs" Line="7">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="BookClub BookClubMember.BookClub" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClubMember.cs" Line="8">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="BookClub BookClubMember.BookClub.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClubMember.cs" Line="8">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void BookClubMember.BookClub.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClubMember.cs" Line="8">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="bool BookClubMember.IsOwner" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClubMember.cs" Line="9">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="bool BookClubMember.IsOwner.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClubMember.cs" Line="9">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void BookClubMember.IsOwner.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\BookClubMember.cs" Line="9">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                </Members>
+              </NamedType>
+              <NamedType Name="Comment">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="10" />
+                  <Metric Name="ClassCoupling" Value="4" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="8" />
+                  <Metric Name="ExecutableLines" Value="1" />
+                </Metrics>
+                <Members>
+                  <Property Name="int Comment.Id" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Comment.cs" Line="5">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="int Comment.Id.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Comment.cs" Line="5">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void Comment.Id.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Comment.cs" Line="5">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="string Comment.Body" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Comment.cs" Line="6">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string Comment.Body.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Comment.cs" Line="6">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void Comment.Body.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Comment.cs" Line="6">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="AppUser Comment.Author" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Comment.cs" Line="7">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="AppUser Comment.Author.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Comment.cs" Line="7">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void Comment.Author.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Comment.cs" Line="7">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="BookClub Comment.BookClub" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Comment.cs" Line="8">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="BookClub Comment.BookClub.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Comment.cs" Line="8">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void Comment.BookClub.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Comment.cs" Line="8">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="DateTime Comment.CreatedAt" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Comment.cs" Line="9">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="2" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="DateTime Comment.CreatedAt.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Comment.cs" Line="9">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void Comment.CreatedAt.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Comment.cs" Line="9">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                </Members>
+              </NamedType>
+              <NamedType Name="Image">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="4" />
+                  <Metric Name="ClassCoupling" Value="0" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="5" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Property Name="string Image.Id" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Image.cs" Line="5">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string Image.Id.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Image.cs" Line="5">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void Image.Id.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Image.cs" Line="5">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="string Image.Url" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Image.cs" Line="6">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string Image.Url.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Image.cs" Line="6">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void Image.Url.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Image.cs" Line="6">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                </Members>
+              </NamedType>
+              <NamedType Name="Photo">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="4" />
+                  <Metric Name="ClassCoupling" Value="0" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="5" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Property Name="string Photo.Id" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Photo.cs" Line="5">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string Photo.Id.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Photo.cs" Line="5">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void Photo.Id.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Photo.cs" Line="5">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="string Photo.Url" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Photo.cs" Line="6">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string Photo.Url.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Photo.cs" Line="6">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void Photo.Url.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\domain\Photo.cs" Line="6">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                </Members>
+              </NamedType>
+            </Types>
+          </Namespace>
+        </Namespaces>
+      </Assembly>
+    </Target>
+  </Targets>
+</CodeMetricsReport>

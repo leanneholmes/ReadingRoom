@@ -24,6 +24,7 @@ import CustomSelectInput from "../components/form/CustomSelectInput";
 import { categoryOptions } from "../options/CategoryOptions";
 import { readingPaceOptions } from "../options/ReadingPaceOptions";
 import CustomDateInput from "../components/form/CustomDateInput";
+import { addDays, endOfDay } from "date-fns";
 
 export default observer(function CreateBookClub() {
   const { bookClubStore } = useStore();
@@ -110,7 +111,9 @@ export default observer(function CreateBookClub() {
     category: Yup.string().required("Club genre is required"),
     readingPace: Yup.string().required("Reading pace is required"),
     nextMeeting: Yup.string().required("Meeting date is required").nullable(),
-    meetingLink: Yup.string().required("A meeting link is required"),
+    meetingLink: Yup.string()
+      .required("A meeting link is required")
+      .url("Link must be a valid URL"),
     currentBook: Yup.string().required("Current book is required"),
     currentBookAuthor: Yup.string().required("Book author is required"),
   });

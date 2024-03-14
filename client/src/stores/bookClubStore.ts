@@ -37,7 +37,7 @@ export default class BookClubStore {
 
   setPredicate = (predicate: string, value: string) => {
     const resetPredicate = () => {
-      this.predicate.forEach((value, key) => {
+      this.predicate.forEach((_value, key) => {
         this.predicate.delete(key);
       });
     };
@@ -48,11 +48,11 @@ export default class BookClubStore {
         break;
       case "isMember":
         resetPredicate();
-        this.predicate.set("isGoing", true);
+        this.predicate.set("isMember", true);
         break;
       case "isOwner":
         resetPredicate();
-        this.predicate.set("isHost", true);
+        this.predicate.set("isOwner", true);
         break;
       case "Category":
         this.predicate.delete("Category");
