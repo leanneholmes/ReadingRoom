@@ -6,7 +6,7 @@ describe("register flow", () => {
 
     cy.intercept(
       "GET",
-      "http://localhost:5000/api/bookclubs?pageNumber=1&pagesize=20&all=true"
+      "http://localhost:5000/api/bookclubs?pageNumber=1&pagesize=5&all=true"
     ).as("bookclubsLoad");
 
     cy.intercept("GET", "http://localhost:5000/api/account").as("accountLoad");
@@ -54,5 +54,13 @@ describe("register flow", () => {
     cy.wait("@registerFailRequest")
       .its("response.statusCode")
       .should("eq", 400);
+  });
+
+  it("goes back to login page", () => {
+    cy.visit("localhost:3000");
+
+    cy.get("div").contains("Don't have an account?").find("a").click();
+
+    cy.get("div").contains("Already have an account?").find("a").click();
   });
 });

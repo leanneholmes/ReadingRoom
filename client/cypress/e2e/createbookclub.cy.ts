@@ -7,7 +7,7 @@ describe("book club creation", () => {
 
     cy.intercept(
       "GET",
-      "http://localhost:5000/api/bookclubs?pageNumber=1&pagesize=20&all=true"
+      "http://localhost:5000/api/bookclubs?pageNumber=1&pagesize=5&all=true"
     ).as("bookclubsLoad");
 
     cy.intercept("GET", "http://localhost:5000/api/account").as("accountLoad");
@@ -38,15 +38,25 @@ describe("book club creation", () => {
 
     cy.get("textarea[name=description]").type("a new club for readers");
 
-    cy.get("h4").contains("Category").siblings("div[role=listbox]").click();
-    cy.get("span").contains("Mystery").click();
-
-    cy.get("h4").contains("Reading Pace").siblings("div[role=listbox]").click();
-    cy.get("span").contains("Slow").click();
+    cy.get("input[name=meetingLink]").type("zoom.ca");
 
     cy.get("input[name=nextMeeting]").type("March 18, 2024 1:30AM");
 
-    cy.get("input[name=meetingLink]").type("zoom.ca");
+    cy.get("h4").contains("Genre").click();
+    cy.get("h4")
+      .contains("Genre")
+      .parents(".row")
+      .find(".ui.selection.dropdown")
+      .click();
+    cy.get("span").contains("Mystery").click();
+
+    // cy.get("h4").contains("Reading Pace").siblings("div[role=listbox]").click();
+    cy.get("h4")
+      .contains("Reading Pace")
+      .parents(".row")
+      .find(".ui.selection.dropdown")
+      .click();
+    cy.get("span").contains("Slow").click();
 
     cy.get("input[name=currentBook").type("something to read");
 

@@ -7,7 +7,7 @@ describe("browse clubs", () => {
 
     cy.intercept(
       "GET",
-      "http://localhost:5000/api/bookclubs?pageNumber=1&pagesize=20&all=true"
+      "http://localhost:5000/api/bookclubs?pageNumber=1&pagesize=5&all=true"
     ).as("bookclubsLoad");
 
     cy.intercept("GET", "http://localhost:5000/api/account").as("accountLoad");
@@ -50,7 +50,7 @@ describe("browse clubs", () => {
 
     cy.intercept(
       "GET",
-      "http://localhost:5000/api/bookclubs?pageNumber=1&pagesize=20&all=true"
+      "http://localhost:5000/api/bookclubs?pageNumber=1&pagesize=5&all=true"
     ).as("bookclubsLoad");
 
     cy.intercept("GET", "http://localhost:5000/api/account").as("accountLoad");
