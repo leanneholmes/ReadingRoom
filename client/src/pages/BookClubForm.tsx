@@ -24,7 +24,6 @@ import CustomSelectInput from "../components/form/CustomSelectInput";
 import { categoryOptions } from "../options/CategoryOptions";
 import { readingPaceOptions } from "../options/ReadingPaceOptions";
 import CustomDateInput from "../components/form/CustomDateInput";
-import { addDays, endOfDay } from "date-fns";
 
 export default observer(function CreateBookClub() {
   const { bookClubStore } = useStore();
@@ -37,6 +36,8 @@ export default observer(function CreateBookClub() {
     uploading,
     getImageId,
     deleteImage,
+    loadAllBookClubs,
+    allBookClubNames,
   } = bookClubStore;
   const { id } = useParams();
   const navigate = useNavigate();
@@ -106,7 +107,14 @@ export default observer(function CreateBookClub() {
   };
 
   const validationSchema = Yup.object({
-    name: Yup.string().required("The book club name is required"),
+    name: Yup.string()
+      .required("The book club name is required")
+      .test("notOneOf", "This name is already taken", function (value) {
+        if (value === undefined) return true;
+        return !allBookClubNames
+          .map((name) => name.toLowerCase())
+          .includes(value.toLowerCase());
+      }),
     description: Yup.string().required("The book club description is required"),
     category: Yup.string().required("Club genre is required"),
     readingPace: Yup.string().required("Reading pace is required"),
@@ -119,6 +127,7 @@ export default observer(function CreateBookClub() {
   });
 
   useEffect(() => {
+    loadAllBookClubs();
     if (id)
       loadBookClub(id).then((bookClub) =>
         setBookClub(new BookClubFormValues(bookClub))
