@@ -98,24 +98,6 @@ export default class BookClubStore {
     }
   };
 
-  // loadBookClubs = async () => {
-  //   this.bookClubRegistry.clear();
-  //   this.setLoadingInitial(true);
-  //   try {
-  //     const result = await agent.BookClubs.list(this.axiosParams);
-  //     if (result.data) {
-  //       result.data.forEach((bookClub) => {
-  //         this.setBookClub(bookClub);
-  //       });
-  //     }
-  //     this.setPagination(result.pagination);
-  //     this.setLoadingInitial(false);
-  //   } catch (error) {
-  //     console.log(error);
-  //     this.setLoadingInitial(false);
-  //   }
-  // };
-
   loadAllBookClubs = async () => {
     this.allBookClubNames = [];
     var i = 0;
