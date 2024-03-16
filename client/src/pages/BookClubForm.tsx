@@ -47,6 +47,7 @@ export default observer(function CreateBookClub() {
   );
   const [imageURL, setImageURL] = useState("");
   const [imageChanged, setImageChanged] = useState(false);
+  const [initialName, setInitialName] = useState("");
 
   const [file, setFile] = useState<string | undefined>();
 
@@ -106,17 +107,23 @@ export default observer(function CreateBookClub() {
     }
   };
 
-  const validationSchema = Yup.object().shape({
-    name: id
-      ? Yup.string().required("The book club name is required")
-      : Yup.string()
-          .required("The book club name is required")
-          .test("notOneOf", "This name is already taken", function (value) {
-            if (value === undefined) return true;
-            return !allBookClubNames
-              .map((name) => name.toLowerCase())
-              .includes(value.toLowerCase());
-          }),
+  const validationSchema = Yup.object({
+    name: Yup.string()
+      .required("The book club name is required")
+      .test("notOneOf", "Club name already taken", function (value) {
+        if (!value) return true;
+        const nameExists = allBookClubNames
+          .map((name) => name.toLowerCase())
+          .includes(value.toLowerCase());
+
+        if (bookClub.id) {
+          return nameExists && value.toLowerCase() !== initialName.toLowerCase()
+            ? false
+            : true;
+        } else {
+          return nameExists ? false : true;
+        }
+      }),
     description: Yup.string().required("The book club description is required"),
     category: Yup.string().required("Club genre is required"),
     readingPace: Yup.string().required("Reading pace is required"),
@@ -130,11 +137,14 @@ export default observer(function CreateBookClub() {
 
   useEffect(() => {
     loadAllBookClubs();
-    if (id)
-      loadBookClub(id).then((bookClub) =>
-        setBookClub(new BookClubFormValues(bookClub))
-      );
-  }, [id, loadBookClub]);
+    console.log(allBookClubNames);
+    if (id) {
+      loadBookClub(id).then((bookClub) => {
+        setBookClub(new BookClubFormValues(bookClub));
+        setInitialName(bookClub!.name);
+      });
+    }
+  }, [id, loadBookClub, initialName]);
 
   function handleFormSubmit(bookClub: BookClubFormValues) {
     if (imageChanged) bookClub.image = imageURL;
