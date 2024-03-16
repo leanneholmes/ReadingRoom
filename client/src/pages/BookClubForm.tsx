@@ -106,15 +106,17 @@ export default observer(function CreateBookClub() {
     }
   };
 
-  const validationSchema = Yup.object({
-    name: Yup.string()
-      .required("The book club name is required")
-      .test("notOneOf", "This name is already taken", function (value) {
-        if (value === undefined) return true;
-        return !allBookClubNames
-          .map((name) => name.toLowerCase())
-          .includes(value.toLowerCase());
-      }),
+  const validationSchema = Yup.object().shape({
+    name: id
+      ? Yup.string().required("The book club name is required")
+      : Yup.string()
+          .required("The book club name is required")
+          .test("notOneOf", "This name is already taken", function (value) {
+            if (value === undefined) return true;
+            return !allBookClubNames
+              .map((name) => name.toLowerCase())
+              .includes(value.toLowerCase());
+          }),
     description: Yup.string().required("The book club description is required"),
     category: Yup.string().required("Club genre is required"),
     readingPace: Yup.string().required("Reading pace is required"),
@@ -135,7 +137,7 @@ export default observer(function CreateBookClub() {
   }, [id, loadBookClub]);
 
   function handleFormSubmit(bookClub: BookClubFormValues) {
-    bookClub.image = imageURL;
+    if (imageChanged) bookClub.image = imageURL;
     if (!bookClub.id) {
       bookClub.id = uuid();
       createBookClub(bookClub).then(() => navigate(`/bookclub/${bookClub.id}`));

@@ -85,7 +85,7 @@ export default class BookClubStore {
     this.setLoadingInitial(true);
     try {
       const result = await agent.BookClubs.list(this.axiosParams);
-      if (result.data) {
+      if (result.data && result.data.length > 0) {
         result.data.forEach((bookClub) => {
           this.setBookClub(bookClub);
         });
@@ -97,6 +97,24 @@ export default class BookClubStore {
       this.setLoadingInitial(false);
     }
   };
+
+  // loadBookClubs = async () => {
+  //   this.bookClubRegistry.clear();
+  //   this.setLoadingInitial(true);
+  //   try {
+  //     const result = await agent.BookClubs.list(this.axiosParams);
+  //     if (result.data) {
+  //       result.data.forEach((bookClub) => {
+  //         this.setBookClub(bookClub);
+  //       });
+  //     }
+  //     this.setPagination(result.pagination);
+  //     this.setLoadingInitial(false);
+  //   } catch (error) {
+  //     console.log(error);
+  //     this.setLoadingInitial(false);
+  //   }
+  // };
 
   loadAllBookClubs = async () => {
     this.allBookClubNames = [];
