@@ -142,3 +142,9 @@ textarea {
 .hidden {
   display: none;
 }
+
+.card-header {
+  color: #384776;
+  font-weight: 700;
+  font-size: 12pt;
+}
