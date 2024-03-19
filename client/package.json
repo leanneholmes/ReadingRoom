@@ -13,6 +13,7 @@
   "dependencies": {
     "@microsoft/signalr": "^8.0.0",
     "axios": "^1.6.7",
+    "babel": "^6.23.0",
     "date-fns": "^2.30.0",
     "eslintcc": "^0.8.1",
     "formik": "^2.2.6",
@@ -28,9 +29,11 @@
     "semantic-ui-css": "^2.5.0",
     "semantic-ui-react": "^3.0.0-beta.0",
     "uuid": "^9.0.0",
+    "vite-plugin-istanbul": "^6.0.0",
     "yup": "^0.32.8"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.12.30",
     "@types/react": "^18.2.55",
     "@types/react-datepicker": "^6.0.1",
     "@types/react-dom": "^18.2.19",
