@@ -14,6 +14,7 @@
     "@microsoft/signalr": "^8.0.0",
     "axios": "^1.6.7",
     "date-fns": "^2.30.0",
+    "eslintcc": "^0.8.1",
     "formik": "^2.2.6",
     "mobx": "^6.7.0",
     "mobx-react-lite": "^3.4.0",

@@ -36,6 +36,8 @@ export default observer(function CreateBookClub() {
     uploading,
     getImageId,
     deleteImage,
+    loadAllBookClubs,
+    allBookClubNames,
   } = bookClubStore;
   const { id } = useParams();
   const navigate = useNavigate();
@@ -45,6 +47,7 @@ export default observer(function CreateBookClub() {
   );
   const [imageURL, setImageURL] = useState("");
   const [imageChanged, setImageChanged] = useState(false);
+  const [initialName, setInitialName] = useState("");
 
   const [file, setFile] = useState<string | undefined>();
 
@@ -105,25 +108,46 @@ export default observer(function CreateBookClub() {
   };
 
   const validationSchema = Yup.object({
-    name: Yup.string().required("The book club name is required"),
+    name: Yup.string()
+      .required("The book club name is required")
+      .test("notOneOf", "Club name already taken", function (value) {
+        if (!value) return true;
+        const nameExists = allBookClubNames
+          .map((name) => name.toLowerCase())
+          .includes(value.toLowerCase());
+
+        if (bookClub.id) {
+          return nameExists && value.toLowerCase() !== initialName.toLowerCase()
+            ? false
+            : true;
+        } else {
+          return nameExists ? false : true;
+        }
+      }),
     description: Yup.string().required("The book club description is required"),
     category: Yup.string().required("Club genre is required"),
     readingPace: Yup.string().required("Reading pace is required"),
     nextMeeting: Yup.string().required("Meeting date is required").nullable(),
-    meetingLink: Yup.string().required("A meeting link is required"),
+    meetingLink: Yup.string()
+      .required("A meeting link is required")
+      .url("Link must be a valid URL"),
     currentBook: Yup.string().required("Current book is required"),
     currentBookAuthor: Yup.string().required("Book author is required"),
   });
 
   useEffect(() => {
-    if (id)
-      loadBookClub(id).then((bookClub) =>
-        setBookClub(new BookClubFormValues(bookClub))
-      );
-  }, [id, loadBookClub]);
+    loadAllBookClubs();
+    console.log(allBookClubNames);
+    if (id) {
+      loadBookClub(id).then((bookClub) => {
+        setBookClub(new BookClubFormValues(bookClub));
+        setInitialName(bookClub!.name);
+      });
+    }
+  }, [id, loadBookClub, initialName]);
 
   function handleFormSubmit(bookClub: BookClubFormValues) {
-    bookClub.image = imageURL;
+    if (imageChanged) bookClub.image = imageURL;
     if (!bookClub.id) {
       bookClub.id = uuid();
       createBookClub(bookClub).then(() => navigate(`/bookclub/${bookClub.id}`));

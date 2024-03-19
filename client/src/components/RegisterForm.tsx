@@ -6,7 +6,7 @@ import CustomTextInput from "./form/CustomTextInput";
 import { useStore } from "../stores/store";
 import ValidationError from "./errors/ValidationError";
 
-export default observer(function RegsiterForm() {
+export default observer(function RegisterForm() {
   const { userStore } = useStore();
   return (
     <Formik

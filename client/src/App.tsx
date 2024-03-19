@@ -7,7 +7,6 @@ import { useStore } from "./stores/store";
 import { useEffect } from "react";
 import LoadingComponent from "./components/LoadingComponent";
 import { observer } from "mobx-react-lite";
-import ModalContainer from "./components/modals/ModalContainer";
 
 function App() {
   const location = useLocation();
@@ -31,7 +30,6 @@ function App() {
 
   return (
     <>
-      <ModalContainer />
       <ToastContainer position="bottom-right" hideProgressBar theme="colored" />
       {location.pathname === "/" ? (
         <HomePage />

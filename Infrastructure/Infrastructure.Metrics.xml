@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeMetricsReport Version="1.0">
+  <Targets>
+    <Target Name="Infrastructure.csproj">
+      <Assembly Name="Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Metrics>
+          <Metric Name="MaintainabilityIndex" Value="82" />
+          <Metric Name="CyclomaticComplexity" Value="29" />
+          <Metric Name="ClassCoupling" Value="43" />
+          <Metric Name="DepthOfInheritance" Value="2" />
+          <Metric Name="SourceLines" Value="164" />
+          <Metric Name="ExecutableLines" Value="39" />
+        </Metrics>
+        <Namespaces>
+          <Namespace Name="Infrastructure.Photos">
+            <Metrics>
+              <Metric Name="MaintainabilityIndex" Value="79" />
+              <Metric Name="CyclomaticComplexity" Value="18" />
+              <Metric Name="ClassCoupling" Value="23" />
+              <Metric Name="DepthOfInheritance" Value="1" />
+              <Metric Name="SourceLines" Value="110" />
+              <Metric Name="ExecutableLines" Value="26" />
+            </Metrics>
+            <Types>
+              <NamedType Name="CloudinarySettings">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="6" />
+                  <Metric Name="ClassCoupling" Value="0" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="6" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Property Name="string CloudinarySettings.CloudName" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Photos\CloudinarySettings.cs" Line="5">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string CloudinarySettings.CloudName.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Photos\CloudinarySettings.cs" Line="5">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void CloudinarySettings.CloudName.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Photos\CloudinarySettings.cs" Line="5">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="string CloudinarySettings.ApiKey" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Photos\CloudinarySettings.cs" Line="6">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string CloudinarySettings.ApiKey.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Photos\CloudinarySettings.cs" Line="6">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void CloudinarySettings.ApiKey.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Photos\CloudinarySettings.cs" Line="6">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="string CloudinarySettings.ApiSecret" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Photos\CloudinarySettings.cs" Line="7">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string CloudinarySettings.ApiSecret.get" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Photos\CloudinarySettings.cs" Line="7">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void CloudinarySettings.ApiSecret.set" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Photos\CloudinarySettings.cs" Line="7">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                </Members>
+              </NamedType>
+              <NamedType Name="ImageAccessor">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="69" />
+                  <Metric Name="CyclomaticComplexity" Value="6" />
+                  <Metric Name="ClassCoupling" Value="22" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="48" />
+                  <Metric Name="ExecutableLines" Value="13" />
+                </Metrics>
+                <Members>
+                  <Field Name="Cloudinary ImageAccessor._cloudinary" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Photos\ImageAccessor.cs" Line="12">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Method Name="ImageAccessor.ImageAccessor(IOptions&lt;CloudinarySettings&gt; config)" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Photos\ImageAccessor.cs" Line="13">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="80" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="4" />
+                      <Metric Name="SourceLines" Value="9" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="Task&lt;PhotoUploadResult&gt; ImageAccessor.AddImage(IFormFile file)" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Photos\ImageAccessor.cs" Line="23">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="62" />
+                      <Metric Name="CyclomaticComplexity" Value="3" />
+                      <Metric Name="ClassCoupling" Value="16" />
+                      <Metric Name="SourceLines" Value="27" />
+                      <Metric Name="ExecutableLines" Value="8" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="Task&lt;string&gt; ImageAccessor.DeleteImage(string publicId)" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Photos\ImageAccessor.cs" Line="51">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="76" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="5" />
+                      <Metric Name="SourceLines" Value="6" />
+                      <Metric Name="ExecutableLines" Value="3" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+              <NamedType Name="PhotoAccessor">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="69" />
+                  <Metric Name="CyclomaticComplexity" Value="6" />
+                  <Metric Name="ClassCoupling" Value="22" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="48" />
+                  <Metric Name="ExecutableLines" Value="13" />
+                </Metrics>
+                <Members>
+                  <Field Name="Cloudinary PhotoAccessor._cloudinary" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Photos\PhotoAccessor.cs" Line="14">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Method Name="PhotoAccessor.PhotoAccessor(IOptions&lt;CloudinarySettings&gt; config)" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Photos\PhotoAccessor.cs" Line="15">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="80" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="4" />
+                      <Metric Name="SourceLines" Value="9" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="Task&lt;PhotoUploadResult&gt; PhotoAccessor.AddPhoto(IFormFile file)" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Photos\PhotoAccessor.cs" Line="25">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="62" />
+                      <Metric Name="CyclomaticComplexity" Value="3" />
+                      <Metric Name="ClassCoupling" Value="16" />
+                      <Metric Name="SourceLines" Value="27" />
+                      <Metric Name="ExecutableLines" Value="8" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="Task&lt;string&gt; PhotoAccessor.DeletePhoto(string publicId)" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Photos\PhotoAccessor.cs" Line="53">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="76" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="5" />
+                      <Metric Name="SourceLines" Value="6" />
+                      <Metric Name="ExecutableLines" Value="3" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+            </Types>
+          </Namespace>
+          <Namespace Name="Infrastructure.Security">
+            <Metrics>
+              <Metric Name="MaintainabilityIndex" Value="86" />
+              <Metric Name="CyclomaticComplexity" Value="11" />
+              <Metric Name="ClassCoupling" Value="21" />
+              <Metric Name="DepthOfInheritance" Value="2" />
+              <Metric Name="SourceLines" Value="54" />
+              <Metric Name="ExecutableLines" Value="13" />
+            </Metrics>
+            <Types>
+              <NamedType Name="IsOwnerRequirement">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="1" />
+                  <Metric Name="ClassCoupling" Value="1" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="3" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+              </NamedType>
+              <NamedType Name="IsOwnerRequirementHandler">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="68" />
+                  <Metric Name="CyclomaticComplexity" Value="8" />
+                  <Metric Name="ClassCoupling" Value="20" />
+                  <Metric Name="DepthOfInheritance" Value="2" />
+                  <Metric Name="SourceLines" Value="31" />
+                  <Metric Name="ExecutableLines" Value="11" />
+                </Metrics>
+                <Members>
+                  <Field Name="DataContext IsOwnerRequirementHandler._dbContext" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Security\IsOwnerRequirement.cs" Line="15">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="IHttpContextAccessor IsOwnerRequirementHandler._httpContextAccessor" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Security\IsOwnerRequirement.cs" Line="16">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Method Name="IsOwnerRequirementHandler.IsOwnerRequirementHandler(DataContext dbContext, IHttpContextAccessor httpContextAccessor)" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Security\IsOwnerRequirement.cs" Line="17">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="85" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="2" />
+                      <Metric Name="SourceLines" Value="5" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="Task IsOwnerRequirementHandler.HandleRequirementAsync(AuthorizationHandlerContext context, IsOwnerRequirement requirement)" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Security\IsOwnerRequirement.cs" Line="23">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="61" />
+                      <Metric Name="CyclomaticComplexity" Value="7" />
+                      <Metric Name="ClassCoupling" Value="19" />
+                      <Metric Name="SourceLines" Value="20" />
+                      <Metric Name="ExecutableLines" Value="9" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+              <NamedType Name="UserAccessor">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="91" />
+                  <Metric Name="CyclomaticComplexity" Value="2" />
+                  <Metric Name="ClassCoupling" Value="6" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="13" />
+                  <Metric Name="ExecutableLines" Value="2" />
+                </Metrics>
+                <Members>
+                  <Field Name="IHttpContextAccessor UserAccessor._httpContextAccessor" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Security\UserAccessor.cs" Line="9">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Method Name="UserAccessor.UserAccessor(IHttpContextAccessor httpContextAccessor)" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Security\UserAccessor.cs" Line="10">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="96" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="4" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="string UserAccessor.GetUsername()" File="C:\Users\xtori\Documents\VS Studio Projects\ReadingRoom\infrastructure\Security\UserAccessor.cs" Line="15">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="90" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="5" />
+                      <Metric Name="SourceLines" Value="4" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+            </Types>
+          </Namespace>
+        </Namespaces>
+      </Assembly>
+    </Target>
+  </Targets>
+</CodeMetricsReport>

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { observer } from "mobx-react-lite";
-import { Grid, Header, Card, Image, Loader } from "semantic-ui-react";
+import { Grid, Header, Image, Loader, Icon, Segment } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { useStore } from "../stores/store";
 import { UserBookClub } from "../models/profile";
@@ -23,43 +23,97 @@ export default observer(function ProfileBookClubs({ username }: Props) {
     return (
       <Grid>
         <Grid.Column width={16}>
-          <Header as="h2">Book Clubs</Header>
+          <Header as="h2" style={{ marginBottom: "5px" }}>
+            Book Clubs
+          </Header>
           This user is not a member of any book clubs.
         </Grid.Column>
       </Grid>
     );
 
   return (
-    <Grid style={{ marginBottom: "30px" }}>
-      <Grid.Column width={16}>
-        <Header as="h2">Book Clubs</Header>
-        <Card.Group itemsPerRow={4}>
-          {userBookClubs.map((bookClub: UserBookClub) => (
-            <Card
+    <>
+      <Header as="h2" style={{ marginBottom: "0", marginLeft: "10px" }}>
+        Book Clubs
+      </Header>
+      <div
+        style={{
+          marginBottom: "30px",
+          display: "flex",
+          flexWrap: "wrap",
+          width: "100%",
+        }}
+      >
+        {userBookClubs.map((bookClub: UserBookClub) => (
+          <div
+            key={bookClub.id}
+            style={{
+              width: "33.3333333333%",
+              padding: "10px",
+              boxSizing: "border-box",
+            }}
+          >
+            <Segment
               as={Link}
               to={`/bookclub/${bookClub.id}`}
-              key={bookClub.id}
-              style={{ minWidth: 250 }}
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                height: "100%",
+                paddingLeft: "0",
+                paddingTop: "0",
+                paddingBottom: "0",
+                paddingRight: "15px",
+                borderRadius: "5px",
+              }}
             >
-              <Image
-                src={
-                  bookClub.image
-                    ? bookClub.image
-                    : `/assets/${bookClub.category}.png`
-                }
-                style={{ minHeight: 100, objectFit: "cover" }}
-              />
-              <Card.Content>
-                <Card.Header textAlign="center">{bookClub.name}</Card.Header>
-                <Card.Meta textAlign="center">
-                  <div>Genre: {bookClub.category}</div>
-                  <div>Reading Pace: {bookClub.readingPace}</div>
-                </Card.Meta>
-              </Card.Content>
-            </Card>
-          ))}
-        </Card.Group>
-      </Grid.Column>
-    </Grid>
+              <div>
+                <Image
+                  src={
+                    bookClub.image
+                      ? bookClub.image
+                      : `/assets/${bookClub.category}.png`
+                  }
+                  width="120"
+                  style={{
+                    objectFit: "cover",
+                    borderRadius: "5px 0px 0px 5px",
+                  }}
+                />
+              </div>
+              <div
+                style={{
+                  paddingLeft: "10px",
+                  paddingTop: "5px",
+                  paddingRight: "10px",
+                  paddingBottom: "5px",
+                  marginTop: "-5px",
+                }}
+              >
+                <div>
+                  <Header
+                    as="h4"
+                    style={{
+                      marginBottom: 0,
+                      color: "#384776",
+                      fontSize: "1.2em",
+                    }}
+                  >
+                    {bookClub.name}
+                  </Header>
+                  <span style={{ color: "grey", fontSize: "0.95em" }}>
+                    <Icon name="bookmark outline" />
+                    {bookClub.category}
+                    <Icon name="clock outline" style={{ marginLeft: "7px" }} />
+                    {bookClub.readingPace}
+                  </span>
+                </div>
+              </div>
+            </Segment>
+          </div>
+        ))}
+      </div>
+    </>
   );
 });

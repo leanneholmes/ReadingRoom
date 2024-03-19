@@ -11,6 +11,7 @@ export default class BookClubStore {
   selectedBookClub?: BookClub = undefined;
   editMode = false;
   bookClubs: BookClub[] = [];
+  allBookClubNames: string[] = [];
   loadingInitial = false;
   loading = false;
   pagination: Pagination | null = null;
@@ -37,7 +38,7 @@ export default class BookClubStore {
 
   setPredicate = (predicate: string, value: string) => {
     const resetPredicate = () => {
-      this.predicate.forEach((value, key) => {
+      this.predicate.forEach((_value, key) => {
         this.predicate.delete(key);
       });
     };
@@ -48,11 +49,11 @@ export default class BookClubStore {
         break;
       case "isMember":
         resetPredicate();
-        this.predicate.set("isGoing", true);
+        this.predicate.set("isMember", true);
         break;
       case "isOwner":
         resetPredicate();
-        this.predicate.set("isHost", true);
+        this.predicate.set("isOwner", true);
         break;
       case "Category":
         this.predicate.delete("Category");
@@ -84,7 +85,7 @@ export default class BookClubStore {
     this.setLoadingInitial(true);
     try {
       const result = await agent.BookClubs.list(this.axiosParams);
-      if (result.data) {
+      if (result.data && result.data.length > 0) {
         result.data.forEach((bookClub) => {
           this.setBookClub(bookClub);
         });
@@ -94,6 +95,25 @@ export default class BookClubStore {
     } catch (error) {
       console.log(error);
       this.setLoadingInitial(false);
+    }
+  };
+
+  loadAllBookClubs = async () => {
+    this.allBookClubNames = [];
+    var i = 0;
+    var k = 1000;
+    const customParams = new URLSearchParams();
+    customParams.append("pageNumber", i.toString());
+    customParams.append("pagesize", k.toString());
+    try {
+      const result = await agent.BookClubs.list(customParams);
+      if (result.data) {
+        result.data.forEach((bookClub) => {
+          runInAction(() => this.allBookClubNames.push(bookClub.name));
+        });
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
