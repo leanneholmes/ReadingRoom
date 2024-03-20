@@ -48,6 +48,10 @@ describe("editing a book club", () => {
 
     cy.get("textarea[name=description]").type("A new club 22 description");
 
+    cy.get("input[name=meetingLink]").clear();
+
+    cy.get("input[name=meetingLink]").type("http://www.zoom.ca");
+
     cy.get("button[id=submit]").click();
 
     // confirm replaced with new

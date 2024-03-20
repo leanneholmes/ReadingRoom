@@ -38,9 +38,9 @@ describe("book club creation", () => {
 
     cy.get("textarea[name=description]").type("a new club for readers");
 
-    cy.get("input[name=meetingLink]").type("zoom.ca");
+    cy.get("input[name=meetingLink]").type("http://www.zoom.ca");
 
-    cy.get("input[name=nextMeeting]").type("March 18, 2024 1:30AM");
+    cy.get("input[name=nextMeeting]").type("April 18, 2024 1:30AM");
 
     cy.get("h4").contains("Genre").click();
     cy.get("h4")
