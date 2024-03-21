@@ -188,33 +188,43 @@ namespace Persistence
 
         var photos = new List<Photo> {
             new Photo {
+                Id = "1",
                 Url = "https://cdn.discordapp.com/attachments/1218431020420825160/1219372773483352084/Kanye_West.jpg?ex=660b1064&is=65f89b64&hm=d293141491dc3d97bab24ca4d71029cf6bf473b866104def8139ee5313f46e54&"
             },
             new Photo {
+                Id = "2",
                 Url = "https://cdn.discordapp.com/attachments/1218431020420825160/1219373058800881674/j_cole.jpg?ex=660b10a8&is=65f89ba8&hm=8c692b605c78985ee03dd52924a349769167676420b44291d8b006bf30a530a5&"
             },
             new Photo {
+                Id = "3",
                 Url = "https://cdn.discordapp.com/attachments/1218431020420825160/1219374580494241894/chris_brown.webp?ex=660b1212&is=65f89d12&hm=e4dd81da5c13b64502e9762c84a3b30c3bbe4f0bb995ee7510ef674737a6a077&"
             },
             new Photo {
+                Id = "4",
                 Url = "https://cdn.discordapp.com/attachments/1218431020420825160/1219378528173297778/myster_books.jpg?ex=660b15c0&is=65f8a0c0&hm=3817ef2ece3852cdf0261adceafa22645f931cee2b553b48782c2c7ee68fa62a&"
             },
             new Photo {
+                Id = "5",
                 Url = "https://cdn.discordapp.com/attachments/1218431020420825160/1219378990758887555/Classic_Literature_.jpg?ex=660b162e&is=65f8a12e&hm=8ac94eaf722433e4d91a227242743222e447ada0bf8b830be7a059e29a097c3d&"
             },
             new Photo {
+                Id = "6",
                 Url = "https://media.discordapp.net/attachments/1218431020420825160/1219379935232266260/Sci-Fi_Galaxy_Explorers.jpeg?ex=660b170f&is=65f8a20f&hm=5ad1ff6c89b6e0bf2ce09381e19592cabc4de267674d0617167493c296b70ca4&=&format=webp"
             },
             new Photo {
+                Id = "7",
                 Url = "https://cdn.discordapp.com/attachments/1218431020420825160/1219379965091643462/Historical-Fiction-for-Book-Clubs-BRR-Blog.webp?ex=660b1716&is=65f8a216&hm=60631173e5adfe68f9f262b49b258362513ad54f88523fd3705b5a1ee1a0807c&"
             },
             new Photo {
+                Id = "8",
                 Url = "https://cdn.discordapp.com/attachments/1218431020420825160/1219379965091643462/Historical-Fiction-for-Book-Clubs-BRR-Blog.webp?ex=660b1716&is=65f8a216&hm=60631173e5adfe68f9f262b49b258362513ad54f88523fd3705b5a1ee1a0807c&"
             },
             new Photo {
+                Id = "9",
                 Url = "https://cdn.discordapp.com/attachments/1218431020420825160/1219380050407854080/t2-e-2601-biography-and-autobiography-display-banner-_ver_1.jpg?ex=660b172b&is=65f8a22b&hm=6bbb1292e33023c26f28545475cb3413d29e875f931652a46ee926fe727838e1&"
             },
             new Photo {
+                Id = "10",
                 Url = "https://cdn.discordapp.com/attachments/1218431020420825160/1219380007458181200/Romantic_Fiction_Club.png?ex=660b1720&is=65f8a220&hm=f7d38d2f9280a2602081c9abb7186921114500b0af23f57b73c95abbaa82ed92&"
             },
         };
