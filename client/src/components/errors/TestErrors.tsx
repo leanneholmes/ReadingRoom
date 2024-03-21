@@ -49,32 +49,48 @@ export default function TestErrors() {
       <Header as="h1" content="Test Error component" />
       <Segment>
         <Button.Group widths="7">
-          <Button onClick={handleNotFound} content="Not Found" basic primary />
+          <Button
+            onClick={handleNotFound}
+            content="Not Found"
+            basic
+            primary
+            id="notFound"
+          />
           <Button
             onClick={handleBadRequest}
             content="Bad Request"
             basic
             primary
+            id="badRequest"
           />
           <Button
             onClick={handleValidationError}
             content="Validation Error"
             basic
             primary
+            id="validationError"
           />
           <Button
             onClick={handleServerError}
             content="Server Error"
             basic
             primary
+            id="serverError"
           />
           <Button
             onClick={handleUnauthorised}
-            content="Unauthorised"
+            content="Unauthorized"
             basic
             primary
+            id="unauthorized"
           />
-          <Button onClick={handleBadGuid} content="Bad Guid" basic primary />
+          <Button
+            onClick={handleBadGuid}
+            content="Bad Guid"
+            basic
+            primary
+            id="badGuid"
+          />
         </Button.Group>
       </Segment>
       {errors && <ValidationError errors={errors} />}
