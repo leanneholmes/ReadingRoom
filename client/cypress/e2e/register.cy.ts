@@ -17,9 +17,11 @@ describe("register flow", () => {
 
     cy.get("input[name=displayName]").type("New user");
 
-    cy.get("input[name=username]").type("newusername3");
+    const username = "newuser" + Math.random() * 20;
 
-    cy.get("input[name=email]").type("user3@test.com");
+    cy.get("input[name=username]").type(username);
+
+    cy.get("input[name=email]").type(username + "@test.com");
 
     cy.get("input[name=password]").type("Pa$$w0rd!!");
 
@@ -34,7 +36,7 @@ describe("register flow", () => {
 
   it("enters existing username and password", () => {
     cy.intercept("POST", "http://localhost:5000/api/account/register").as(
-      "registerFailRequest"
+      "registerRequest"
     );
 
     cy.visit("localhost:3000");
@@ -51,9 +53,35 @@ describe("register flow", () => {
 
     cy.get("button[type=submit]").click();
 
-    cy.wait("@registerFailRequest")
-      .its("response.statusCode")
-      .should("eq", 400);
+    cy.wait("@registerRequest").its("response.statusCode").should("eq", 400);
+  });
+
+  it("enters no password", () => {
+    cy.visit("localhost:3000");
+
+    cy.get("a").contains("Click here").click();
+
+    cy.get("input[name=displayName]").type("Deanna");
+
+    cy.get("input[name=username]").type("deanna");
+
+    cy.get("input[name=email]").type("deanna@test.com");
+
+    cy.get("button[type=submit]").should("be.disabled");
+  });
+
+  it("enters no username", () => {
+    cy.visit("localhost:3000");
+
+    cy.get("a").contains("Click here").click();
+
+    cy.get("input[name=displayName]").type("Deanna");
+
+    cy.get("input[name=email]").type("deanna@test.com");
+
+    cy.get("input[name=password]").type("Pa$$w0rd");
+
+    cy.get("button[type=submit]").should("be.disabled");
   });
 
   it("goes back to login page", () => {
