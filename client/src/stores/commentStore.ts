@@ -18,7 +18,7 @@ export default class CommentStore {
   createHubConnection = (bookClubId: string) => {
     if (store.bookClubStore.selectedBookClub) {
       this.hubConnnection = new HubConnectionBuilder()
-        .withUrl("http://localhost:5000/chat?bookClubId=" + bookClubId, {
+        .withUrl(import.meta.env.VITE_CHAT_URL + "?bookClubId=" + bookClubId, {
           accessTokenFactory: () => store.userStore.user?.token as string,
         })
         .withAutomaticReconnect()
