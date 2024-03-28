@@ -1249,7 +1249,7 @@
               </NamedType>
               <NamedType Name="UpdateMembership.Handler">
                 <Metrics>
-                  <Metric Name="MaintainabilityIndex" Value="60" />
+                  <Metric Name="MaintainabilityIndex" Value="80" />
                   <Metric Name="CyclomaticComplexity" Value="10" />
                   <Metric Name="ClassCoupling" Value="21" />
                   <Metric Name="DepthOfInheritance" Value="1" />
