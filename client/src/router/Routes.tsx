@@ -7,18 +7,24 @@ import TestErrors from "../components/errors/TestErrors";
 import NotFound from "../pages/NotFound";
 import ServerError from "../components/errors/ServerError";
 import ProfilePage from "../pages/ProfilePage";
+import RequireAuth from "./RequireAuth";
 
 export const routes: RouteObject[] = [
   {
     path: "/",
     element: <App />,
     children: [
-      { path: "/bookclubs", index: true, element: <BookClubs /> },
-      { path: "/create", element: <BookClubForm key="create" /> },
-      { path: "/bookclub/:id", element: <BookClubDetails /> },
-      { path: "/edit/:id", element: <BookClubForm key="edit" /> },
-      { path: "/profiles/:username", element: <ProfilePage /> },
-      { path: "/errors", element: <TestErrors /> },
+      {
+        element: <RequireAuth />,
+        children: [
+          { path: "/bookclubs", index: true, element: <BookClubs /> },
+          { path: "/create", element: <BookClubForm key="create" /> },
+          { path: "/bookclub/:id", element: <BookClubDetails /> },
+          { path: "/edit/:id", element: <BookClubForm key="edit" /> },
+          { path: "/profiles/:username", element: <ProfilePage /> },
+          { path: "/errors", element: <TestErrors /> },
+        ],
+      },
       { path: "/not-found", element: <NotFound /> },
       { path: "/server-error", element: <ServerError /> },
       { path: "*", element: <Navigate replace to="/not-found" /> }, //Any bad URL will redirect to not found
