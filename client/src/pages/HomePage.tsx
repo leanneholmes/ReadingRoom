@@ -20,7 +20,6 @@ function HomePage() {
 
   function handleClick() {
     setLoginForm((loginForm) => !loginForm!);
-    console.log(loginForm);
   }
 
   return (
