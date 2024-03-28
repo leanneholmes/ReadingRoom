@@ -137,7 +137,6 @@ export default observer(function CreateBookClub() {
 
   useEffect(() => {
     loadAllBookClubs();
-    console.log(allBookClubNames);
     if (id) {
       loadBookClub(id).then((bookClub) => {
         setBookClub(new BookClubFormValues(bookClub));

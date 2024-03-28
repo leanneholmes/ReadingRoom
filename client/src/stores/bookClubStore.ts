@@ -100,11 +100,11 @@ export default class BookClubStore {
 
   loadAllBookClubs = async () => {
     this.allBookClubNames = [];
-    var i = 0;
-    var k = 1000;
+    var i = 1;
+    var k = this.pagination?.totalItems;
     const customParams = new URLSearchParams();
     customParams.append("pageNumber", i.toString());
-    customParams.append("pagesize", k.toString());
+    if (k) customParams.append("pagesize", k.toString());
     try {
       const result = await agent.BookClubs.list(customParams);
       if (result.data) {
