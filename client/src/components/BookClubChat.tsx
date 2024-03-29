@@ -60,7 +60,7 @@ export default observer(function BookClubChat({ bookClubId }: Props) {
             validationSchema={Yup.object({ body: Yup.string().required() })}
           >
             {({ isSubmitting, isValid, handleSubmit }) => (
-              <Form className="ui form" placeholder={undefined}>
+              <Form className="ui form">
                 <Field name="body">
                   {(props: FieldProps) => (
                     <div style={{ position: "relative" }}>

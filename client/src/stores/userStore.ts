@@ -19,9 +19,7 @@ export default class UserStore {
     const user = await agent.Account.login(creds);
     store.commonStore.setToken(user.token);
     runInAction(() => (this.user = user));
-    console.log("USER SET");
     router.navigate("/bookclubs");
-    console.log("after nav");
   };
 
   register = async (creds: UserFormValues) => {
