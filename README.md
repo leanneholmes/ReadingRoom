@@ -1,6 +1,6 @@
 # Reading Room
 
-An application where users can join or create book clubs.
+An application where users can join or create book clubs. Project created for COMP 7082 Winter 2024. 
 
 ## Description
 
@@ -42,8 +42,6 @@ Installing this tool is optional, but required if you want to clear out the loca
 ```
 dotnet tool install --global dotnet-ef --version 7.0.2
 ```
-
-**ENV file instructions will be added here later**
 
 ### Executing program
 
@@ -108,15 +106,8 @@ To fill out
 
 To fill out
 
-## License
-
-To fill out
-
 ## Acknowledgments
 
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+* [Semantic UI](https://react.semantic-ui.com/)
+* [Visily Wireframes](https://app.visily.ai/)
+* [React Photo Dropzone](https://react-dropzone.js.org/)
