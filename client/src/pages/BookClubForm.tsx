@@ -149,7 +149,9 @@ export default observer(function CreateBookClub() {
     if (imageChanged) bookClub.image = imageURL;
     if (!bookClub.id) {
       bookClub.id = uuid();
-      bookClub.image = imageURL;
+      if (imageURL.length > 0) {
+        bookClub.image = imageURL;
+      }
       createBookClub(bookClub).then(() => navigate(`/bookclub/${bookClub.id}`));
     } else {
       updateBookClub(bookClub).then(() => navigate(`/bookclub/${bookClub.id}`));

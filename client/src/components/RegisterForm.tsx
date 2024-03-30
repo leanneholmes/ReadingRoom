@@ -32,7 +32,6 @@ export default observer(function RegisterForm() {
           className="ui form error"
           onSubmit={handleSubmit}
           autoComplete="off"
-          placeholder={undefined}
         >
           <Header as="h2" textAlign="center">
             Create an Account

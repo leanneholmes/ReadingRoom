@@ -25,7 +25,7 @@ export default observer(function ProfileEditForm({ setEditMode }: Props) {
       })}
     >
       {({ isSubmitting, isValid, dirty }) => (
-        <Form className="ui form" placeholder={undefined}>
+        <Form className="ui form">
           <CustomTextInput
             placeholder="Display Name"
             name="displayName"

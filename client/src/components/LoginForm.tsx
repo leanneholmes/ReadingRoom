@@ -22,12 +22,7 @@ export default observer(function LoginForm() {
         }
       >
         {({ handleSubmit, isSubmitting, errors }) => (
-          <Form
-            className="ui form"
-            onSubmit={handleSubmit}
-            autoComplete="off"
-            placeholder={undefined}
-          >
+          <Form className="ui form" onSubmit={handleSubmit} autoComplete="off">
             <CustomTextInput
               placeholder="Email"
               name="email"
