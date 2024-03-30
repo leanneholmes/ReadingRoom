@@ -140,7 +140,7 @@ export default observer(function BookClubDetails() {
             {bookClub.currentBook} by {bookClub.currentBookAuthor}
             <Header as="h4">Next Meeting Date</Header>
             {format(bookClub.nextMeeting!, "MMMM dd, yyyy - h:mm aa")}
-            <Header as="h4">Meeting Link</Header>
+            <Header as="h4">The Meeting Link</Header>
             <Link to={bookClub.meetingLink}>{bookClub.meetingLink}</Link>
             <div style={{ height: "22px" }}></div>
             <Label
