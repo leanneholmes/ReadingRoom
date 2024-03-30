@@ -64,6 +64,7 @@ export default observer(function CreateBookClub() {
         const imageUploadResult = await uploadImage(e.target.files[0]);
         const imageURL = imageUploadResult?.url;
         if (imageURL) setImageURL(imageURL);
+        if (bookClub.id) bookClub.image = imageURL;
         setImageChanged(true);
       } catch (error) {
         console.error("Error uploading image:", error);
