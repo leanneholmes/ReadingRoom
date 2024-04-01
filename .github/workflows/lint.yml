@@ -31,3 +31,4 @@ jobs:
       env:
         RUN_LOCAL: true
         DEFAULT_BRANCH: development
+        GITHUB_SUPER_LINTER_EXCLUSIONS: "README.md"
