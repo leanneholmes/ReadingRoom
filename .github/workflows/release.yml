@@ -31,4 +31,6 @@ jobs:
           npm install --legacy-peer-deps
 
       - name: Build Vite App (Release)
-        run: npm run build
+        run: |
+          cd ./client
+          npm run build
