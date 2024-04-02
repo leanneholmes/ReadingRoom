@@ -55,5 +55,6 @@ jobs:
     - name: Run Automation Tests
       run: |
         cd ./client
+        npm start &
         npm test
 
