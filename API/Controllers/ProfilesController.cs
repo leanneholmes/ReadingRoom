@@ -1,6 +1,5 @@
 using Application.Profiles;
 using Microsoft.AspNetCore.Mvc;
-
 namespace API.Controllers
 {
     public class ProfilesController : BaseApiController
@@ -24,8 +23,6 @@ namespace API.Controllers
         }
     }
 }
-using Application.Profiles;
-using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
