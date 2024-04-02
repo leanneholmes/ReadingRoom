@@ -6,7 +6,7 @@ namespace Application.BookClubs
 {
     public class Delete
     {
-        public class Command: IRequest<Result<Unit>>
+        public class Command : IRequest<Result<Unit>>
         {
             public Guid Id { get; set; }
 
