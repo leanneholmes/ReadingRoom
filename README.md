@@ -38,6 +38,23 @@ Add a file to the /API folder called **appsettings.json** and populate it with t
 }
 ```
 
+Add another file in the same location, /API called **appsettings.Development.json** and paste in the following: 
+```
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Information"
+    }
+  },
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source=readingroom.db"
+  },
+  "TokenKey": "Ebt5Mx4pUH2LGBzAKfqRjDe86cQ9WNVCwnduTZv3XSymJag7pGdt23849203sdjlfjsklfjdslfjdsklf"
+}
+```
+
+
 Installing this tool is optional, but required if you want to clear out the local database. Run this command from the project level directory /ReadingRoom
 ```
 dotnet tool install --global dotnet-ef --version 7.0.2
