@@ -27,7 +27,7 @@ namespace API.SignalR
             var httpContext = Context.GetHttpContext();
             var bookClubId = httpContext.Request.Query["bookClubId"];
             await Groups.AddToGroupAsync(Context.ConnectionId, bookClubId);
-            var result = await _mediator.Send(new List.Query{BookClubId = Guid.Parse(bookClubId)});
+            var result = await _mediator.Send(new List.Query { BookClubId = Guid.Parse(bookClubId) });
             await Clients.Caller.SendAsync("LoadComments", result.Value);
         }
     }
