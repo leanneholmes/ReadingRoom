@@ -1,5 +1,5 @@
 ---
-name: Build and Test
+name: Dev - Build and Test
 
 on:
   push:

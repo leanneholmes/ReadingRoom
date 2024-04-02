@@ -1,5 +1,5 @@
 ---
-name: Pre-Production Build with Super Linter
+name: Dev - Lint
 
 on:
   push:
