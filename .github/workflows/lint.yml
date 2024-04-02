@@ -32,3 +32,4 @@ jobs:
         RUN_LOCAL: true
         DEFAULT_BRANCH: development
         FILTER_REGEX_EXCLUDE: "(client/coverage/|README\\.md$|\\.vscode/|\\.github/workflows/)"
+        VALIDATE_TYPESCRIPT_STANDARD: false
