@@ -50,10 +50,10 @@ Add another file in the same location, /API called **appsettings.Development.jso
   "ConnectionStrings": {
     "DefaultConnection": "Data Source=readingroom.db"
   },
-  "TokenKey": "Ebt5Mx4pUH2LGBzAKfqRjDe86cQ9WNVCwnduTZv3XSymJag7pGdt23849203sdjlfjsklfjdslfjdsklf"
+  "TokenKey": ""
 }
 ```
-
+For the token key, generate a random 64-length password and paste it into the field. You can use [this website](https://1password.com/password-generator/) and do **not** include symbols.
 
 Installing this tool is optional, but required if you want to clear out the local database. Run this command from the project level directory /ReadingRoom
 ```
