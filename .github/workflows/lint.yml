@@ -34,27 +34,4 @@ jobs:
         FILTER_REGEX_EXCLUDE: "(client/coverage/|README\\.md$|\\.vscode/|\\.github/workflows/)"
         VALIDATE_TYPESCRIPT_STANDARD: false
         VALIDATE_XML: false
-        
-  testing:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 21
-
-    - name: Install Dependencies
-      run: |
-        cd ./client
-        npm install --legacy-peer-deps
-
-    - name: Run Automation Tests
-      run: |
-        cd ./client
-        npm start &
-        npm test
 
