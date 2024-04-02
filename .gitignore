@@ -479,3 +479,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# contain JWT secret
+API/appsettings.Development.json
