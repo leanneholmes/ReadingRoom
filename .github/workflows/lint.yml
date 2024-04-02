@@ -31,4 +31,4 @@ jobs:
       env:
         RUN_LOCAL: true
         DEFAULT_BRANCH: development
-        FILTER_REGEX_EXCLUDE: "client/coverage/,.github/workflows,.vscode/"
+        FILTER_REGEX_EXCLUDE: "client/coverage,.github/workflows"
