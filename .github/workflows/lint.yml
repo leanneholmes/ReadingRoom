@@ -40,5 +40,7 @@ jobs:
     
     steps:
     - name: Run Automation Tests
-      run: npm test
+      run: |
+        cd ./client
+        npm test
 
