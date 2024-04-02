@@ -67,3 +67,4 @@ jobs:
         cd ./client
         ls
         npm start &
+        npm test
