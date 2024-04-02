@@ -7,7 +7,7 @@ namespace Application.Images
 {
     public class Delete
     {
-        public class Command: IRequest<Result<Unit>>
+        public class Command : IRequest<Result<Unit>>
         {
             public string Id { get; set; }
 

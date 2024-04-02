@@ -9,18 +9,18 @@ namespace Persistence
         public DataContext(DbContextOptions options) : base(options)
         {
         }
-        
+
         // This will represent the table in our SQL database
         public DbSet<BookClub> BookClubs { get; set; }
         public DbSet<BookClubMember> BookClubMembers { get; set; }
-        public DbSet<Photo> Photos { get; set;}
+        public DbSet<Photo> Photos { get; set; }
         public DbSet<Comment> Comments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<BookClubMember>(x => x.HasKey(aa => new {aa.AppUserId, aa.BookClubId}));
+            builder.Entity<BookClubMember>(x => x.HasKey(aa => new { aa.AppUserId, aa.BookClubId }));
 
             builder.Entity<BookClubMember>()
                 .HasOne(u => u.AppUser)

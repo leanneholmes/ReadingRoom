@@ -29,7 +29,7 @@ namespace Application.Profiles
                 var user = await _context.Users
                     .ProjectTo<Profile>(_mapper.ConfigurationProvider)
                     .SingleOrDefaultAsync(x => x.Username == request.Username);
-                
+
                 return Result<Profile>.Success(user);
             }
         }

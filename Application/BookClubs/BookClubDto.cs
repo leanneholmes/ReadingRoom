@@ -25,7 +25,7 @@ namespace Application.BookClubs
         public string OwnerUsername { get; set; }
 
         public string Image { get; set; }
-        
+
         public ICollection<MemberDto> Members { get; set; }
     }
 }

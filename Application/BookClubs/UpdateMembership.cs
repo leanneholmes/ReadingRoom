@@ -16,8 +16,8 @@ namespace Application.BookClubs
 
         public class Handler : IRequestHandler<Command, Result<Unit>>
         {
-        private readonly DataContext _context;
-        private readonly IUserAccessor _userAccessor;
+            private readonly DataContext _context;
+            private readonly IUserAccessor _userAccessor;
             public Handler(DataContext context, IUserAccessor userAccessor)
             {
                 _userAccessor = userAccessor;
@@ -29,7 +29,7 @@ namespace Application.BookClubs
                     .Include(a => a.Members).ThenInclude(u => u.AppUser)
                     .FirstOrDefaultAsync(x => x.Id == request.Id);
 
-                if (bookClub == null) return null; 
+                if (bookClub == null) return null;
 
                 var user = await _context.Users.FirstOrDefaultAsync(x => x.UserName == _userAccessor.GetUsername());
 
@@ -65,7 +65,7 @@ namespace Application.BookClubs
                     bookClub.Members.Add(membership);
                 }
 
-                var result = await _context.SaveChangesAsync() > 0; 
+                var result = await _context.SaveChangesAsync() > 0;
 
                 return result ? Result<Unit>.Success(Unit.Value) : Result<Unit>.Failure("Problem updating club membership");
             }

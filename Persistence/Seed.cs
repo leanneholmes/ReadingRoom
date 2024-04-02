@@ -4,14 +4,14 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Persistence
 {
-  public class Seed
-  {
-    public static async Task SeedData(DataContext context,
-      UserManager<AppUser> userManager)
+    public class Seed
     {
-      if (!userManager.Users.Any() && !context.BookClubs.Any() && !context.Photos.Any())
-      {
-        var users = new List<AppUser> {
+        public static async Task SeedData(DataContext context,
+          UserManager<AppUser> userManager)
+        {
+            if (!userManager.Users.Any() && !context.BookClubs.Any() && !context.Photos.Any())
+            {
+                var users = new List<AppUser> {
           new AppUser {
             DisplayName = "test", UserName = "testuser", Email = "test@test.com"
           },
@@ -41,12 +41,12 @@ namespace Persistence
           },
         };
 
-        foreach (var user in users)
-        {
-          await userManager.CreateAsync(user, "Pa$$w0rd");
-        }
+                foreach (var user in users)
+                {
+                    await userManager.CreateAsync(user, "Pa$$w0rd");
+                }
 
-        var bookClubs = new List<BookClub> {
+                var bookClubs = new List<BookClub> {
           new BookClub {
             Name = "Mystery Readers",
               Description = "A club for mystery enthusiasts",
@@ -184,9 +184,9 @@ namespace Persistence
               }
           },
         };
-        await context.BookClubs.AddRangeAsync(bookClubs);
+                await context.BookClubs.AddRangeAsync(bookClubs);
 
-        var photos = new List<Photo> {
+                var photos = new List<Photo> {
             new Photo {
                 Id = "1",
                 Url = "https://cdn.discordapp.com/attachments/1218431020420825160/1219372773483352084/Kanye_West.jpg?ex=660b1064&is=65f89b64&hm=d293141491dc3d97bab24ca4d71029cf6bf473b866104def8139ee5313f46e54&"
@@ -228,9 +228,9 @@ namespace Persistence
                 Url = "https://cdn.discordapp.com/attachments/1218431020420825160/1219380007458181200/Romantic_Fiction_Club.png?ex=660b1720&is=65f8a220&hm=f7d38d2f9280a2602081c9abb7186921114500b0af23f57b73c95abbaa82ed92&"
             },
         };
-        await context.Photos.AddRangeAsync(photos);
+                await context.Photos.AddRangeAsync(photos);
 
-        var comments = new List<Comment> {
+                var comments = new List<Comment> {
           new Comment {
               Body = "This is a Great Book Club.",
               Author = users[3],
@@ -274,8 +274,8 @@ namespace Persistence
               CreatedAt = DateTime.UtcNow
           }
       };
-        await context.SaveChangesAsync();
-      }
+                await context.SaveChangesAsync();
+            }
+        }
     }
-  }
 }

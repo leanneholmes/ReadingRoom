@@ -11,7 +11,7 @@ namespace Application.Core
         {
             CreateMap<BookClub, BookClub>();
             CreateMap<BookClub, BookClubDto>()
-                .ForMember(d => d.OwnerUsername, o=> o.MapFrom(s => s.Members
+                .ForMember(d => d.OwnerUsername, o => o.MapFrom(s => s.Members
                     .FirstOrDefault(x => x.IsOwner).AppUser.UserName));
             CreateMap<BookClubMember, MemberDto>()
                 .ForMember(d => d.DisplayName, o => o.MapFrom(s => s.AppUser.DisplayName))
@@ -28,8 +28,8 @@ namespace Application.Core
                 .ForMember(d => d.Id, o => o.MapFrom(s => s.BookClub.Id))
                 .ForMember(d => d.Name, o => o.MapFrom(s => s.BookClub.Name))
                 .ForMember(d => d.Image, o => o.MapFrom(s => s.BookClub.Image))
-                .ForMember(d => d.Category, o => o.MapFrom(s => s.BookClub.Category))        
-                .ForMember(d => d.ReadingPace, o => o.MapFrom(s => s.BookClub.ReadingPace)); 
+                .ForMember(d => d.Category, o => o.MapFrom(s => s.BookClub.Category))
+                .ForMember(d => d.ReadingPace, o => o.MapFrom(s => s.BookClub.ReadingPace));
         }
     }
 }
