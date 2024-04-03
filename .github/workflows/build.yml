@@ -52,7 +52,8 @@ jobs:
     steps:
       - name: Start npm server
         run: |
-          ls
+          pwd
+          cd client
 
   run_npm_test:
     needs: start_npm_server
