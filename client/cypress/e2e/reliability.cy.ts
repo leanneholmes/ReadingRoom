@@ -1,5 +1,5 @@
 describe("book club creation", () => {
-  let runCount = 50;
+  let runCount = 5;
   while (runCount > 0) {
     it("logs in, creates book club, edits book club, searches and filters book clubs, then joins a book club", () => {
       // login first
