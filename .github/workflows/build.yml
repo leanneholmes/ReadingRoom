@@ -52,7 +52,8 @@ jobs:
     steps:
       - name: Start npm server
         run: |
-          ls
+          cd ../client
+          npm start
 
   run_npm_test:
     needs: start_npm_server
@@ -64,6 +65,5 @@ jobs:
     steps:
       - name: Run npm test
         run: |
-          ls
-          cd ./client
+          cd ../client
           npm test
