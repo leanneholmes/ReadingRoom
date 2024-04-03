@@ -9,11 +9,10 @@ permissions: read-all
 
 jobs:
   build_and_watch:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
         dotnet-version: ['7.0.406']
         node-version: ['21.5']
 
@@ -36,18 +35,18 @@ jobs:
           dotnet build
           cd ./client
           npm install --legacy-peer-deps
+
       - name: Start dotnet watch
         run: |
           cd ./API
           dotnet watch &
+
       - name: Start npm server
         run: |
           cd ./client
           npm start &
+
       - name: Start testing
         run: |
           cd ./client
           npm test
-          
-      
-
