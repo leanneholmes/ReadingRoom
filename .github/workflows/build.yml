@@ -65,6 +65,10 @@ jobs:
     - name: Start npm server
       run: |
         cd ./client
-        ls
         npm start &
-        npm test &
+        sleep 10
+
+    - name: Run npm test
+      run: |
+        cd ./client
+        npm test
