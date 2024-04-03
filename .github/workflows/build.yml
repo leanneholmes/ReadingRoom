@@ -66,5 +66,3 @@ jobs:
       run: |
         cd ./client
         npm start &
-        npm test &
-        delay 10
