@@ -6,7 +6,7 @@
 
 /client/.env.development
 /client/.env.production
-
+.vscode/
 
 # User-specific files
 *.rsuser
