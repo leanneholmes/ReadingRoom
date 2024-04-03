@@ -2,9 +2,14 @@
 
 An application where users can join or create book clubs. Project created for COMP 7082 Winter 2024. 
 
-## Description
+## Project Features
 
-To fill out
+* User authorization with .NET Core Identity 
+* Public profile pages with customization
+* View book clubs, filter results
+* Join or leave book clubs
+* Realtime chats on club pages powered by SignalR
+* Create, edit, or delete your own book clubs
 
 ## Getting Started
 
