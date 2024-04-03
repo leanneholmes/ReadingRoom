@@ -2,7 +2,7 @@
 
 An application where users can join or create book clubs. Project created for COMP 7082 Winter 2024. 
 
-<img src="https://img.shields.io/badge/ASP.NET%20-512BD4?&style=for-the-badge&logo=dotnet&logoColor=white" /> <img src="https://img.shields.io/badge/CSHARP%20-000000?&style=for-the-badge&logo=csharp&logoColor=white" /><img src="https://img.shields.io/badge/React-0CC1F3?style=for-the-badge&logo=react&logoColor=white" /><img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" /><img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" />
+<img src="https://img.shields.io/badge/ASP.NET%20-512BD4?&style=for-the-badge&logo=dotnet&logoColor=white" /> <img src="https://img.shields.io/badge/CSHARP%20-000000?&style=for-the-badge&logo=csharp&logoColor=white" /> <img src="https://img.shields.io/badge/React-0CC1F3?style=for-the-badge&logo=react&logoColor=white" /> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" /> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" />
 
 <p align="center"><a href="https://readingroom.fly.dev">Hosted Link</a>
 </p>
