@@ -1,8 +1,7 @@
 # Reading Room
 
 An application where users can join or create book clubs. Project created for COMP 7082 Winter 2024. Built with ASP.NET, C#, React, TypeScript, and PostgreSQL.
-<p align="center">
-[Hosted Link](https://readingroom.fly.dev)
+<p align="center"><a href="https://readingroom.fly.dev">Hosted Link</a>
 </p>
 
 <p align="center">
