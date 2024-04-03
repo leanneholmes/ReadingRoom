@@ -36,33 +36,18 @@ jobs:
           dotnet build
           cd ./client
           npm install --legacy-peer-deps
-
       - name: Start dotnet watch
         run: |
           cd ./API
-          dotnet watch run &
-
-  start_npm_server:
-    needs: build_and_watch
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
-
-    steps:
+          dotnet watch run & npx wait-on http://localhost:5000
       - name: Start npm server
         run: |
-          pwd
           cd ./client
-
-  run_npm_test:
-    needs: start_npm_server
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
-
-    steps:
-      - name: Run npm test
+          npm start & npx wait-on http://localhost:3000
+      - name: Start testing
         run: |
-          ls
+          cd ./client
+          npm test
+          
+      
+
