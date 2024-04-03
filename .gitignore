@@ -481,5 +481,3 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# Ignore the secret
-appsettings.Development.json
