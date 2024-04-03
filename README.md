@@ -1,8 +1,9 @@
 # Reading Room
 
 An application where users can join or create book clubs. Project created for COMP 7082 Winter 2024. Built with ASP.NET, C#, React, TypeScript, and PostgreSQL.
-
+<p align="center">
 [Hosted Link](https://readingroom.fly.dev)
+</p>
 
 <p align="center">
   <img src="https://i.ibb.co/Dg3H9hV/thumbnail-1.png" width="300"/>&nbsp;&nbsp;<img src="https://i.ibb.co/pWXGhV8/thumbnail-2.png" width="300"/
@@ -125,14 +126,6 @@ Hit y to confirm. Then, cd to the /API folder and start the server again
 cd API
 dotnet watch
 ```
-
-## Authors
-
-To fill out
-
-## Version History
-
-To fill out
 
 ## Acknowledgments
 
