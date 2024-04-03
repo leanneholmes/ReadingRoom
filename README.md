@@ -1,11 +1,8 @@
 # Reading Room
 
-An application where users can join or create book clubs. Project created for COMP 7082 Winter 2024. 
+An application where users can join or create book clubs. Project created for COMP 7082 Winter 2024. <a href="https://readingroom.fly.dev">Hosted Link</a>
 
 <img src="https://img.shields.io/badge/ASP.NET%20-512BD4?&style=for-the-badge&logo=dotnet&logoColor=white" /> <img src="https://img.shields.io/badge/CSHARP%20-000000?&style=for-the-badge&logo=csharp&logoColor=white" /> <img src="https://img.shields.io/badge/React-0CC1F3?style=for-the-badge&logo=react&logoColor=white" /> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" /> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" />
-
-<p align="center"><a href="https://readingroom.fly.dev">Hosted Link</a>
-</p>
 
 <p align="center">
   <img src="https://i.ibb.co/Dg3H9hV/thumbnail-1.png" width="300"/>&nbsp;&nbsp;<img src="https://i.ibb.co/pWXGhV8/thumbnail-2.png" width="300"/
