@@ -66,9 +66,5 @@ jobs:
       run: |
         cd ./client
         npm start &
-        sleep 10
-
-    - name: Run npm test
-      run: |
-        cd ./client
-        npm test
+        npm test &
+        delay 10
