@@ -1,5 +1,4 @@
----
-name: Dev - Build and Test
+name: Dev - Build, Run and Test
 
 on:
   push:
@@ -9,7 +8,7 @@ on:
 permissions: read-all
 
 jobs:
-  build:
+  build_and_watch:
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -19,50 +18,46 @@ jobs:
         node-version: ['21.5']
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: ${{ matrix.dotnet-version }}
+      - name: Setup .NET and Node.js
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: Install dependencies
-      run: |
-        dotnet build
-        cd ./client
-        npm install --legacy-peer-deps
-    - name: Start Server
-      run: |
-        dotnet watch --project ./API &
-        sleep 5
-        
-    - name: Check if dotnet watch is running (Windows)
-      if: matrix.os == 'windows-latest'
-      run: |
-        tasklist | findstr /C:"dotnet.exe" > nul
-        if (-not $?) {
-          echo "dotnet watch is not running"
-          exit 1
-        } else {
-          echo "dotnet watch is running"
-        }
-    - name: Check if dotnet watch is running (Linux & MacOS)
-      if: matrix.os == 'ubuntu-latest' || matrix.os == 'macOS-latest'
-      run: |
-        if pgrep -x "dotnet" > /dev/null; then
-          echo "dotnet watch is running"
-        else
-          echo "dotnet watch is not running"
-          exit 1
-        fi
-        
-    - name: Start npm server
-      run: |
-        cd ./client
-        npm start
+      - name: Install dependencies and build
+        run: |
+          dotnet build
+          cd ./client
+          npm install --legacy-peer-deps
+
+      - name: Start dotnet watch
+        run: |
+          cd ./API
+          dotnet watch run &
+
+  start_npm_server:
+    needs: build_and_watch
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Start npm server
+        run: |
+          cd ./client
+          npm start
+
+  run_npm_test:
+    needs: start_npm_server
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Run npm test
+        run: |
+          cd ./client
+          npm test
