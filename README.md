@@ -2,6 +2,10 @@
 
 An application where users can join or create book clubs. Project created for COMP 7082 Winter 2024. 
 
+[Try the app out here!](https://readingroom.fly.dev)
+
+<img src="https://i.ibb.co/Dg3H9hV/thumbnail-1.png" />
+
 ## Project Features
 
 * User authorization with .NET Core Identity 
