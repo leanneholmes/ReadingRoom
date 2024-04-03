@@ -14,6 +14,7 @@ Hosted Link: [https://readingroom.fly.dev](https://readingroom.fly.dev) <p />
 * User authorization with .NET Core Identity 
 * Public profile pages with customization
 * View book clubs, filter results
+* Pagination
 * Join or leave book clubs
 * Realtime chats on club pages powered by SignalR
 * Create, edit, or delete your own book clubs
@@ -112,6 +113,7 @@ dotnet watch
 
 ## Acknowledgments
 
+* [Formik](https://formik.org/)
 * [Semantic UI](https://react.semantic-ui.com/)
 * [Visily Wireframes](https://app.visily.ai/)
 * [React Photo Dropzone](https://react-dropzone.js.org/)
