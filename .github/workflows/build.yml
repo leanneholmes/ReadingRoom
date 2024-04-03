@@ -53,8 +53,6 @@ jobs:
       - name: Start npm server
         run: |
           ls
-          cd ./client
-          npm start
 
   run_npm_test:
     needs: start_npm_server
