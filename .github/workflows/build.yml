@@ -39,7 +39,7 @@ jobs:
       - name: Start dotnet watch
         run: |
           cd ./API
-          dotnet watch run & npx wait-on http://localhost:5000
+          dotnet watch & npx wait-on http://localhost:5000
       - name: Start npm server
         run: |
           cd ./client
