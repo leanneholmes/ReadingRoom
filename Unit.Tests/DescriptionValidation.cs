@@ -34,7 +34,7 @@ namespace Unit.Tests
         {
             var bookClub = new BookClub
             {
-                Description = null, 
+                Description = null,
             };
 
             var result = _validator.TestValidate(bookClub);
