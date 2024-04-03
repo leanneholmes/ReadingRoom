@@ -50,3 +50,8 @@ jobs:
         run: |
           cd ./client
           npm test
+
+      - name: Start unit testing 
+        run: | 
+          cd ./Unit.Tests
+          dotnet test  
