@@ -65,4 +65,4 @@ jobs:
     - name: Start npm server
       run: |
         cd ./client
-        npm start &
+        npm start
