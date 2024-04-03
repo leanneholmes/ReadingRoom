@@ -45,6 +45,9 @@ jobs:
   start_npm_server:
     needs: build_and_watch
     runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
 
     steps:
       - name: Start npm server
@@ -55,6 +58,9 @@ jobs:
   run_npm_test:
     needs: start_npm_server
     runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
 
     steps:
       - name: Run npm test
