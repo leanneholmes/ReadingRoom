@@ -5,8 +5,8 @@ Hosted Link: [https://readingroom.fly.dev](https://readingroom.fly.dev) <p />
 
 <img src="https://img.shields.io/badge/ASP.NET%20-512BD4?&style=for-the-badge&logo=dotnet&logoColor=white" /> <img src="https://img.shields.io/badge/CSHARP%20-000000?&style=for-the-badge&logo=csharp&logoColor=white" /> <img src="https://img.shields.io/badge/React-0CC1F3?style=for-the-badge&logo=react&logoColor=white" /> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" /> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" />
 
-<p align="right">
-<img src="https://i.ibb.co/T1XgrQH/mockups.png" width="600" />
+<p align="center">
+  <img src="https://i.ibb.co/Dg3H9hV/thumbnail-1.png" width="300"/>&nbsp;&nbsp;<img src="https://i.ibb.co/pWXGhV8/thumbnail-2.png" width="300"/
 </p>
 
 ## Project Features
