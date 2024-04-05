@@ -9,7 +9,7 @@ namespace Application.BookClubs
 {
     public class Edit
     {
-        public class Command: IRequest<Result<Unit>>
+        public class Command : IRequest<Result<Unit>>
         {
             public BookClub BookClub { get; set; }
         }
@@ -20,7 +20,7 @@ namespace Application.BookClubs
             {
                 RuleFor(x => x.BookClub).SetValidator(new BookClubValidator());
             }
-        }        
+        }
 
         public class Handler : IRequestHandler<Command, Result<Unit>>
         {

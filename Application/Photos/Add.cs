@@ -12,7 +12,7 @@ namespace Application.Photos
     {
         public class Command : IRequest<Result<Photo>>
         {
-            public IFormFile File {get; set;}
+            public IFormFile File { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, Result<Photo>>
@@ -32,7 +32,7 @@ namespace Application.Photos
                 var user = await _context.Users.Include(p => p.Avatar)
                     .FirstOrDefaultAsync(x => x.UserName == _userAccessor.GetUsername());
 
-                if (user == null) return null; 
+                if (user == null) return null;
 
                 var photoUploadResult = await _photoAccessor.AddPhoto(request.File);
 
@@ -42,9 +42,10 @@ namespace Application.Photos
                     Id = photoUploadResult.PublicId
                 };
 
-                if (user.Avatar != null) {
+                if (user.Avatar != null)
+                {
                     var photoDeleteResult = await _photoAccessor.DeletePhoto(user.Avatar.Id);
-                } 
+                }
                 user.Avatar = photo;
 
                 var result = await _context.SaveChangesAsync() > 0;

@@ -1,10 +1,23 @@
 # Reading Room
 
-An application where users can join or create book clubs. Project created for COMP 7082 Winter 2024. 
+An application where users can join or create book clubs. Project created for COMP 7082 Winter 2024. <p />
+Hosted Link: [https://readingroom.fly.dev](https://readingroom.fly.dev) <p />
 
-## Description
+<img src="https://img.shields.io/badge/ASP.NET%20-512BD4?&style=for-the-badge&logo=dotnet&logoColor=white" /> <img src="https://img.shields.io/badge/CSHARP%20-000000?&style=for-the-badge&logo=csharp&logoColor=white" /> <img src="https://img.shields.io/badge/React-0CC1F3?style=for-the-badge&logo=react&logoColor=white" /> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" /> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" />
 
-To fill out
+<p align="center">
+  <img src="https://i.ibb.co/Dg3H9hV/thumbnail-1.png" width="300"/>&nbsp;&nbsp;<img src="https://i.ibb.co/pWXGhV8/thumbnail-2.png" width="300"/
+</p>
+
+## Project Features
+
+* User authorization with .NET Core Identity 
+* Public profile pages with customization
+* View book clubs, filter results
+* Pagination
+* Join or leave book clubs
+* Realtime chats on club pages powered by SignalR
+* Create, edit, or delete your own book clubs
 
 ## Getting Started
 
@@ -98,16 +111,9 @@ cd API
 dotnet watch
 ```
 
-## Authors
-
-To fill out
-
-## Version History
-
-To fill out
-
 ## Acknowledgments
 
+* [Formik](https://formik.org/)
 * [Semantic UI](https://react.semantic-ui.com/)
 * [Visily Wireframes](https://app.visily.ai/)
 * [React Photo Dropzone](https://react-dropzone.js.org/)

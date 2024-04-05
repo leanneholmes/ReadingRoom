@@ -9,18 +9,18 @@ body {
 }
 
 * {
-  font-family: "Nunito Sans";
+  font-family: "Nunito Sans", sans-serif;
 }
 
 .playfair {
-  font-family: "Playfair Display" !important;
+  font-family: "Playfair Display", serif !important;
 }
 
 input,
 textarea {
   background-color: #f3f4f6 !important;
   border: none !important;
-  font-family: "Nunito Sans" !important;
+  font-family: "Nunito Sans", sans-serif !important;
 }
 
 .form-label {
@@ -70,7 +70,7 @@ textarea {
   right: 0;
   cursor: pointer;
   margin-right: 3px !important;
-  padding-right: 0px !important;
+  padding-right: 1px !important;
   padding-left: 8px !important;
   border-radius: 50% !important;
   margin-top: 2px !important;
@@ -82,6 +82,7 @@ textarea {
 
 .btn-dark-green {
   background-color: #06282d !important;
+
   &:hover {
     background-color: #08353c !important;
   }
@@ -89,6 +90,7 @@ textarea {
 
 .btn-dark-blue {
   background-color: #414d72 !important;
+
   &:hover {
     background-color: #4c5b87 !important;
   }
@@ -96,6 +98,7 @@ textarea {
 
 .btn-dark-red {
   background-color: #ba1d2c !important;
+
   &:hover {
     background-color: #ca2131 !important;
   }

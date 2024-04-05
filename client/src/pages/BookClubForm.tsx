@@ -187,7 +187,6 @@ export default observer(function CreateBookClub() {
                 className="ui form"
                 onSubmit={handleSubmit}
                 autoComplete="off"
-                placeholder={undefined}
               >
                 <Grid columns="equal">
                   <GridRow>

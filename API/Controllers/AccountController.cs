@@ -92,6 +92,6 @@ namespace API.Controllers
                 Token = _tokenService.CreateToken(user),
                 Username = user.UserName
             };
-        }        
+        }
     }
 }

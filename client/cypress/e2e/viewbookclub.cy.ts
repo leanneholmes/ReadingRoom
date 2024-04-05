@@ -165,11 +165,28 @@ describe("viewing a book club", () => {
 
     cy.wait("@accountLoad").its("response.statusCode").should("eq", 200);
 
-    cy.get(".segment").first().get("a").contains("View Club").click();
+    // cy.get(".segment").first().get("a").contains("View Club").click();
 
-    cy.get("a").contains("Jermaine").click();
+    // find any club that not a member of
+    cy.get(".segment").each(($el) => {
+      // Using jQuery's .text() method to get all text within the element
+      const text = $el.text();
 
-    cy.get("h1").should("contain", "View Profile");
-    cy.get("h2").should("contain", "Jermaine");
+      // Check if the text does not contain the specific phrases
+      if (
+        !text.includes("You are a member of this club") ||
+        !text.includes("You are the owner of this club")
+      ) {
+        // If a .segment does not contain the phrases, find and click the "View Club" button within this segment
+        cy.wrap($el).find('a:contains("View Club")').click();
+
+        cy.get("a").contains("Deanna").click();
+
+        cy.get("h1").should("contain", "View Profile");
+        cy.get("h2").should("contain", "Deanna");
+
+        return false; // Break the .each() loop by returning false upon finding the first match and performing the action
+      }
+    });
   });
 });

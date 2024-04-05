@@ -1,0 +1,57 @@
+name: Dev - Build, Run and Test
+
+on:
+  push:
+    branches:
+      - development
+
+permissions: read-all
+
+jobs:
+  build_and_watch:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        dotnet-version: ['7.0.406']
+        node-version: ['21.5']
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup .NET and Node.js
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies and build
+        run: |
+          dotnet build
+          cd ./client
+          npm install --legacy-peer-deps
+
+      - name: Start dotnet watch
+        run: |
+          cd ./API
+          dotnet watch &
+
+      - name: Start npm server
+        run: |
+          cd ./client
+          npm start &
+
+      - name: Start testing
+        run: |
+          cd ./client
+          npm test
+
+      - name: Start unit testing 
+        run: | 
+          cd ./Unit.Tests
+          dotnet test  

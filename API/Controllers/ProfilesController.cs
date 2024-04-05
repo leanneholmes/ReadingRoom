@@ -1,6 +1,5 @@
 using Application.Profiles;
 using Microsoft.AspNetCore.Mvc;
-
 namespace API.Controllers
 {
     public class ProfilesController : BaseApiController
@@ -8,7 +7,7 @@ namespace API.Controllers
         [HttpGet("{username}")]
         public async Task<IActionResult> GetProfile(string username)
         {
-            return HandleResult(await Mediator.Send(new Details.Query{Username = username}));
+            return HandleResult(await Mediator.Send(new Details.Query { Username = username })); // Inserted space after Details.Query
         }
 
         [HttpPut]
@@ -20,7 +19,7 @@ namespace API.Controllers
         [HttpGet("{username}/bookclubs")]
         public async Task<IActionResult> GetUserBookClubs(string username)
         {
-            return HandleResult(await Mediator.Send(new ListBookClubs.Query{ Username = username }));
+            return HandleResult(await Mediator.Send(new ListBookClubs.Query { Username = username })); // Inserted space after ListBookClubs.Query
         }
     }
 }

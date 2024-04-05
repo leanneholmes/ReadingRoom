@@ -9,7 +9,7 @@ namespace Application.BookClubs
 {
     public class List
     {
-        public class Query : IRequest<Result<PagedList<BookClubDto>>> 
+        public class Query : IRequest<Result<PagedList<BookClubDto>>>
         {
             public BookClubParams Params { get; set; }
         }
@@ -29,7 +29,7 @@ namespace Application.BookClubs
             {
                 var query = _context.BookClubs
                     .OrderBy(d => d.Name)
-                    .ProjectTo<BookClubDto>(_mapper.ConfigurationProvider, new {currentUsername = _userAccessor.GetUsername()})
+                    .ProjectTo<BookClubDto>(_mapper.ConfigurationProvider, new { currentUsername = _userAccessor.GetUsername() })
                     .AsQueryable();
 
                 if (request.Params.IsMember && !request.Params.IsMember)
