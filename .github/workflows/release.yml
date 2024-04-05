@@ -1,0 +1,30 @@
+name: Release - Build
+
+on:
+  workflow_dispatch:
+
+permissions: read-all
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: ['20.0']
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - name: Install dependencies and build
+      run: |
+          dotnet build
+          cd ./client
+          npm install --legacy-peer-deps
+          npm build
